@@ -59,14 +59,36 @@ var HomeView = ZurichView.extend({
 
   events: {
     'click .button-next': 'onClickButtonNext',
-    'click #mark-here': 'onClickMarkHere'
+    'click #mark-here': 'onClickMarkHere',
+    'click #try_again': 'onClickTryAgain',
+    'click #mob_ok': 'onClickButtonNext'
   },
 
   onClickMarkHere: function() {
-      alert('mark!');
+    $('#sub_map_links').hide();
+    var $map_box = $('#map_box');
+    $map_box.append(
+        '<p id="mob_sub_map_links">' +
+        '<a href="#" id="try_again">Try again</a>' +
+        '<a href="#ok" id="mob_ok">Confirm</a>' +
+        '</p>' );
+    $('#mark-here').hide();
   },
 
   onClickButtonNext: function() {
+    var cross = fixmystreet.map.getControlsByClass(
+                "OpenLayers.Control.Crosshairs");
+
+    var position = cross[0].getMapPosition();
+    position.transform(
+        fixmystreet.map.getProjectionObject(),
+        new OpenLayers.Projection("EPSG:4326")
+    );
+    this.model.set('latitude', position.lat );
+    this.model.set('longitude', position.lon );
+
+    console.log( position.lat + ', ' + position.lon );
+
     Jr.Navigator.navigate('photo',{
       trigger: true,
       animation: {
@@ -74,6 +96,12 @@ var HomeView = ZurichView.extend({
         direction: Jr.Navigator.directions.LEFT
       }
     });
+  },
+
+  onClickTryAgain: function() {
+    $('#sub_map_links').show();
+    $('#mob_sub_map_links').remove();
+    $('#mark-here').show();
   }
 
 });
