@@ -246,6 +246,7 @@ function fixmystreet_onload() {
         }
     });
 
+    fixmystreet.map.addControl( new OpenLayers.Control.Crosshairs(null) );
 }
 
 function show_map(){
@@ -339,6 +340,12 @@ function show_map(){
 
 
     fixmystreet_onload();
+
+    crosshairsControls = fixmystreet.map.getControlsByClass(
+        "OpenLayers.Control.Crosshairs");
+    for (i = 0; i < crosshairsControls.length; ++i) {
+        crosshairsControls[i].reposition();
+    }
 
     $('#mark-here').show();
     markHere = $('#mark-here');
@@ -556,5 +563,60 @@ OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
         fixmystreet.page = 'new';
         location.hash = 'report';
     }
+});
+
+OpenLayers.Control.Crosshairs = OpenLayers.Class.create();
+OpenLayers.Control.Crosshairs.CROSSHAIR_SIDE = 100;
+OpenLayers.Control.Crosshairs.DIV_ID = "OpenLayers_Control_Crosshairs_crosshairs";
+OpenLayers.Control.Crosshairs.prototype =
+  OpenLayers.Class.inherit( OpenLayers.Control, {
+    element: null,
+    position: null,
+
+    initialize: function(element) {
+        OpenLayers.Control.prototype.initialize.apply(this, arguments);
+        this.element = OpenLayers.Util.getElement(element);
+        this.imageSize = new OpenLayers.Size(OpenLayers.Control.Crosshairs.CROSSHAIR_SIDE,
+                                             OpenLayers.Control.Crosshairs.CROSSHAIR_SIDE);
+    },
+
+    draw: function() {
+        var position;
+        OpenLayers.Control.prototype.draw.apply(this, arguments);
+        position = this.getIdealPosition();
+        this.buttons = new Array();
+        var imgLocation = OpenLayers.Util.getImagesLocation() + "crosshairs-100.png";
+        return OpenLayers.Util.createAlphaImageDiv(OpenLayers.Control.Crosshairs.DIV_ID,
+                 position, this.imageSize, imgLocation, "absolute");
+    },
+
+    getIdealPosition: function() {
+        this.map.updateSize();
+        var mapSize = this.map.getSize();
+        var center = this.map.getCenter();
+        var px = this.map.getPixelFromLonLat( center );
+        return new OpenLayers.Pixel( px.x - ( this.imageSize.w / 2 ),
+                                     px.y - ( this.imageSize.h / 2 ) );
+    },
+
+    getMapPosition: function() {
+        var left = parseInt( $('#' + OpenLayers.Control.Crosshairs.DIV_ID).css('left') );
+        var top = parseInt( $('#' + OpenLayers.Control.Crosshairs.DIV_ID).css('top') );
+
+        left += ( this.imageSize.w / 2 );
+        top += ( this.imageSize.h / 2 );
+
+        var pos = this.map.getLonLatFromViewPortPx( new OpenLayers.Pixel( left, top ) );
+        return pos;
+    },
+
+    reposition: function() {
+        var position = this.getIdealPosition();
+        $('#' + OpenLayers.Control.Crosshairs.DIV_ID).css({
+            left: position.x,
+            top: position.y});
+    },
+
+    CLASS_NAME: "OpenLayers.Control.Crosshairs"
 });
 
