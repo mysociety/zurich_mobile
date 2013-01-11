@@ -34,6 +34,8 @@ var tpl = {
 
 };
 
+var report = new Report();
+
 var AppRouter = Jr.Router.extend({
   routes: {
     'home': 'home',
@@ -43,20 +45,20 @@ var AppRouter = Jr.Router.extend({
   },
 
   home: function(){
-    var homeView = new HomeView();
+    var homeView = new HomeView({ model: report });
     this.renderView(homeView);
   },
 
   photo: function() {
-    var photoView = new PhotoView();
+    var photoView = new PhotoView({ model: report });
     this.renderView(photoView);
   },
   details: function() {
-    var detailsView = new DetailsView();
+    var detailsView = new DetailsView({ model: report });
     this.renderView(detailsView);
   },
   submit: function() {
-    var submitView = new SubmitView();
+    var submitView = new SubmitView({ model: report });
     this.renderView(submitView);
   },
 

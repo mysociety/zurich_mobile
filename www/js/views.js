@@ -1,8 +1,9 @@
 var ZurichView = Jr.View.extend({
   render: function(){
     console.log('calling render');
-    template = tpl.get( this.template );
-    this.$el.html(template);
+    template = _.template( tpl.get( this.template ) );
+    console.log(this.model.toJSON());
+    this.$el.html(template(this.model.toJSON()));
     this.afterRender();
     //$.get("templates/" + this.template + ".html", function(template){
       //var html = $(template);
