@@ -84,8 +84,8 @@ var HomeView = ZurichView.extend({
         fixmystreet.map.getProjectionObject(),
         new OpenLayers.Projection("EPSG:4326")
     );
-    this.model.set('latitude', position.lat );
-    this.model.set('longitude', position.lon );
+    this.model.set('lat', position.lat );
+    this.model.set('lon', position.lon );
 
     console.log( position.lat + ', ' + position.lon );
 
