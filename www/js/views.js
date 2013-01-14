@@ -145,3 +145,24 @@ var SubmitView = ZurichView.extend({
     'click .button-prev': 'onClickButtonPrev'
   }
 });
+
+var SentView = ZurichView.extend({
+  template: 'sent',
+
+  afterRender: function() {
+  },
+
+  events: {
+    'click #button-done': 'onClickDone'
+  },
+
+  onClickDone: function() {
+    Jr.Navigator.navigate('home',{
+      trigger: true,
+      animation: {
+        type: Jr.Navigator.animations.SLIDE_STACK,
+        direction: Jr.Navigator.directions.LEFT
+      }
+    });
+  }
+});

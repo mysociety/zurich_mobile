@@ -62,12 +62,16 @@ var AppRouter = Jr.Router.extend({
     var submitView = new SubmitView({ model: report });
     this.renderView(submitView);
   },
+  reportSent: function() {
+    var sentView = new SentView({ model: report });
+    this.renderView(sentView);
+  }
 
 });
 
 var appRouter;
 var templates = [
-    'photo', 'details', 'submit', 'around'
+    'photo', 'details', 'submit', 'around', 'sent'
 ];
 
 function start() {
