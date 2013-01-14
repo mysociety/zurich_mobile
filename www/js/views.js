@@ -167,7 +167,28 @@ var SubmitView = ZurichView.extend({
   },
 
   events: {
-    'click .button-prev': 'onClickButtonPrev'
+    'click .button-prev': 'onClickButtonPrev',
+    'click .button-submit': 'onClickSubmit'
+  },
+
+  onClickSubmit: function() {
+      // register event here...
+      this.model.on('sync', this.onReportSync, this );
+      this.model.on('error', this.onReportError, this );
+      this.model.save();
+  },
+
+  onReportSync: function(model, resp, options) {
+    Jr.Navigator.navigate('sent',{
+      trigger: true,
+      animation: {
+        type: Jr.Navigator.animations.SLIDE_STACK,
+        direction: Jr.Navigator.directions.LEFT
+      }
+    });
+  },
+  onReportError: function(model, err, options) {
+      alert('sync error: ' + err.errors);
   }
 });
 
