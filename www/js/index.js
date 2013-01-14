@@ -35,6 +35,7 @@ var tpl = {
 };
 
 var report = new Report();
+var user = null;
 
 var AppRouter = Jr.Router.extend({
   routes: {

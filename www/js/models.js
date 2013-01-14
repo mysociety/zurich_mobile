@@ -1,3 +1,5 @@
+var User = Backbone.Model.extend();
+
 var Report = Backbone.Model.extend({
     defaults: {
         lat: 0,
