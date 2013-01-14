@@ -12,6 +12,89 @@ var Report = Backbone.Model.extend({
         pc: ''
     },
 
+    sync: function(method, model, options) {
+        console.log('sync: ' + method);
+        console.log(options);
+        switch (method) {
+            case 'create':
+                this.post(model,options);
+                break;
+            default:
+                return true;
+        }
+    },
+
+    post: function(model,options) {
+
+        var params = {
+            service: device.platform,
+            title: model.get('title'),
+            detail: model.get('details'),
+            may_show_name: $('#form_may_show_name').attr('checked') ? 1 : 0,
+            category: model.get('category'),
+            lat: model.get('lat'),
+            lon: model.get('lon'),
+            phone: $('#form_phone').val(),
+            pc: model.get('pc')
+        };
+
+        if ( user ) {
+            params.name = user.get('name');
+            params.email = user.get('email');
+            params.phone = user.get('phone');
+        } else {
+            if ( $('#form_name').val() !== '' ) {
+                params.name = $('#form_name').val();
+            }
+            params.email = $('#form_email').val();
+
+            user = new User( {
+                name: params.name,
+                email: params.email,
+                password: params.password
+            });
+        }
+        params.submit_sign_in = 1;
+
+        if ( model.get('file') && model.get('file') !== '' ) {
+            fileURI = model.get('file');
+
+            var options = new FileUploadOptions();
+            options.fileKey="photo";
+            options.fileName=fileURI.substr(fileURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            options.params = params;
+            options.chunkedMode = false;
+
+            var ft = new FileTransfer();
+            ft.upload(fileURI, CONFIG.FMS_URL + "report/new/mobile", fileUploadSuccess, fileUploadFail, options);
+        } else {
+            $.ajax( {
+                url: CONFIG.FMS_URL + "report/new/mobile",
+                type: 'POST',
+                data: params,
+                dataType: 'json',
+                timeout: 30000,
+                success: function(data) {
+                    console.log(data);
+                    if ( data.success ) {
+                        options.success( data );
+                        console.log('success');
+                    } else {
+                        options.error( data );
+                        console.log('some sort of issue');
+                        $('input[type=submit]').prop("disabled", false);
+                    }
+                },
+                error: function (data, status, errorThrown ) {
+                    console.log( 'There was a problem submitting your report, please try again (' + status + '): ' + JSON.stringify(data), function(){}, 'Submit report' );
+                    options.error( data );
+                    $('input[type=submit]').prop("disabled", false);
+                }
+            } );
+        }
+    },
+
         getLastUpdate: function(time) {
             if ( time ) {
                 props.time = time;
