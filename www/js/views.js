@@ -131,6 +131,31 @@ var DetailsView = ZurichView.extend({
   events: {
     'click .button-prev': 'onClickButtonPrev',
     'click .button-next': 'onClickButtonNext'
+  },
+
+  onClickButtonPrev: function() {
+    this.model.set('category', $('#category').val());
+    this.model.set('details', $('#form_detail').val());
+
+    Jr.Navigator.navigate('photo',{
+      trigger: true,
+      animation: {
+        type: Jr.Navigator.animations.SLIDE_STACK,
+        direction: Jr.Navigator.directions.RIGHT
+      }
+    });
+  },
+  onClickButtonNext: function() {
+    this.model.set('category', $('#category').val());
+    this.model.set('details', $('#form_detail').val());
+
+    Jr.Navigator.navigate('submit',{
+      trigger: true,
+      animation: {
+        type: Jr.Navigator.animations.SLIDE_STACK,
+        direction: Jr.Navigator.directions.LEFT
+      }
+    });
   }
 });
 
