@@ -49,11 +49,29 @@ var HomeView = ZurichView.extend({
   },
 
   afterRender: function() {
-    this.showMap();
+    this.locate();
   },
 
-  showMap: function() {
+  locate: function() {
+    var that = this;
+    var l = new Locate();
+    _.extend(l, Backbone.Events);
+    l.on('located', this.showMap, this );
+    l.on('failed', this.noMap, this );
+
+    l.geolocate();
+  },
+
+  showMap: function( coords ) {
       console.log( 'showMap' );
+      fixmystreet.latitude = coords.latitude;
+      fixmystreet.longitude = coords.longitude;
+      show_map();
+      console.log('finished with show_map');
+  },
+
+  noMap: function( msg ) {
+      alert( 'no location: ' + msg );
       show_map();
   },
 
