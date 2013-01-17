@@ -85,8 +85,14 @@ var HomeView = ZurichView.extend({
       this.positionMarkHere();
   },
 
-  noMap: function( msg ) {
-      alert( 'no location: ' + msg );
+  noMap: function( details ) {
+      if ( details.msg ) {
+          alert( 'location error: ' + details.msg );
+      } else if ( details.locs ) {
+          alert( 'we found multiple locations' );
+      } else {
+          alert( 'there was a problem looking up your location' );
+      }
   },
 
   positionMarkHere: function() {

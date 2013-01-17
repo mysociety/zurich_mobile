@@ -2,7 +2,7 @@ var Locate = ( function() { return {
     lookup: function(q) {
         var that = this;
         if (!q) {
-            this.trigger('failed',  "Please enter location" );
+            this.trigger('failed', { msg: "Please enter location" } );
             return false;
         }
 
@@ -17,16 +17,16 @@ var Locate = ( function() { return {
                     if ( data.latitude ) {
                         that.trigger('located', { latitude: data.latitude, longitude: data.longitude } );
                     } else if ( data.suggestions ) {
-                        that.trigger( 'failed', 'multiple locations found' );
+                        that.trigger( 'failed', { locs: data.suggestions } );
                     } else {
-                        that.trigger( 'failed', data.error );
+                        that.trigger( 'failed', { msg: data.error } );
                     }
                 } else {
-                    that.trigger( 'failed', 'Location not found: ' + status );
+                    that.trigger( 'failed', { msg: 'Location not found: ' + status } );
                 }
             },
             error: function(data, status, errorThrown) {
-                that.trigger( 'failed', 'Location not found, error: ' + status );
+                that.trigger( 'failed', { msg: 'Location not found, error: ' + status } );
             }
         } );
     },
@@ -44,7 +44,7 @@ var Locate = ( function() { return {
                 if ( that.watch_id == undefined ) { return; }
                 navigator.geolocation.clearWatch( that.watch_id );
 
-                this.trigger('failed', 'Could not determine your location');
+                this.trigger('failed', { msg: 'Could not determine your location' } );
             },
             { timeout: 7000, enableHighAccuracy: true }
         );
@@ -62,13 +62,13 @@ var Locate = ( function() { return {
             timeout: 10000,
             success: function(data) {
                 if (data.error) {
-                    that.trigger('failed', data.error);
+                    that.trigger('failed', { msg: data.error } );
                     return;
                 }
                 that.trigger('located', coords)
             },
             error: function (data, status, errorThrown) {
-                that.trigger('failed', 'Could not check your location');
+                that.trigger('failed', { msg: 'Could not check your location' } );
             }
         } );
     }
