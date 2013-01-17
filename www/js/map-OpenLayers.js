@@ -250,8 +250,6 @@ function fixmystreet_onload() {
 }
 
 function show_map(){
-    console.log( 'show_map' );
-
     // Set specific map config - some other JS included in the
     // template should define this
     set_map_config(); 
@@ -345,7 +343,6 @@ function show_map(){
         left: newX + "px",
         top: newY + "px"
     });
-    console.log('finished with mark here');
 }
 
 /* Overridding the buttonDown function of PanZoom so that it does

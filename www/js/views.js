@@ -1,8 +1,6 @@
 var ZurichView = Jr.View.extend({
   render: function(){
-    console.log('calling render');
     template = _.template( tpl.get( this.template ) );
-    console.log(this.model.toJSON());
     this.$el.html(template(this.model.toJSON()));
     this.afterRender();
     //$.get("templates/" + this.template + ".html", function(template){
@@ -71,7 +69,6 @@ var HomeView = ZurichView.extend({
   },
 
   showMap: function( coords ) {
-      console.log( 'showMap' );
       fixmystreet.latitude = coords.latitude;
       fixmystreet.longitude = coords.longitude;
       if ( !fixmystreet.map ) {
@@ -126,8 +123,6 @@ var HomeView = ZurichView.extend({
     );
     this.model.set('lat', position.lat );
     this.model.set('lon', position.lon );
-
-    console.log( position.lat + ', ' + position.lon );
 
     Jr.Navigator.navigate('photo',{
       trigger: true,
