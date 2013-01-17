@@ -74,13 +74,26 @@ var HomeView = ZurichView.extend({
       console.log( 'showMap' );
       fixmystreet.latitude = coords.latitude;
       fixmystreet.longitude = coords.longitude;
-      show_map();
-      console.log('finished with show_map');
+      if ( !fixmystreet.map ) {
+          show_map();
+      } else {
+        var centre = new OpenLayers.LonLat( coords.longitude, coords.latitude );
+        centre.transform(
+            new OpenLayers.Projection("EPSG:4326"),
+            fixmystreet.map.getProjectionObject()
+        );
+        fixmystreet.map.panTo(centre);
+        console.log(fixmystreet.map.getCenter());
+      }
+      this.positionMarkHere();
   },
 
   noMap: function( msg ) {
       alert( 'no location: ' + msg );
-      show_map();
+  },
+
+  positionMarkHere: function() {
+    $('#mark-here').show();
   },
 
   events: {
