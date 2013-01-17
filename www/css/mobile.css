@@ -160,6 +160,13 @@ input.green-btn:hover {
     padding: 10px;
 }
 
+#search {
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    z-index: 2000;
+}
+
 #OpenLayers_Control_Crosshairs_crosshairs {
     pointer-events: none
 }

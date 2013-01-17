@@ -98,6 +98,7 @@ var HomeView = ZurichView.extend({
 
   events: {
     'click .button-next': 'onClickButtonNext',
+    'click #btn-search': 'onClickSearch',
     'click #mark-here': 'onClickMarkHere',
     'click #try_again': 'onClickTryAgain',
     'click #mob_ok': 'onClickButtonNext'
@@ -141,6 +142,15 @@ var HomeView = ZurichView.extend({
     $('#sub_map_links').show();
     $('#mob_sub_map_links').remove();
     $('#mark-here').show();
+  },
+
+  onClickSearch: function() {
+    var l = new Locate();
+    _.extend(l, Backbone.Events);
+    l.on('located', this.showMap, this );
+    l.on('failed', this.noMap, this );
+
+    l.lookup( $('#pc').val() );
   }
 
 });

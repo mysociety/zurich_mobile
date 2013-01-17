@@ -5,9 +5,6 @@
                 <div class="content" role="main">
                     <form action="" method="post" name="mapForm" id="mapForm" enctype="multipart/form-data" class="validate">
 
-                    <input type="hidden" name="pc" id="pc" value="">
-                    <input type="hidden" name="latitude" id="fixmystreet.latitude" value="">
-                    <input type="hidden" name="longitude" id="fixmystreet.longitude" value="">
                     <script type="text/javascript">
                         var fixmystreet = {
                             'page': 'around',
@@ -28,6 +25,9 @@
 
                     <div id="map_box">
                         <div id="map"></div>
+                            <div id="search">
+                                <input name="pc" id="pc"><input type="button" value="s" id="btn-search">
+                            </div>
                             <a id="mark-here" class="nodisplay">Mark this point</a>
                             <p id="sub_map_links">
                                 <a id="hide_pins_link" rel="nofollow" href="">Hide pins</a>
