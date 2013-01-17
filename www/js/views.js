@@ -49,6 +49,14 @@ var HomeView = ZurichView.extend({
   },
 
   afterRender: function() {
+    var viewHeight = $(window).height(),
+    contentHeight = viewHeight - 40; // - footer.outerHeight();
+    $('#map_box').css({
+        position: 'absolute',
+        top: 0, left: 0, right: 0, bottom: 0,
+        height: contentHeight,
+        margin: 0
+    });
     this.locate();
   },
 
