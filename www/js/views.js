@@ -193,9 +193,13 @@ var DetailsView = ZurichView.extend({
     'click .button-next': 'onClickButtonNext'
   },
 
-  onClickButtonPrev: function() {
-    this.model.set('category', $('#category').val());
+  saveDetails: function() {
+    this.model.set('category', $('#form_category').val());
     this.model.set('details', $('#form_detail').val());
+  },
+
+  onClickButtonPrev: function() {
+      this.saveDetails();
 
     Jr.Navigator.navigate('photo',{
       trigger: true,
@@ -206,8 +210,7 @@ var DetailsView = ZurichView.extend({
     });
   },
   onClickButtonNext: function() {
-    this.model.set('category', $('#category').val());
-    this.model.set('details', $('#form_detail').val());
+    this.saveDetails();
 
     Jr.Navigator.navigate('submit',{
       trigger: true,
