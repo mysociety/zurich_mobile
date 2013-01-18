@@ -28,13 +28,10 @@ var Report = Backbone.Model.extend({
 
         var params = {
             service: device.platform,
-            title: model.get('title'),
             detail: model.get('details'),
-            may_show_name: $('#form_may_show_name').attr('checked') ? 1 : 0,
             category: model.get('category'),
             lat: model.get('lat'),
             lon: model.get('lon'),
-            phone: $('#form_phone').val(),
             pc: model.get('pc')
         };
 
@@ -43,18 +40,16 @@ var Report = Backbone.Model.extend({
             params.email = user.get('email');
             params.phone = user.get('phone');
         } else {
-            if ( $('#form_name').val() !== '' ) {
-                params.name = $('#form_name').val();
-            }
+            params.name = $('#form_name').val();
             params.email = $('#form_email').val();
+            params.phone = $('#form_phone').val();
 
             user = new User( {
                 name: params.name,
                 email: params.email,
-                password: params.password
+                phone: params.phone
             });
         }
-        params.submit_sign_in = 1;
 
         if ( model.get('file') && model.get('file') !== '' ) {
             fileURI = model.get('file');
