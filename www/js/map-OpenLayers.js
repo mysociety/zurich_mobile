@@ -1,41 +1,3 @@
-// This function might be passed either an OpenLayers.LonLat (so has
-// lon and lat) or an OpenLayers.Geometry.Point (so has x and y)
-function fixmystreet_update_pin(lonlat) {
-    lonlat.transform(
-        fixmystreet.map.getProjectionObject(),
-        new OpenLayers.Projection("EPSG:4326")
-    );
-    document.getElementById('fixmystreet.latitude').value = lonlat.lat || lonlat.y;
-    document.getElementById('fixmystreet.longitude').value = lonlat.lon || lonlat.x;
-
-    $.getJSON('/report/new/ajax', {
-            latitude: $('#fixmystreet\\.latitude').val(),
-            longitude: $('#fixmystreet\\.longitude').val()
-    }, function(data) {
-        if (data.error) {
-            if (!$('#side-form-error').length) {
-                $('<div id="side-form-error"/>').insertAfter($('#side-form'));
-            }
-            $('#side-form-error').html('<h1>Reporting a problem</h1><p>' + data.error + '</p>').show();
-            $('#side-form').hide();
-            return;
-        }
-        $('#side-form, #site-logo').show();
-        $('#councils_text').html(data.councils_text);
-        $('#form_category_row').html(data.category);
-        if ( data.extra_name_info && !$('#form_fms_extra_title').length ) {
-            // there might be a first name field on some cobrands
-            var lb = $('#form_first_name').prev();
-            if ( lb.length == 0 ) { lb = $('#form_name').prev(); }
-            lb.before(data.extra_name_info);
-        }
-    });
-
-    if (!$('#side-form-error').is(':visible')) {
-        $('#side-form, #site-logo').show();
-    }
-}
-
 function fixmystreet_activate_drag() {
     fixmystreet.drag = new OpenLayers.Control.DragFeature( fixmystreet.markers, {
         onComplete: function(feature, e) {
@@ -70,32 +32,6 @@ function fms_markers_list(pins, transform) {
 }
 
 function fixmystreet_onload() {
-    if ( fixmystreet.area.length ) {
-        for (var i=0; i<fixmystreet.area.length; i++) {
-            var area = new OpenLayers.Layer.Vector("KML", {
-                strategies: [ new OpenLayers.Strategy.Fixed() ],
-                protocol: new OpenLayers.Protocol.HTTP({
-                    url: "/mapit/area/" + fixmystreet.area[i] + ".kml?simplify_tolerance=0.0001",
-                    format: new OpenLayers.Format.KML()
-                })
-            });
-            fixmystreet.map.addLayer(area);
-            if ( fixmystreet.area.length == 1 ) {
-                area.events.register('loadend', null, function(a,b,c) {
-                    var bounds = area.getDataExtent();
-                    if (bounds) {
-                        var center = bounds.getCenterLonLat();
-                        var z = fixmystreet.map.getZoomForExtent(bounds);
-                        if ( z < 13 && $('html').hasClass('mobile') ) {
-                            z = 13;
-                        }
-                        fixmystreet.map.setCenter(center, z, false, true);
-                    }
-                });
-            }
-        }
-    }
-
     var pin_layer_style_map = new OpenLayers.StyleMap({
         'default': new OpenLayers.Style({
             graphicTitle: "${title}",
@@ -183,18 +119,6 @@ function fixmystreet_onload() {
         fixmystreet_activate_drag();
     }
     fixmystreet.map.addLayer(fixmystreet.markers);
-
-    if ( fixmystreet.zoomToBounds ) {
-        var bounds = fixmystreet.markers.getDataExtent();
-        if (bounds) {
-            var center = bounds.getCenterLonLat();
-            var z = fixmystreet.map.getZoomForExtent(bounds);
-            if ( z < 13 && $('html').hasClass('mobile') ) {
-                z = 13;
-            }
-            fixmystreet.map.setCenter(center, z);
-        }
-    }
 
     $('#hide_pins_link').click(function(e) {
         e.preventDefault();
@@ -421,135 +345,6 @@ OpenLayers.Format.FixMyStreet = OpenLayers.Class(OpenLayers.Format.JSON, {
         return markers;
     },
     CLASS_NAME: "OpenLayers.Format.FixMyStreet"
-});
-
-/* Click handler */
-OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {                
-    defaultHandlerOptions: {
-        'single': true,
-        'double': false,
-        'pixelTolerance': 0,
-        'stopSingle': false,
-        'stopDouble': false
-    },
-
-    initialize: function(options) {
-        this.handlerOptions = OpenLayers.Util.extend(
-            {}, this.defaultHandlerOptions);
-        OpenLayers.Control.prototype.initialize.apply(
-            this, arguments
-        ); 
-        this.handler = new OpenLayers.Handler.Click(
-            this, {
-                'click': this.trigger
-            }, this.handlerOptions);
-    }, 
-
-    trigger: function(e) {
-        if (typeof fixmystreet.nav_control != 'undefined') {
-            fixmystreet.nav_control.disableZoomWheel();
-        }
-        var lonlat = fixmystreet.map.getLonLatFromViewPortPx(e.xy);
-        if (fixmystreet.page == 'new') {
-            /* Already have a pin */
-            fixmystreet.markers.features[0].move(lonlat);
-        } else {
-            var markers = fms_markers_list( [ [ lonlat.lat, lonlat.lon, 'green' ] ], false );
-            fixmystreet.bbox_strategy.deactivate();
-            fixmystreet.markers.removeAllFeatures();
-            fixmystreet.markers.addFeatures( markers );
-            fixmystreet_activate_drag();
-        }
-
-        // check to see if markers are visible. We click the
-        // link so that it updates the text in case they go
-        // back
-        if ( ! fixmystreet.markers.getVisibility() ) {
-            fixmystreet.state_pins_were_hidden = true;
-            $('#hide_pins_link').click();
-        }
-
-        // Store pin location in form fields, and check coverage of point
-        fixmystreet_update_pin(lonlat);
-
-        // Already did this first time map was clicked, so no need to do it again.
-        if (fixmystreet.page == 'new') {
-            return;
-        }
-
-        fixmystreet.map.updateSize(); // might have done, and otherwise Firefox gets confused.
-        /* For some reason on IOS5 if you use the jQuery show method it
-         * doesn't display the JS validation error messages unless you do this
-         * or you cause a screen redraw by changing the phone orientation.
-         * NB: This has to happen after the call to show() */
-        if ( navigator.userAgent.match(/like Mac OS X/i)) {
-            document.getElementById('side-form').style.display = 'block';
-        }
-        $('#side').hide();
-        if (typeof heightFix !== 'undefined') {
-            heightFix('#report-a-problem-sidebar', '.content', 26);
-        }
-
-        // If we clicked the map somewhere inconvenient
-        var sidebar = $('#report-a-problem-sidebar');
-        if (sidebar.css('position') == 'absolute') {
-            var w = sidebar.width(), h = sidebar.height(),
-                o = sidebar.offset(),
-                $map_box = $('#map_box'), bo = $map_box.offset();
-            // e.xy is relative to top left of map, which might not be top left of page
-            e.xy.x += bo.left;
-            e.xy.y += bo.top;
-
-            // 24 and 64 is the width and height of the marker pin
-            if (e.xy.y <= o.top || (e.xy.x >= o.left && e.xy.x <= o.left + w + 24 && e.xy.y >= o.top && e.xy.y <= o.top + h + 64)) {
-                // top of the page, pin hidden by header;
-                // or underneath where the new sidebar will appear
-                lonlat.transform(
-                    new OpenLayers.Projection("EPSG:4326"),
-                    fixmystreet.map.getProjectionObject()
-                );
-                var p = fixmystreet.map.getViewPortPxFromLonLat(lonlat);
-                p.x -= ( o.left - bo.left + w ) / 2;
-                lonlat = fixmystreet.map.getLonLatFromViewPortPx(p);
-                fixmystreet.map.panTo(lonlat);
-            }
-        }
-
-        $('#sub_map_links').hide();
-        if ($('html').hasClass('mobile')) {
-            var $map_box = $('#map_box'),
-                width = $map_box.width(),
-                height = $map_box.height();
-            $map_box.append(
-                '<p id="mob_sub_map_links">' +
-                '<a href="#" id="try_again">Try again</a>' +
-                '<a href="#ok" id="mob_ok">OK</a>' +
-                '</p>'
-            ).css({ position: 'relative', width: width, height: height, marginBottom: '1em' });
-            // Making it relative here makes it much easier to do the scrolling later
-
-            $('.mobile-map-banner').html('<a href="/">Home</a> Right place?');
-
-            // mobile user clicks 'ok' on map
-            $('#mob_ok').toggle(function(){
-                //scroll the height of the map box instead of the offset
-                //of the #side-form or whatever as we will probably want
-                //to do this on other pages where #side-form might not be
-                $('html, body').animate({ scrollTop: height-60 }, 1000, function(){
-                    $('#mob_sub_map_links').addClass('map_complete');
-                    $('#mob_ok').text('MAP');
-                });
-            }, function(){
-                $('html, body').animate({ scrollTop: 0 }, 1000, function(){
-                    $('#mob_sub_map_links').removeClass('map_complete');
-                    $('#mob_ok').text('OK');
-                });
-            });
-        }
-
-        fixmystreet.page = 'new';
-        location.hash = 'report';
-    }
 });
 
 OpenLayers.Control.Crosshairs = OpenLayers.Class.create();
