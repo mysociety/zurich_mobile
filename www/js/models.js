@@ -71,20 +71,15 @@ var Report = Backbone.Model.extend({
                 dataType: 'json',
                 timeout: 30000,
                 success: function(data) {
-                    console.log(data);
                     if ( data.success ) {
                         options.success( data );
-                        console.log('success');
                     } else {
                         options.error( data );
-                        console.log('some sort of issue');
-                        $('input[type=submit]').prop("disabled", false);
                     }
                 },
                 error: function (data, status, errorThrown ) {
                     console.log( 'There was a problem submitting your report, please try again (' + status + '): ' + JSON.stringify(data), function(){}, 'Submit report' );
                     options.error( data );
-                    $('input[type=submit]').prop("disabled", false);
                 }
             } );
         }

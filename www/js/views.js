@@ -235,7 +235,6 @@ var SubmitView = ZurichView.extend({
   },
 
   onClickSubmit: function() {
-      // register event here...
       this.model.on('sync', this.onReportSync, this );
       this.model.on('error', this.onReportError, this );
       this.model.save();
