@@ -15,7 +15,7 @@ var Locate = ( function() { return {
             success: function(data, status) {
                 if ( status == 'success' ) {
                     if ( data.latitude ) {
-                        that.trigger('located', { latitude: data.latitude, longitude: data.longitude } );
+                        that.trigger('located', { coordinates: { latitude: data.latitude, longitude: data.longitude } } );
                     } else if ( data.suggestions ) {
                         that.trigger( 'failed', { locs: data.suggestions } );
                     } else {
@@ -65,7 +65,7 @@ var Locate = ( function() { return {
                     that.trigger('failed', { msg: data.error } );
                     return;
                 }
-                that.trigger('located', coords)
+                that.trigger('located', { coordinates: coords, details: data } )
             },
             error: function (data, status, errorThrown) {
                 that.trigger('failed', { msg: 'Could not check your location' } );

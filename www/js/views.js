@@ -68,7 +68,8 @@ var HomeView = ZurichView.extend({
     l.geolocate();
   },
 
-  showMap: function( coords ) {
+  showMap: function( info ) {
+      var coords = info.coordinates;
       fixmystreet.latitude = coords.latitude;
       fixmystreet.longitude = coords.longitude;
       if ( !fixmystreet.map ) {
@@ -127,8 +128,17 @@ var HomeView = ZurichView.extend({
         fixmystreet.map.getProjectionObject(),
         new OpenLayers.Projection("EPSG:4326")
     );
-    this.model.set('lat', position.lat );
-    this.model.set('lon', position.lon );
+    var l = new Locate();
+    _.extend(l, Backbone.Events);
+    l.on('failed', this.noMap, this );
+    l.on('located', this.goPhoto, this );
+    l.check_location( { latitude: position.lat, longitude: position.lon } );
+  },
+
+  goPhoto: function(info) {
+    this.model.set('lat', info.coordinates.latitude );
+    this.model.set('lon', info.coordinates.longitude );
+    this.model.set('categories', info.details.category );
 
     Jr.Navigator.navigate('photo',{
       trigger: true,
