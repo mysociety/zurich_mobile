@@ -244,13 +244,6 @@ function show_map(){
         });
     }
 
-    if (document.getElementById('mapForm')) {
-        var click = new OpenLayers.Control.Click();
-        fixmystreet.map.addControl(click);
-        click.activate();
-    }
-
-
     fixmystreet_onload();
 
     crosshairsControls = fixmystreet.map.getControlsByClass(
