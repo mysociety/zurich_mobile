@@ -44,7 +44,7 @@ var Locate = ( function() { return {
                 if ( that.watch_id == undefined ) { return; }
                 navigator.geolocation.clearWatch( that.watch_id );
 
-                this.trigger('failed', { msg: 'Could not determine your location' } );
+                that.trigger('failed', { msg: 'Could not determine your location' } );
             },
             { timeout: 7000, enableHighAccuracy: true }
         );
