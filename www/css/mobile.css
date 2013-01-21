@@ -12,29 +12,6 @@
     display: none;
 }
 
-.mobile-nav-banner {
-    position: fixed;
-    background: black;
-}
-
-.mobile-sign-in-banner {
-    background: none;
-}
-
-.mobile-sign-in-banner a {
-  position: absolute;
-  left: auto;
-  right: 0.3em;
-  top: 0.8em;
-}
-
-.mobile-info {
-    bottom: 0px;
-    width: 100%;
-    height: 20px;
-    text-align: right;
-    z-index: 1;
-}
 
 .mobile-info a {
   cursor: pointer;
@@ -78,16 +55,7 @@
     margin-top: 35px;
 }
 
-#front-main #postcodeForm {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-}
 
-#front-main #postcodeForm label {
-    font-size: 0.9em
-}
-
-#front-main a#geolocate_link {
     font-size: 1.2em;
     -moz-border-radius: 0.25em;
     -webkit-border-radius: 0.25em;
@@ -96,46 +64,15 @@
     -khtml-border-radius: 0.25em;
     border-radius: 0.25em;
     margin-top: 0.5em;
+
 }
 
-#front-howto h2 {
-    margin-top: 0.8em;
 }
 
-ol.big-numbers > li {
-    margin-bottom: 0.8em;
 }
 
-#multiple {
-    margin: auto;
-    margin-bottom: 1em;
-}
 
-#multiple li {
-    list-style: none;
-    margin: auto;
-}
 
-#nav-link {
-    display: none;
-}
-
-#form_sign_in {
-    margin-top: 1em;
-}
-
-#sign_out,
-#sign_in {
-    display: none;
-}
-
-input.green-btn,
-input.green-btn:hover {
-    border-radius: 2px;
-    background: #9fde23;
-    border-top: #CAEF80;
-    border-left: #BCEF58;
-    border-right: #BCEF58;
 }
 
 #mark-here {
