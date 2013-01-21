@@ -204,6 +204,23 @@
 .ui-btn-icon-notext .ui-btn-inner {
     border: 0px !important;
 }
+
+.bar-title {
+  background-image: url(../img/stadt_zurich-logo.png);
+  background-repeat: no-repeat;
+  background-size: auto 70%;
+  background-color: #315db7;
+  background-position: 1em 0.75em; }
+
+.bar-title .button-menu {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
 .ext-progress {
   display: block;
   text-align: center;
