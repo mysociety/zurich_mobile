@@ -98,25 +98,22 @@ var HomeView = ZurichView.extend({
 
   positionMarkHere: function() {
     $('#mark-here').show();
+    $('#saved-reports').show();
   },
 
   events: {
     'click .button-next': 'onClickButtonNext',
     'click #btn-search': 'onClickSearch',
+    'submit #mapForm': 'onClickSearch',
     'click #mark-here': 'onClickMarkHere',
     'click #try_again': 'onClickTryAgain',
-    'click #mob_ok': 'onClickButtonNext'
+    'click #use-location': 'onClickButtonNext'
   },
 
   onClickMarkHere: function() {
-    $('#sub_map_links').hide();
-    var $map_box = $('#map_box');
-    $map_box.append(
-        '<p id="mob_sub_map_links">' +
-        '<a href="#" id="try_again">Try again</a>' +
-        '<a href="#ok" id="mob_ok">Confirm</a>' +
-        '</p>' );
+    $('#use-location').show();
     $('#mark-here').hide();
+    $('#saved-reports').hide();
   },
 
   onClickButtonNext: function() {
@@ -150,9 +147,9 @@ var HomeView = ZurichView.extend({
   },
 
   onClickTryAgain: function() {
-    $('#sub_map_links').show();
-    $('#mob_sub_map_links').remove();
     $('#mark-here').show();
+    $('#saved-reports').show();
+    $('#use-location').hide();
   },
 
   onClickSearch: function() {
@@ -162,6 +159,7 @@ var HomeView = ZurichView.extend({
     l.on('failed', this.noMap, this );
 
     l.lookup( $('#pc').val() );
+    return false;
   }
 
 });

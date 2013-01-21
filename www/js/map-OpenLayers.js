@@ -257,8 +257,14 @@ function show_map(){
     var newX = $(window).width() / 2 - markHere.width() / 2;
     var newY = $(window).height() * 4 / 5 - markHere.height() / 2;
     markHere.css({
-        left: newX + "px",
         top: newY + "px"
+    });
+    $('#use-location').css({
+        top: newY + "px"
+    });
+    var savedY = newY + 40;
+    $('#saved-reports').css({
+        top: savedY + "px"
     });
 }
 

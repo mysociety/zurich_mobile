@@ -56,6 +56,8 @@
 }
 
 
+.button-grey,
+.button-blue {
     font-size: 1.2em;
     -moz-border-radius: 0.25em;
     -webkit-border-radius: 0.25em;
@@ -65,43 +67,102 @@
     border-radius: 0.25em;
     margin-top: 0.5em;
 
-}
-
-}
-
-}
-
-
-
-}
-
-#mark-here {
-    font-size: 1.2em;
-    -moz-border-radius: 0.25em;
-    -webkit-border-radius: 0.25em;
-    -o-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    -khtml-border-radius: 0.25em;
-    border-radius: 0.25em;
-    margin-top: 0.5em;
-    background: #9fde23;
-    border-top: #CAEF80;
-    border-left: #BCEF58;
-    border-right: #BCEF58;
-
-    position: absolute;
-    top: 360px;
-    left: 60px;
+    text-align: center;
+    width: 95%;
     z-index: 2000;
+    padding: 0.2em;
+    margin: 0.4em;
+}
+
+.button-grey {
+    background: #a9a9a9;
+    color: white;
+}
+
+.button-blue {
+    background: #315db7;
+    color: white;
+}
+
+
+#saved-reports {
+    font-size: 1.2em;
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    -o-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    -khtml-border-radius: 0.25em;
+    border-radius: 0.25em;
+    margin-top: 0.5em;
+    background: #a9a9a9;
+
+    color: white;
+    text-align: center;
+    width: 95%;
+    position: absolute;
+    left: 0px;
+    top: 330px;
+    z-index: 2000;
+    padding: 0.2em;
+    margin: 0.4em;
+}
+#mark-here, #use-location {
+    font-size: 1.2em;
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    -o-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    -khtml-border-radius: 0.25em;
+    border-radius: 0.25em;
+    margin-top: 0.5em;
+    background: #315db7;
+    /*border-top: #CAEF80;*/
+    /*border-left: #BCEF58;*/
+    /*border-right: #BCEF58;*/
+
     display: none;
-    padding: 10px;
+
+    color: white;
+    text-align: center;
+    width: 95%;
+    position: absolute;
+    left: 0px;
+    top: 300px;
+    z-index: 2000;
+    padding: 0.2em;
+    margin: 0.4em;
 }
 
 #search {
+    text-align: center;
+    width: 95%;
     position: absolute;
-    top: 60px;
-    left: 30px;
+    left: 0px;
+    top: 25px;
     z-index: 2000;
+    background-color: rgb(201,201,201);
+    padding: 0.2em;
+    margin: 0.4em;
+    border-radius: 6px;
+    border-color: rgb(201,201,201);
+    line-height: 1.4;
+    font-size: 16px;
+}
+#search #pc {
+    width: 80%;
+    outline: 0 !important;
+    border-color: rgb(201,201,201);
+    padding: 0.4em;
+    border: none;
+}
+#search #btn-search {
+    background-repeat: no-repeat;
+    background-image: url("themes/zurich/images/icons-36-white.png");
+    background-position: -540px -44px;
+    background-color: rgb(201,201,201);
+    border-color: rgb(201,201,201);
+    border: none;
+    width: 36px;
 }
 
 #OpenLayers_Control_Crosshairs_crosshairs {
