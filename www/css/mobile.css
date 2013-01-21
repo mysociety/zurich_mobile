@@ -204,3 +204,35 @@
 .ui-btn-icon-notext .ui-btn-inner {
     border: 0px !important;
 }
+.ext-progress {
+  display: block;
+  text-align: center;
+  margin: 0.5em 25%;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAABlBMVEUaGhoAAAAS3qDqAAAADElEQVQIHWNgoA4AAABIAAG8nVfVAAAAAElFTkSuQmCC) repeat-x scroll center center; }
+  .ext-progress .step {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.25;
+    border-radius: 50%;
+    -webkit-border-radius: 0.75em;
+    background-color: #2a2a2a;
+    color: darkgrey;
+    text-align: center;
+    border: 2px solid darkgrey;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.2); }
+    .ext-progress .step:last-child {
+      float: right; }
+    .ext-progress .step:first-child {
+      float: left; }
+    .ext-progress .step.step-current {
+      background-color: #315db7;
+      color: white;
+      border-color: #315db7; }
+    .ext-progress .step.step-complete {
+      text-indent: -999px;
+      overflow: hidden;
+      background: #2a2a2a url("../img/complete.svg") no-repeat scroll center center;
+      background-size: 80% auto; }

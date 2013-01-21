@@ -112,6 +112,7 @@ var HomeView = ZurichView.extend({
 
   onClickMarkHere: function() {
     $('#use-location').show();
+    $('.bar-tab').show();
     $('#mark-here').hide();
     $('#saved-reports').hide();
   },
@@ -150,6 +151,7 @@ var HomeView = ZurichView.extend({
     $('#mark-here').show();
     $('#saved-reports').show();
     $('#use-location').hide();
+    $('.bar-tab').hide();
   },
 
   onClickSearch: function() {
