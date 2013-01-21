@@ -9,12 +9,13 @@
                             <div id="problem_form">
                                 <div class="ext-form-content">
                                   <div>
-                                      <a class="button-blue" href="report-details.html" data-prefetch data-transition="slide" data-role="button">Add Photo</a>
+                                      <a class="button-blue" id="add-photo">Add Photo</a>
+                                      <a class="nodisplay button-grey" id="del-photo">Remove Photo</a>
                                   </div>
-                                  <img class="ext-photo-preview" src="img/placeholder-photo.png" alt="">
-                                  <!-- Replace src with preview of selected photo -->
+                                  <img class="ext-photo-preview" src="img/placeholder-photo.png" alt="" id="report-photo">
                                   <div>
-                                      <a class="button-grey" href="report-details.html" data-theme="b" data-prefetch data-transition="slide" data-role="button">Continue without photo</a>
+                                      <a class="button-grey" id="skip-photo">Continue without photo</a>
+                                      <a class="nodisplay button-blue" id="use-photo">Use photo</a>
                                   </div>
                                 </div>
 

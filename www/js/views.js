@@ -176,7 +176,38 @@ var PhotoView = ZurichView.extend({
 
   events: {
     'click .button-prev': 'onClickButtonPrev',
-    'click .button-next': 'onClickButtonNext'
+    'click .button-next': 'onClickButtonNext',
+    'click #use-photo': 'onClickButtonNext',
+    'click #skip-photo': 'onClickButtonNext',
+    'click #add-photo': 'addPhoto',
+    'click #del-photo': 'deletePhoto'
+  },
+
+  addPhoto: function() {
+    var that = this;
+    navigator.camera.getPicture(that.addPhotoSuccess, that.addPhotoFail, { saveToPhotoAlbum: true, quality: 49, destinationType: Camera.DestinationType.FILE_URI, bourceType: navigator.camera.PictureSourceType.CAMERA, correctOrientation: true });
+  },
+  addPhotoSuccess: function(imgURI) {
+    $('#report-photo').attr('src', imgURI );
+    // need to save image
+    //this.model.set('file', imgURI);
+
+    $('#del-photo').show().css('display', 'inline-block');
+    $('#use-photo').show().css('display', 'inline-block');
+    $('#add-photo').hide();
+    $('#skip-photo').hide();
+  },
+  addPhotoFail: function() {
+    alert('failed to take photo');
+  },
+
+  deletePhoto: function() {
+    this.model.set('file', '');
+    $('#report-photo').attr('src', 'img/placeholder-photo.png');
+    $('#del-photo').hide();
+    $('#use-photo').hide();
+    $('#add-photo').show();
+    $('#skip-photo').show();
   }
 });
 
