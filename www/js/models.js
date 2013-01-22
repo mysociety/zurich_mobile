@@ -52,6 +52,26 @@ var Report = Backbone.Model.extend({
         }
 
         if ( model.get('file') && model.get('file') !== '' ) {
+            var handlers = options;
+            var fileUploadSuccess = function(r) {
+                if ( r.response ) {
+                    var data;
+                    try {
+                        data = JSON.parse( decodeURIComponent(r.response) );
+                    }
+                    catch(err) {
+                        data = {};
+                    }
+                    handlers.success(data);
+                } else {
+                    handlers.error('Could not send report, please try again later');
+                }
+            };
+
+            var fileUploadFail = function() {
+                handlers.error('Could not send report, please try again later');
+            };
+
             fileURI = model.get('file');
 
             var options = new FileUploadOptions();

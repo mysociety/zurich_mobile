@@ -263,7 +263,7 @@ var SubmitView = ZurichView.extend({
 
   events: {
     'click .button-prev': 'onClickButtonPrev',
-    'click .button-submit': 'onClickSubmit'
+    'click #send_report': 'onClickSubmit'
   },
 
   onClickSubmit: function() {
