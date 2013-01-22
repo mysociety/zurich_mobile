@@ -22,7 +22,7 @@ var tpl = {
                     callback();
                 }
             });
-        }
+        };
 
         loadTemplate(0);
     },
@@ -72,10 +72,12 @@ var AppRouter = Jr.Router.extend({
     var photoView = new PhotoView({ model: report });
     this.renderView(photoView);
   },
+
   details: function() {
     var detailsView = new DetailsView({ model: report, u: user });
     this.renderView(detailsView);
   },
+
   sent: function() {
     var sentView = new SentView({ model: report });
     this.renderView(sentView);

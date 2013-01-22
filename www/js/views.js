@@ -11,6 +11,8 @@ var ZurichView = Jr.View.extend({
     return this;
   },
 
+  afterRender: function() {},
+
   onClickButtonPrev: function() {
     Jr.Navigator.navigate(this.prev,{
       trigger: true,
@@ -163,16 +165,12 @@ var HomeView = ZurichView.extend({
     l.lookup( $('#pc').val() );
     return false;
   }
-
 });
 
 var PhotoView = ZurichView.extend({
   template: 'photo',
   prev: 'home',
   next: 'details',
-
-  afterRender: function() {
-  },
 
   events: {
     'click .button-prev': 'onClickButtonPrev',
@@ -244,6 +242,7 @@ var DetailsView = ZurichView.extend({
       }
     });
   },
+
   onClickSubmit: function() {
       this.saveDetails();
       this.model.on('sync', this.onReportSync, this );
@@ -261,6 +260,7 @@ var DetailsView = ZurichView.extend({
       }
     });
   },
+
   onReportError: function(model, err, options) {
       alert('sync error: ' + err.errors);
   }
@@ -268,9 +268,6 @@ var DetailsView = ZurichView.extend({
 
 var SentView = ZurichView.extend({
   template: 'sent',
-
-  afterRender: function() {
-  },
 
   events: {
     'click #button-done': 'onClickDone'
@@ -312,5 +309,4 @@ var WelcomeView = ZurichView.extend({
           }
         });
     }
-
 });
