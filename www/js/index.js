@@ -36,17 +36,35 @@ var tpl = {
 
 var report = new Report();
 var user = null;
+var U = new Users();
 
 var AppRouter = Jr.Router.extend({
   routes: {
     'home': 'home',
+    'around': 'around',
     'photo': 'photo',
     'details': 'details',
     'submit': 'submit',
     'sent': 'sent'
   },
 
+  initialize: function() {
+    U.fetch();
+    user = U.get(1);
+  },
+
   home: function(){
+    if (user) {
+        var homeView = new HomeView({ model: report });
+        this.renderView(homeView);
+    } else {
+        user = new User({ id: 1 });
+        var welcomeView = new WelcomeView({ model: user });
+        this.renderView(welcomeView);
+    }
+  },
+
+  around: function() {
     var homeView = new HomeView({ model: report });
     this.renderView(homeView);
   },
@@ -72,7 +90,7 @@ var AppRouter = Jr.Router.extend({
 
 var appRouter;
 var templates = [
-    'photo', 'details', 'submit', 'around', 'sent'
+    'photo', 'details', 'submit', 'around', 'sent', 'welcome'
 ];
 
 function start() {

@@ -306,3 +306,31 @@ var SentView = ZurichView.extend({
     });
   }
 });
+
+var WelcomeView = ZurichView.extend({
+    template: 'welcome',
+
+    afterRender: function() {},
+
+    events: {
+        'click #save': 'onClickSave'
+    },
+
+    onClickSave: function () {
+        this.model.set('name', $('#form-name').val());
+        this.model.set('phone', $('#form-phone').val());
+        this.model.set('email', $('#form-email').val());
+        this.model.save();
+        U.add(this.model);
+        user = this.model;
+
+        Jr.Navigator.navigate('around',{
+          trigger: true,
+          animation: {
+            type: Jr.Navigator.animations.SLIDE_STACK,
+            direction: Jr.Navigator.directions.LEFT
+          }
+        });
+    }
+
+});

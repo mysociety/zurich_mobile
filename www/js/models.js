@@ -1,4 +1,11 @@
-var User = Backbone.Model.extend();
+var User = Backbone.Model.extend({
+    localStorage: new Backbone.LocalStorage('Users')
+});
+
+var Users = Backbone.Collection.extend({
+    model: User,
+    localStorage: new Backbone.LocalStorage('Users')
+});
 
 var Report = Backbone.Model.extend({
     defaults: {
