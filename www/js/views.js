@@ -223,12 +223,25 @@ var DetailsView = ZurichView.extend({
 
   events: {
     'click .button-prev': 'onClickButtonPrev',
-    'click #send_report': 'onClickSubmit'
+    'click #send_report': 'onClickSubmit',
+    'click #user-details': 'editUserDetails'
   },
 
   saveDetails: function() {
     this.model.set('category', $('#form_category').val());
     this.model.set('details', $('#form_detail').val());
+  },
+
+  editUserDetails: function() {
+      this.saveDetails();
+
+    Jr.Navigator.navigate('user',{
+      trigger: true,
+      animation: {
+        type: Jr.Navigator.animations.SLIDE_STACK,
+        direction: Jr.Navigator.directions.RIGHT
+      }
+    });
   },
 
   onClickButtonPrev: function() {
@@ -287,25 +300,43 @@ var SentView = ZurichView.extend({
 var WelcomeView = ZurichView.extend({
     template: 'welcome',
 
-    afterRender: function() {},
-
     events: {
         'click #save': 'onClickSave'
     },
 
-    onClickSave: function () {
+    saveDetails: function() {
         this.model.set('name', $('#form-name').val());
         this.model.set('phone', $('#form-phone').val());
         this.model.set('email', $('#form-email').val());
         this.model.save();
         U.add(this.model);
         user = this.model;
+    },
+
+    onClickSave: function () {
+        this.saveDetails();
 
         Jr.Navigator.navigate('around',{
           trigger: true,
           animation: {
             type: Jr.Navigator.animations.SLIDE_STACK,
             direction: Jr.Navigator.directions.LEFT
+          }
+        });
+    }
+});
+
+var UserView = WelcomeView.extend( {
+    template: 'user',
+
+    onClickSave: function() {
+        this.saveDetails();
+
+        Jr.Navigator.navigate('details',{
+          trigger: true,
+          animation: {
+            type: Jr.Navigator.animations.SLIDE_STACK,
+            direction: Jr.Navigator.directions.RIGHT
           }
         });
     }
