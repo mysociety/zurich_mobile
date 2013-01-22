@@ -44,7 +44,6 @@ var AppRouter = Jr.Router.extend({
     'around': 'around',
     'photo': 'photo',
     'details': 'details',
-    'submit': 'submit',
     'sent': 'sent'
   },
 
@@ -74,12 +73,8 @@ var AppRouter = Jr.Router.extend({
     this.renderView(photoView);
   },
   details: function() {
-    var detailsView = new DetailsView({ model: report });
+    var detailsView = new DetailsView({ model: report, u: user });
     this.renderView(detailsView);
-  },
-  submit: function() {
-    var submitView = new SubmitView({ model: report });
-    this.renderView(submitView);
   },
   sent: function() {
     var sentView = new SentView({ model: report });

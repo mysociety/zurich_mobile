@@ -217,12 +217,15 @@ var DetailsView = ZurichView.extend({
   prev: 'photo',
   next: 'submit',
 
-  afterRender: function() {
+  render: function() {
+    template = _.template( tpl.get( this.template ) );
+    this.$el.html(template({ report: this.model.toJSON(), user: user.toJSON() }));
+    return this;
   },
 
   events: {
     'click .button-prev': 'onClickButtonPrev',
-    'click .button-next': 'onClickButtonNext'
+    'click #send_report': 'onClickSubmit'
   },
 
   saveDetails: function() {
@@ -241,34 +244,11 @@ var DetailsView = ZurichView.extend({
       }
     });
   },
-  onClickButtonNext: function() {
-    this.saveDetails();
-
-    Jr.Navigator.navigate('submit',{
-      trigger: true,
-      animation: {
-        type: Jr.Navigator.animations.SLIDE_STACK,
-        direction: Jr.Navigator.directions.LEFT
-      }
-    });
-  }
-});
-
-var SubmitView = ZurichView.extend({
-  template: 'submit',
-  prev: 'details',
-
-  afterRender: function() {
-  },
-
-  events: {
-    'click .button-prev': 'onClickButtonPrev',
-    'click #send_report': 'onClickSubmit'
-  },
-
   onClickSubmit: function() {
+      this.saveDetails();
       this.model.on('sync', this.onReportSync, this );
       this.model.on('error', this.onReportError, this );
+
       this.model.save();
   },
 
