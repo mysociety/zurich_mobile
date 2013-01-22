@@ -185,18 +185,19 @@ var PhotoView = ZurichView.extend({
 
   addPhoto: function() {
     var that = this;
-    navigator.camera.getPicture(that.addPhotoSuccess, that.addPhotoFail, { saveToPhotoAlbum: true, quality: 49, destinationType: Camera.DestinationType.FILE_URI, bourceType: navigator.camera.PictureSourceType.CAMERA, correctOrientation: true });
+    navigator.camera.getPicture( function(imgURI) { that.addPhotoSuccess(imgURI); }, function(error) { that.addPhotoFail(error); }, { saveToPhotoAlbum: true, quality: 49, destinationType: Camera.DestinationType.FILE_URI, bourceType: navigator.camera.PictureSourceType.CAMERA, correctOrientation: true });
   },
+
   addPhotoSuccess: function(imgURI) {
     $('#report-photo').attr('src', imgURI );
-    // need to save image
-    //this.model.set('file', imgURI);
+    this.model.set('file', imgURI);
 
     $('#del-photo').show().css('display', 'inline-block');
     $('#use-photo').show().css('display', 'inline-block');
     $('#add-photo').hide();
     $('#skip-photo').hide();
   },
+
   addPhotoFail: function() {
     alert('failed to take photo');
   },
