@@ -1,3 +1,5 @@
+OpenLayers.ImgPath = "../www/jslib/OpenLayers-2.10/img/";
+
 function fixmystreet_activate_drag() {
     fixmystreet.drag = new OpenLayers.Control.DragFeature( fixmystreet.markers, {
         onComplete: function(feature, e) {
