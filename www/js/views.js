@@ -127,6 +127,8 @@ var HomeView = ZurichView.extend({
         $('.bar-tab').show();
         $('#mark-here').hide();
         $('#saved-reports').hide();
+        $('#search').hide();
+        fixmystreet.nav_control.deactivate();
     },
 
     onClickButtonNext: function() {
