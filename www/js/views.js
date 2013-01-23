@@ -57,7 +57,11 @@ var HomeView = ZurichView.extend({
         height: contentHeight,
         margin: 0
     });
-    this.locate();
+    if ( this.model.get('lat') && this.model.get('lon') ) {
+        this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') } } );
+    } else {
+        this.locate();
+    }
   },
 
   locate: function() {
