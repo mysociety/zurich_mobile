@@ -258,3 +258,18 @@
     max-height: 60%;
     max-width: 100%;
 }
+
+#ajaxOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3000;
+}
+
+#spinner {
+    margin: 60% auto 0 auto;
+    display: block;
+}

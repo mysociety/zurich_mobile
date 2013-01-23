@@ -51,6 +51,8 @@ var AppRouter = Jr.Router.extend({
     initialize: function() {
         U.fetch();
         user = U.get(1);
+        $(document).on('ajaxStart', function() { $('#ajaxOverlay').show(); console.log('start') } );
+        $(document).on('ajaxStop', function() { $('#ajaxOverlay').hide(); console.log('end'); } );
     },
 
     home: function(){
