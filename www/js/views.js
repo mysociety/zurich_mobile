@@ -119,16 +119,28 @@ var HomeView = ZurichView.extend({
         'click #mark-here': 'onClickMarkHere',
         'click #try_again': 'onClickTryAgain',
         'click #use-location': 'onClickButtonNext',
+        'click #select-another': 'onClickSelectAnother',
         'click #closeError': 'hideError'
     },
 
     onClickMarkHere: function() {
         $('#use-location').show();
+        $('#select-another').show();
         $('.bar-tab').show();
         $('#mark-here').hide();
         $('#saved-reports').hide();
         $('#search').hide();
         fixmystreet.nav_control.deactivate();
+    },
+
+    onClickSelectAnother: function() {
+        $('#use-location').hide();
+        $('#select-another').hide();
+        $('.bar-tab').hide();
+        $('#mark-here').show();
+        $('#saved-reports').show();
+        $('#search').show();
+        fixmystreet.nav_control.activate();
     },
 
     onClickButtonNext: function() {

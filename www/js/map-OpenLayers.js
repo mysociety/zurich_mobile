@@ -268,6 +268,9 @@ function show_map(){
     $('#saved-reports').css({
         top: savedY + "px"
     });
+    $('#select-another').css({
+        top: savedY + "px"
+    });
 }
 
 /* Overridding the buttonDown function of PanZoom so that it does

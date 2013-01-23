@@ -64,7 +64,7 @@
     color: white;
 }
 
-#saved-reports {
+#saved-reports, #select-another {
     position: absolute;
     left: 0px;
     top: 330px;
