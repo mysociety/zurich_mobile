@@ -2,7 +2,7 @@ var Locate = ( function() { return {
     lookup: function(q) {
         var that = this;
         if (!q) {
-            this.trigger('failed', { msg: "Please enter location" } );
+            this.trigger('failed', { msg: STRINGS.missing_location } );
             return false;
         }
 
@@ -22,11 +22,11 @@ var Locate = ( function() { return {
                         that.trigger( 'failed', { msg: data.error } );
                     }
                 } else {
-                    that.trigger( 'failed', { msg: 'Location not found: ' + status } );
+                    that.trigger( 'failed', { msg: STRINGS.location_problem } );
                 }
             },
             error: function(data, status, errorThrown) {
-                that.trigger( 'failed', { msg: 'Location not found, error: ' + status } );
+                that.trigger( 'failed', { msg: STRINGS.location_problem } );
             }
         } );
     },
@@ -44,7 +44,7 @@ var Locate = ( function() { return {
                 if ( that.watch_id == undefined ) { return; }
                 navigator.geolocation.clearWatch( that.watch_id );
 
-                that.trigger('failed', { msg: 'Could not determine your location' } );
+                that.trigger('failed', { msg: STRINGS.geolocation_failed } );
             },
             { timeout: 7000, enableHighAccuracy: true }
         );
@@ -68,7 +68,7 @@ var Locate = ( function() { return {
                 that.trigger('located', { coordinates: coords, details: data } )
             },
             error: function (data, status, errorThrown) {
-                that.trigger('failed', { msg: 'Could not check your location' } );
+                that.trigger('failed', { msg: STRINGS.location_check_failed } );
             }
         } );
     }

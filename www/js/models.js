@@ -69,12 +69,12 @@ var Report = Backbone.Model.extend({
                     }
                     handlers.success(data);
                 } else {
-                    handlers.error('Could not send report, please try again later');
+                    handlers.error(STRINGS.report_send_error);
                 }
             };
 
             var fileUploadFail = function() {
-                handlers.error('Could not send report, please try again later');
+                handlers.error(STRINGS.report_send_error);
             };
 
             fileURI = model.get('file');
@@ -103,7 +103,7 @@ var Report = Backbone.Model.extend({
                     }
                 },
                 error: function (data, status, errorThrown ) {
-                    console.log( 'There was a problem submitting your report, please try again (' + status + '): ' + JSON.stringify(data), function(){}, 'Submit report' );
+                    console.log(STRINGS.report_send_error);
                     options.error( data );
                 }
             } );

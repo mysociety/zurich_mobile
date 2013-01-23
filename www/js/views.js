@@ -99,11 +99,11 @@ var HomeView = ZurichView.extend({
 
     noMap: function( details ) {
         if ( details.msg ) {
-            this.displayError( 'location error: ' + details.msg );
+            this.displayError( STRINGS.location_error + ': ' + details.msg );
         } else if ( details.locs ) {
-            this.displayError( 'we found multiple locations' );
+            this.displayError( STRINGS.multiple_locations );
         } else {
-            this.displayError( 'there was a problem looking up your location' );
+            this.displayError( STRINGS.location_problem );
         }
     },
 
@@ -285,7 +285,7 @@ var DetailsView = ZurichView.extend({
     },
 
     onReportError: function(model, err, options) {
-        alert('sync error: ' + err.errors);
+        alert( STRINGS.sync_error + ': ' + err.errors);
     }
 });
 
