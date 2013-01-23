@@ -39,55 +39,55 @@ var user = null;
 var U = new Users();
 
 var AppRouter = Jr.Router.extend({
-  routes: {
-    'home': 'home',
-    'around': 'around',
-    'photo': 'photo',
-    'details': 'details',
-    'sent': 'sent',
-    'user': 'user'
-  },
+    routes: {
+        'home': 'home',
+        'around': 'around',
+        'photo': 'photo',
+        'details': 'details',
+        'sent': 'sent',
+        'user': 'user'
+    },
 
-  initialize: function() {
-    U.fetch();
-    user = U.get(1);
-  },
+    initialize: function() {
+        U.fetch();
+        user = U.get(1);
+    },
 
-  home: function(){
-    if (user) {
+    home: function(){
+        if (user) {
+            var homeView = new HomeView({ model: report });
+            this.renderView(homeView);
+        } else {
+            user = new User({ id: 1 });
+            var welcomeView = new WelcomeView({ model: user });
+            this.renderView(welcomeView);
+        }
+    },
+
+    around: function() {
         var homeView = new HomeView({ model: report });
         this.renderView(homeView);
-    } else {
-        user = new User({ id: 1 });
-        var welcomeView = new WelcomeView({ model: user });
-        this.renderView(welcomeView);
+    },
+
+    photo: function() {
+        var photoView = new PhotoView({ model: report });
+        this.renderView(photoView);
+    },
+
+    details: function() {
+        var detailsView = new DetailsView({ model: report, u: user });
+        this.renderView(detailsView);
+    },
+
+    sent: function() {
+        var sentView = new SentView({ model: report });
+        this.renderView(sentView);
+    },
+
+    user: function() {
+        var userView = new UserView({ model: user });
+        this.renderView(userView);
     }
-  },
-
-  around: function() {
-    var homeView = new HomeView({ model: report });
-    this.renderView(homeView);
-  },
-
-  photo: function() {
-    var photoView = new PhotoView({ model: report });
-    this.renderView(photoView);
-  },
-
-  details: function() {
-    var detailsView = new DetailsView({ model: report, u: user });
-    this.renderView(detailsView);
-  },
-
-  sent: function() {
-    var sentView = new SentView({ model: report });
-    this.renderView(sentView);
-  },
-
-  user: function() {
-    var userView = new UserView({ model: user });
-    this.renderView(userView);
-  }
 
 });
 
@@ -101,7 +101,7 @@ function start() {
         appRouter = new AppRouter();
         Backbone.history.start();
         Jr.Navigator.navigate('home',{
-          trigger: true
+            trigger: true
         });
     });
 }
