@@ -41,6 +41,28 @@
     color: white;
 }
 
+#error {
+    font-size: 1.2em;
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    -o-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    -khtml-border-radius: 0.25em;
+    border-radius: 0.25em;
+    margin-top: 0.5em;
+
+    position: absolute;
+    top: 100px;
+
+    text-align: center;
+    width: 70%;
+    z-index: 2000;
+    padding: 0.2em;
+    margin: 0em 15% 0em 15%;
+
+    background: #a9a9a9;
+    color: white;
+}
 
 #saved-reports {
     position: absolute;

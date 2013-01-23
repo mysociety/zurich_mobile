@@ -26,6 +26,16 @@ var ZurichView = Jr.View.extend({
                 direction: Jr.Navigator.directions.LEFT
             }
         });
+    },
+
+    displayError: function(msg) {
+        console.log( 'displayError: ' + msg );
+        $('#error #msg').text(msg);
+        $('#error').show();
+    },
+
+    hideError: function() {
+        $('#error').hide();
     }
 });
 
@@ -89,11 +99,11 @@ var HomeView = ZurichView.extend({
 
     noMap: function( details ) {
         if ( details.msg ) {
-            alert( 'location error: ' + details.msg );
+            this.displayError( 'location error: ' + details.msg );
         } else if ( details.locs ) {
-            alert( 'we found multiple locations' );
+            this.displayError( 'we found multiple locations' );
         } else {
-            alert( 'there was a problem looking up your location' );
+            this.displayError( 'there was a problem looking up your location' );
         }
     },
 
