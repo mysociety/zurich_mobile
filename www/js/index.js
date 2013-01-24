@@ -51,8 +51,8 @@ var tpl = {
             initialize: function() {
                 FMS.users.fetch();
                 FMS.currentUser = FMS.users.get(1);
-                $(document).on('ajaxStart', function() { $('#ajaxOverlay').show(); console.log('start'); } );
-                $(document).on('ajaxStop', function() { $('#ajaxOverlay').hide(); console.log('end'); } );
+                $(document).on('ajaxStart', function() { $('#ajaxOverlay').show(); } );
+                $(document).on('ajaxStop', function() { $('#ajaxOverlay').hide(); } );
             },
 
             home: function(){
@@ -114,7 +114,6 @@ var tpl = {
         users: new FMS.Users(),
 
         initialize: function () {
-            console.log('init');
             tpl.loadTemplates( FMS.templates, function() {
                 _.extend(FMS, {
                     router: new FMS.appRouter()

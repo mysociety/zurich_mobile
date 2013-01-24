@@ -70,7 +70,6 @@
                 });
 
                 if ( FMS.currentLocation ) {
-                    console.log(FMS.currentLocation);
                     this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon } } );
                     FMS.currentLocation = null;
                 } else if ( this.model.get('lat') && this.model.get('lon') ) {
@@ -103,7 +102,6 @@
                         fixmystreet.map.getProjectionObject()
                     );
                     fixmystreet.map.panTo(centre);
-                    console.log(fixmystreet.map.getCenter());
                 }
                 this.positionMarkHere();
             },
@@ -197,7 +195,6 @@
             },
 
             onClickReport: function(e) {
-                console.log(e);
                 var report_id = e.srcElement.id;
                 report_id = report_id.replace('report_', '');
 
