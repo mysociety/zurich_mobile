@@ -242,6 +242,21 @@
 
             events: {
                 'click .button-prev': 'onClickButtonPrev'
+            },
+
+            render: function(){
+                var that = this;
+                $.get("templates/" + this.template + ".html", function(template){
+                    template_c = _.template(template);
+                    that.$el.html(template_c(that.model.toJSON()));
+                    that.afterRender();
+                });
+                return this;
+            },
+
+            afterRender: function() {
+                console.log('showing map');
+                show_map();
             }
         })
     });
