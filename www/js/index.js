@@ -72,7 +72,7 @@ var tpl = {
             },
 
             report: function() {
-                var reportView = new FMS.ReportView({ model: FMS.currentReport });
+                var reportView = new FMS.ReportView({ model: FMS.reportToView });
                 this.renderView(reportView);
             },
 
@@ -109,6 +109,10 @@ var tpl = {
 
         currentReport: new FMS.Report(),
         currentUser: null,
+        currentLocation: null,
+
+        reportToView: null,
+
         users: new FMS.Users(),
 
         initialize: function () {

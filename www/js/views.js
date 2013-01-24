@@ -68,7 +68,12 @@
                     height: contentHeight,
                     margin: 0
                 });
-                if ( this.model.get('lat') && this.model.get('lon') ) {
+
+                if ( FMS.currentLocation ) {
+                    console.log(FMS.currentLocation);
+                    this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon } } );
+                    FMS.currentLocation = null;
+                } else if ( this.model.get('lat') && this.model.get('lon') ) {
                     this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') } } );
                 } else {
                     this.locate();
@@ -151,19 +156,13 @@
             },
 
             onClickButtonNext: function() {
-                var cross = fixmystreet.map.getControlsByClass(
-                    "OpenLayers.Control.Crosshairs");
+                var position = this.getCrossHairPosition();
 
-                    var position = cross[0].getMapPosition();
-                    position.transform(
-                        fixmystreet.map.getProjectionObject(),
-                        new OpenLayers.Projection("EPSG:4326")
-                    );
-                    var l = new Locate();
-                    _.extend(l, Backbone.Events);
-                    l.on('failed', this.noMap, this );
-                    l.on('located', this.goPhoto, this );
-                    l.check_location( { latitude: position.lat, longitude: position.lon } );
+                var l = new Locate();
+                _.extend(l, Backbone.Events);
+                l.on('failed', this.noMap, this );
+                l.on('located', this.goPhoto, this );
+                l.check_location( { latitude: position.lat, longitude: position.lon } );
             },
 
             goPhoto: function(info) {
@@ -208,7 +207,11 @@
             },
 
             showReport: function(r) {
-                FMS.currentReport = r;
+                r.off('change');
+                var position = this.getCrossHairPosition();
+                FMS.currentLocation = position;
+                FMS.reportToView = r;
+
                 Jr.Navigator.navigate('report',{
                     trigger: true,
                     animation: {
@@ -216,6 +219,19 @@
                         direction: Jr.Navigator.directions.LEFT
                     }
                 });
+            },
+
+            getCrossHairPosition: function() {
+                var cross = fixmystreet.map.getControlsByClass(
+                "OpenLayers.Control.Crosshairs");
+
+                var position = cross[0].getMapPosition();
+                position.transform(
+                    fixmystreet.map.getProjectionObject(),
+                    new OpenLayers.Projection("EPSG:4326")
+                );
+
+                return position;
             }
         })
     });
