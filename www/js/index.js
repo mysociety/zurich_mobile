@@ -42,6 +42,7 @@ var AppRouter = Jr.Router.extend({
     routes: {
         'home': 'home',
         'around': 'around',
+        'report': 'report',
         'photo': 'photo',
         'details': 'details',
         'sent': 'sent',
@@ -71,6 +72,11 @@ var AppRouter = Jr.Router.extend({
         this.renderView(homeView);
     },
 
+    report: function() {
+        var reportView = new ReportView({ model: report });
+        this.renderView(reportView);
+    },
+
     photo: function() {
         var photoView = new PhotoView({ model: report });
         this.renderView(photoView);
@@ -95,7 +101,7 @@ var AppRouter = Jr.Router.extend({
 
 var appRouter;
 var templates = [
-    'photo', 'details', 'submit', 'around', 'sent', 'welcome', 'user'
+    'photo', 'details', 'submit', 'around', 'sent', 'welcome', 'user', 'report'
 ];
 
 function start() {

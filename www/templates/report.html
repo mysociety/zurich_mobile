@@ -1,0 +1,20 @@
+            <header class="bar-title">
+                <div class="button-prev">Prev</div>
+                <h1 class="title"></h1>
+            </header>
+                <div class="content" role="main">
+                    <div>
+                        Title: <%= title %><br>
+                        <%= meta %>
+                    </div>
+
+                    <div>
+                        Details: <%= details %>
+                    </div>
+
+                    <% if ( photo ) { %>
+                    <div>
+                        <img src="<%= photo %>">
+                    </div>
+                    <% } %>
+                </div>

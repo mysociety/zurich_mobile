@@ -120,6 +120,7 @@ var HomeView = ZurichView.extend({
         'click #try_again': 'onClickTryAgain',
         'click #use-location': 'onClickButtonNext',
         'click #select-another': 'onClickSelectAnother',
+        'click .report_pin': 'onClickReport',
         'click #closeError': 'hideError'
     },
 
@@ -188,6 +189,36 @@ var HomeView = ZurichView.extend({
 
         l.lookup( $('#pc').val() );
         return false;
+    },
+
+    onClickReport: function(e) {
+        console.log(e);
+        var report_id = e.srcElement.id;
+        report_id = report_id.replace('report_', '');
+
+        var r = new Report( { id: report_id } );
+        r.on('change', this.showReport, this);
+        r.fetch();
+    },
+
+    showReport: function(r) {
+        report = r;
+        Jr.Navigator.navigate('report',{
+            trigger: true,
+            animation: {
+                type: Jr.Navigator.animations.SLIDE_STACK,
+                direction: Jr.Navigator.directions.LEFT
+            }
+        });
+    }
+});
+
+var ReportView = ZurichView.extend({
+    template: 'report',
+    prev: 'around',
+
+    events: {
+        'click .button-prev': 'onClickButtonPrev',
     }
 });
 

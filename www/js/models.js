@@ -8,6 +8,8 @@ var Users = Backbone.Collection.extend({
 });
 
 var Report = Backbone.Model.extend({
+    urlRoot: CONFIG.FMS_URL + 'report/ajax',
+
     defaults: {
         lat: 0,
         lon: 0,
@@ -23,10 +25,25 @@ var Report = Backbone.Model.extend({
         switch (method) {
             case 'create':
                 this.post(model,options);
-            break;
+                break;
+            case 'read':
+                Backbone.ajaxSync(method, model, options);
+                break;
             default:
                 return true;
         }
+    },
+
+    parse: function(res) {
+        return {
+            lat: res.latitude,
+            lon: res.longitude,
+            title: res.title,
+            details: res.detail,
+            photo: CONFIG.FMS_URL + res.photo.url,
+            meta: res.meta,
+            category: res.category
+        };
     },
 
     post: function(model,options) {
