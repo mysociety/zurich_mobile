@@ -60,7 +60,7 @@ var tpl = {
                     var homeView = new FMS.HomeView({ model: FMS.currentReport });
                     this.renderView(homeView);
                 } else {
-                    user = new User({ id: 1 });
+                    FMS.currentUser = new FMS.User({ id: 1 });
                     var welcomeView = new FMS.WelcomeView({ model: FMS.currentUser });
                     this.renderView(welcomeView);
                 }

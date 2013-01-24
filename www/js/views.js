@@ -403,8 +403,8 @@
                 this.model.set('phone', $('#form-phone').val());
                 this.model.set('email', $('#form-email').val());
                 this.model.save();
-                FMS.Users.add(this.model);
-                FSM.currentUser = this.model;
+                FMS.users.add(this.model);
+                FMS.currentUser = this.model;
             },
 
             onClickSave: function () {
