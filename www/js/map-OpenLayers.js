@@ -122,7 +122,9 @@ function fixmystreet_onload() {
     }
     fixmystreet.map.addLayer(fixmystreet.markers);
 
-    fixmystreet.map.addControl( new OpenLayers.Control.Crosshairs(null) );
+    if ( fixmystreet.page == 'around' ) {
+        fixmystreet.map.addControl( new OpenLayers.Control.Crosshairs(null) );
+    }
 }
 
 function show_map(){
@@ -198,29 +200,36 @@ function show_map(){
 
     fixmystreet_onload();
 
-    crosshairsControls = fixmystreet.map.getControlsByClass(
-        "OpenLayers.Control.Crosshairs");
-    for (i = 0; i < crosshairsControls.length; ++i) {
-        crosshairsControls[i].reposition();
+    if ( fixmystreet.page == 'around' ) {
+        crosshairsControls = fixmystreet.map.getControlsByClass(
+            "OpenLayers.Control.Crosshairs");
+        for (i = 0; i < crosshairsControls.length; ++i) {
+            crosshairsControls[i].reposition();
+        }
+
+        $('#mark-here').show();
+        markHere = $('#mark-here');
+        var newX = $(window).width() / 2 - markHere.width() / 2;
+        var newY = $(window).height() * 4 / 6 - markHere.height() / 2;
+        markHere.css({
+            top: newY + "px"
+        });
+        $('#use-location').css({
+            top: newY + "px"
+        });
+        var savedY = newY + 40;
+        $('#saved-reports').css({
+            top: savedY + "px"
+        });
+        $('#select-another').css({
+            top: savedY + "px"
+        });
     }
 
-    $('#mark-here').show();
-    markHere = $('#mark-here');
-    var newX = $(window).width() / 2 - markHere.width() / 2;
-    var newY = $(window).height() * 4 / 6 - markHere.height() / 2;
-    markHere.css({
-        top: newY + "px"
-    });
-    $('#use-location').css({
-        top: newY + "px"
-    });
-    var savedY = newY + 40;
-    $('#saved-reports').css({
-        top: savedY + "px"
-    });
-    $('#select-another').css({
-        top: savedY + "px"
-    });
+    if ( fixmystreet.page == 'report' ) {
+        fixmystreet.nav_control.deactivate();
+        $('#fms_pan_zoom').hide();
+    }
 }
 
 /* Overridding the buttonDown function of PanZoom so that it does
