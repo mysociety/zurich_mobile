@@ -2,19 +2,52 @@
                 <div class="button-prev">Prev</div>
                 <h1 class="title"></h1>
             </header>
-                <div class="content" role="main">
-                    <div>
-                        Title: <%= title %><br>
-                        <%= meta %>
+            <div class="content" role="main">
+            <div class="container">
+                <div class="content" role="main" style="min-height: 380px; ">
+                    <div id="map_box" style="height: 10em; ">
+                        <div id="map"></div>
                     </div>
 
-                    <div>
-                        Details: <%= details %>
+                    <input type="hidden" name="zoom" value="7">
+                    <script type="text/javascript">
+                    var fixmystreet = {
+                        'page': 'report',
+                        'area': [  ],
+                        'all_pins': '',
+                        'latitude': <%= lat %>,
+                        'longitude': <%= lon %>,
+
+                        'zoom': 7,
+                        'numZoomLevels': 9,
+                        'zoomOffset': 0,
+                        'map_type': OpenLayers.Layer.WMTS,
+                        'pins': [     [ <%= lat %>, <%= lon %>, 'yellow', '', "", 'big' ]
+                     ]
+
+                    }
+                    </script>
+
+                    <div class="banner">
+                        <p id="fixed"><%= status %></p>
                     </div>
 
-                    <% if ( photo ) { %>
-                    <div>
-                        <img src="<%= photo %>">
+                    <div class="problem-header cf">
+                        <h1>i<%= title %></h1>
+                        <p class="sub">
+                            <%= meta %>
+                        </p>
+
+                        <% if ( photo ) { %>
+                        <div class="update-img">
+                            <img alt="Photo of this report" src="<%= photo %>">
+                        </div>
+                        <% } %>
+
+                        <p>
+                        <%= details %>
+                        </p>
                     </div>
-                    <% } %>
                 </div>
+            </div>
+        </div>
