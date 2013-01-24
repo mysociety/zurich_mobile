@@ -99,8 +99,6 @@ var tpl = {
     });
 })(FMS, Backbone, _, $, Jr);
 
-//var appRouter;
-
 ;(function (FMS, Backbone, _, $, Jr) {
     _.extend(FMS, {
         templates: [
@@ -121,7 +119,6 @@ var tpl = {
                 _.extend(FMS, {
                     router: new FMS.appRouter()
                 });
-                //appRouter = FMS.router;
                 Backbone.history.start();
                 Jr.Navigator.navigate('home',{
                     trigger: true
