@@ -102,7 +102,7 @@ var tpl = {
 ;(function (FMS, Backbone, _, $, Jr) {
     _.extend(FMS, {
         templates: [
-            'photo', 'details', 'submit', 'around', 'sent', 'welcome', 'user', 'report'
+            'photo', 'details', 'around', 'sent', 'welcome', 'user', 'report'
         ],
 
         currentReport: new FMS.Report(),
