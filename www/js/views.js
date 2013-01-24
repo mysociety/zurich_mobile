@@ -318,7 +318,7 @@
 
             render: function() {
                 template = _.template( tpl.get( this.template ) );
-                this.$el.html(template({ report: this.model.toJSON(), user: user.toJSON() }));
+                this.$el.html(template({ report: this.model.toJSON(), user: FMS.currentUser.toJSON() }));
                 return this;
             },
 
