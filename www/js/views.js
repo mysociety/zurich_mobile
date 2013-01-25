@@ -255,7 +255,6 @@
             },
 
             afterRender: function() {
-                console.log('showing map');
                 show_map();
             }
         })
