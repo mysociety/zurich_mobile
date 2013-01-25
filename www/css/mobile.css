@@ -41,6 +41,10 @@
     color: white;
 }
 
+.bar-title {
+    background: #315db7;
+}
+
 #error {
     font-size: 1.2em;
     -moz-border-radius: 0.25em;
