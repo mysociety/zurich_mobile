@@ -46,15 +46,18 @@
             },
 
             parse: function(res) {
-                return {
-                    lat: res.latitude,
-                    lon: res.longitude,
-                    title: res.title,
-                    details: res.detail,
-                    photo: CONFIG.FMS_URL + res.photo.url,
-                    meta: res.meta,
-                    category: res.category
-                };
+                if ( res.latitude ) {
+                    return {
+                        lat: res.latitude,
+                        lon: res.longitude,
+                        title: res.title,
+                        details: res.detail,
+                        photo: CONFIG.FMS_URL + res.photo.url,
+                        meta: res.meta,
+                        category: res.category
+                    };
+                }
+                return false;
             },
 
             post: function(model,options) {
