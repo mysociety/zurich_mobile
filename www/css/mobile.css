@@ -31,6 +31,25 @@
     margin: 0.4em;
 }
 
+.button-grey a,
+.button-blue a {
+    text-decoration: none;
+}
+
+a:visited.button-grey,
+a:visited.button-blue,
+a:hover.button-grey,
+a:hover.button-blue,
+a:active.button-grey,
+a:active.button-blue,
+a:visited:hover.button-grey,
+a:visited:hover.button-blue,
+a:visited:active.button-grey,
+a:visited:active.button-blue {
+    color: white;
+    text-decoration: none;
+}
+
 .button-grey {
     background: #a9a9a9;
     color: white;
