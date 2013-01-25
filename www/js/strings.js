@@ -6,5 +6,7 @@ var STRINGS = {
     report_send_error: 'There was a problem submitting your report. Please try again',
     missing_location: 'Please enter a location',
     location_check_failed: 'Could not check your location',
-    geolocation_failed: 'Could not determine your location'
+    geolocation_failed: 'Could not determine your location',
+    select_category: '-- Wählen Sie eine Kategorie --',
+    required: 'required'
 };

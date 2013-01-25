@@ -356,13 +356,39 @@
                     }
                 });
             },
+            validation_error: function( id, error ) {
+                var el_id = '#' + id + '_label';
+                var err_id = '#' + id + '_error';
+                var el = $('label[for='+id+']');
+                var err = '<span id="' + err_id + '" for="' + id + '" class="form-error"> ' + error + '</span>';
+                if ( $('span[for='+id+']').length === 0 ) {
+                    el.append(err);
+                    el.addClass('form-error');
+                }
+            },
 
             onClickSubmit: function() {
                 this.saveDetails();
-                this.model.on('sync', this.onReportSync, this );
-                this.model.on('error', this.onReportError, this );
 
-                this.model.save();
+                var error = 0;
+                $('.error').remove();
+                if ( ! this.model.get('details') ) {
+                    error = 1;
+                    this.validation_error('form_detail', STRINGS.required );
+                }
+                if ( ! this.model.get('category') ||
+                       this.model.get('category') == STRINGS.select_category
+                   ) {
+                    error = 1;
+                    this.validation_error('form_category', STRINGS.required );
+                }
+
+                if ( !error ) {
+                    this.model.on('sync', this.onReportSync, this );
+                    this.model.on('error', this.onReportError, this );
+
+                    this.model.save();
+                }
             },
 
             onReportSync: function(model, resp, options) {
