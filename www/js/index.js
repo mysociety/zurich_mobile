@@ -87,7 +87,7 @@ var tpl = {
             },
 
             sent: function() {
-                var sentView = new FMS.SentView({ model: FMS.currentReport });
+                var sentView = new FMS.SentView({ model: FMS.currentUser });
                 this.renderView(sentView);
             },
 
