@@ -439,7 +439,7 @@
 
 ;(function (FMS, Backbone, _, $, Jr) {
     _.extend( FMS, {
-        UserView: WelcomeView.extend( {
+        UserView: FMS.WelcomeView.extend( {
             template: 'user',
 
             onClickSave: function() {

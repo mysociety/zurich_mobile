@@ -71,16 +71,16 @@
                     pc: model.get('pc')
                 };
 
-                if ( user ) {
-                    params.name = user.get('name');
-                    params.email = user.get('email');
-                    params.phone = user.get('phone');
+                if ( FMS.currentUser ) {
+                    params.name = FMS.currentUser.get('name');
+                    params.email = FMS.currentUser.get('email');
+                    params.phone = FMS.currentUser.get('phone');
                 } else {
                     params.name = $('#form_name').val();
                     params.email = $('#form_email').val();
                     params.phone = $('#form_phone').val();
 
-                    user = new User( {
+                    FMS.currentUser = new FMS.User( {
                         name: params.name,
                         email: params.email,
                         phone: params.phone
