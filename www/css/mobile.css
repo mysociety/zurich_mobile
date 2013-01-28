@@ -2,6 +2,12 @@ fieldset {
     margin: 0px;
 }
 
+input[type="text"], input[type="password"],
+input[type="email"], input[type="file"],
+textarea {
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
 /* stop scrolling on iphone */
 #container {
     width: 100%;
