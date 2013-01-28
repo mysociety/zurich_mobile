@@ -6,6 +6,7 @@ input[type="text"], input[type="password"],
 input[type="email"], input[type="file"],
 textarea {
     border: 1px solid rgba(0, 0, 0, .2);
+    margin: 0px;
 }
 
 /* stop scrolling on iphone */
