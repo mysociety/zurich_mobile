@@ -480,7 +480,14 @@
     _.extend( FMS, {
         UserView: FMS.WelcomeView.extend( {
             template: 'user',
-            onsave: 'details'
+            onsave: 'details',
+            prev: 'details',
+
+            events: {
+                'click #save': 'onClickSave',
+                'click .button-prev': 'onClickButtonPrev'
+            },
+
         })
     });
 })(FMS, Backbone, _, $, Jr);
