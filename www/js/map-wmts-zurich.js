@@ -23,7 +23,6 @@
         new OpenLayers.Control.Attribution(),
         new OpenLayers.Control.ArgParser(),
         fixmystreet.nav_control,
-        new OpenLayers.Control.Permalink(permalink_id),
         new OpenLayers.Control.PanZoomFMS({id: 'fms_pan_zoom' })
     ];
 
