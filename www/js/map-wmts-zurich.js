@@ -44,7 +44,7 @@
         layer: "Luftbild",
         matrixSet: "nativeTileMatrixSet",
         requestEncoding: "REST",
-        url: "http://www.wmts.stadt-zuerich.ch/Luftbild/MapServer/WMTS/tile/",
+        url: "http://www.wmts.stadt-zuerich.ch/Stadtplan/MapServer/WMTS/tile/",
         style: "default",
         matrixIds: [
             { identifier: "0", matrixHeight: 2, matrixWidth: 2, scaleDenominator: 250000,  supportedCRS: "urn:ogc:def:crs:EPSG::21781", tileHeight: 256, tileWidth: 256, topLeftCorner: { lat: 30814423, lon: -29386322 } },
