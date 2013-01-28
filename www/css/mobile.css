@@ -9,6 +9,25 @@ textarea {
     margin: 0px;
 }
 
+.full-width, .shadow-wrap, #footer-mobileapps, #map_box, .promo, .alert, #front-main #postcodeForm {
+    margin: 0em;
+}
+
+.problem-header {
+    margin-left: 1em;
+}
+
+.problem-header h1 {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.problem-header p.sub {
+    font-size: 14px;
+}
+
 /* stop scrolling on iphone */
 #container {
     width: 100%;
@@ -191,6 +210,10 @@ a:visited:active.button-blue {
     padding: 0px;
     height: 100%;
     margin: 0px;
+}
+
+.update-img {
+    text-align: center;
 }
 
 /* Jquery mobile overrides */
