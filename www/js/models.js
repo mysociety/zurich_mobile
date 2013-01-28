@@ -54,8 +54,11 @@
                         details: res.detail,
                         photo: res.photo_url ? CONFIG.FMS_URL + res.photo.url : null,
                         meta: res.meta,
+                        confirmed_pp: res.confirmed_pp,
+                        created_pp: res.created_pp,
                         category: res.category,
                         state: res.state,
+                        state_t: res.state_t,
                         is_fixed: res.is_fixed,
                         used_map: res.used_map
                     };
