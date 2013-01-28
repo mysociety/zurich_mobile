@@ -96,11 +96,20 @@ a:visited:active.button-blue {
     color: white;
 }
 
+#home-header{
+    background-image: url(../img/stadt_zurich-logo.png);
+    background-repeat: no-repeat;
+    background-size: auto 70%;
+    background-color: #315db7;
+    background-position: 1em 0.75em;
+}
+
 #saved-reports, #select-another {
     position: absolute;
     left: 0px;
     top: 330px;
 }
+
 #mark-here, #use-location {
     position: absolute;
     left: 0px;
