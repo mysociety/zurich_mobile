@@ -326,6 +326,10 @@ a:visited:active.button-blue {
     font-size: 14px;
 }
 
+.form-error {
+    color: red;
+}
+
 .ext-photo-preview {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
