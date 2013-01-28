@@ -444,21 +444,34 @@
                 this.model.set('name', $('#form-name').val());
                 this.model.set('phone', $('#form-phone').val());
                 this.model.set('email', $('#form-email').val());
+
+                var error = 0;
+                if ( ! this.model.get('email') ) {
+                    error = 1;
+                    this.validation_error('form-email', STRINGS.required );
+                }
+
+                if ( error ) {
+                    return false;
+                }
+
                 this.model.save();
                 FMS.users.add(this.model);
                 FMS.currentUser = this.model;
+
+                return true;
             },
 
             onClickSave: function () {
-                this.saveDetails();
-
-                Jr.Navigator.navigate(this.onsave,{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                if ( this.saveDetails() ) {
+                    Jr.Navigator.navigate(this.onsave,{
+                        trigger: true,
+                        animation: {
+                            type: Jr.Navigator.animations.SLIDE_STACK,
+                            direction: Jr.Navigator.directions.LEFT
+                        }
+                    });
+                }
             }
         })
     });
