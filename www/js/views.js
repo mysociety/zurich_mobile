@@ -434,6 +434,7 @@
     _.extend( FMS, {
         WelcomeView: FMS.ZurichView.extend({
             template: 'welcome',
+            onsave: 'around',
 
             events: {
                 'click #save': 'onClickSave'
@@ -451,7 +452,7 @@
             onClickSave: function () {
                 this.saveDetails();
 
-                Jr.Navigator.navigate('around',{
+                Jr.Navigator.navigate(this.onsave,{
                     trigger: true,
                     animation: {
                         type: Jr.Navigator.animations.SLIDE_STACK,
@@ -467,18 +468,7 @@
     _.extend( FMS, {
         UserView: FMS.WelcomeView.extend( {
             template: 'user',
-
-            onClickSave: function() {
-                this.saveDetails();
-
-                Jr.Navigator.navigate('details',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.RIGHT
-                    }
-                });
-            }
+            onsave: 'details'
         })
     });
 })(FMS, Backbone, _, $, Jr);
