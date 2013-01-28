@@ -107,6 +107,24 @@ a:visited:active.button-blue {
     color: white;
 }
 
+#first-page {
+    background-color: black;
+}
+
+#welcome h1 {
+    color: white;
+    margin: 0.25em;
+    font-size: 36px;
+}
+
+#welcome p {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin: auto;
+    width: 80%;
+}
+
 #home-header{
     background-image: url(../img/stadt_zurich-logo.png);
     background-repeat: no-repeat;
@@ -302,6 +320,7 @@ a:visited:active.button-blue {
     margin: 0px;
 }
 
+.ext-form-content > div:first-child > label:first-child,
 .ext-form-content > label:first-child {
     margin-top: 0em;
 }
