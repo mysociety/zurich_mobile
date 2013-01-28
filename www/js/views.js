@@ -349,7 +349,7 @@
                     trigger: true,
                     animation: {
                         type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.RIGHT
+                        direction: Jr.Navigator.directions.LEFT
                     }
                 });
             },
