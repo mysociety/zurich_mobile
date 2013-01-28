@@ -69,6 +69,10 @@ a:visited:active.button-blue {
     background: #315db7;
 }
 
+.bar-tab {
+    height: 30px;
+}
+
 #error {
     font-size: 1.2em;
     -moz-border-radius: 0.25em;
