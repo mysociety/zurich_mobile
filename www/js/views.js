@@ -32,7 +32,7 @@
 
             displayError: function(msg) {
                 console.log( 'displayError: ' + msg );
-                $('#error #msg').text(msg);
+                $('#error #msg').html(msg);
                 $('#errorOverlay').show();
             },
 
