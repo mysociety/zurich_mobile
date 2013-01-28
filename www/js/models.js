@@ -54,7 +54,10 @@
                         details: res.detail,
                         photo: CONFIG.FMS_URL + res.photo.url,
                         meta: res.meta,
-                        category: res.category
+                        category: res.category,
+                        state: res.state,
+                        is_fixed: res.is_fixed,
+                        used_map: res.used_map
                     };
                 }
                 return false;
