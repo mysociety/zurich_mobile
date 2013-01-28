@@ -28,9 +28,11 @@
                     }
                     </script>
 
+                    <% if ( is_fixed == 1 ) { %>
                     <div class="banner">
-                        <p id="fixed"><%= status %></p>
+                        <p id="fixed"><%= state %></p>
                     </div>
+                    <% } %>
 
                     <div class="problem-header cf">
                         <h1>i<%= title %></h1>
