@@ -12,6 +12,14 @@
         <title>FixMyZürich</title>
     </head>
     <body>
+        <div id="errorOverlay" class="nodisplay">
+            <div id="error">
+                <div id="msg"></div>
+                <div>
+                    <a class="button-blue" onclick="$('#errorOverlay').hide()" id="closeError">OK</a>
+                </div>
+            </div>
+        </div>
         <div id="ajaxOverlay" class="nodisplay">
             <img id="spinner" src="img/ajax-loader.gif">
         </div>

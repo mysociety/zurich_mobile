@@ -33,11 +33,11 @@
             displayError: function(msg) {
                 console.log( 'displayError: ' + msg );
                 $('#error #msg').text(msg);
-                $('#error').show();
+                $('#errorOverlay').show();
             },
 
             hideError: function() {
-                $('#error').hide();
+                $('#errorOverlay').hide();
             }
         })
     });
