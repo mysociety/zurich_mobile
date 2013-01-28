@@ -210,9 +210,10 @@ function show_map(){
         $('#mark-here').show();
         markHere = $('#mark-here');
         var newX = $(window).width() / 2 - markHere.width() / 2;
+        var markY = $(window).height() * 6 / 8 - markHere.height() / 2;
         var newY = $(window).height() * 4 / 6 - markHere.height() / 2;
         markHere.css({
-            top: newY + "px"
+            top: markY + "px"
         });
         $('#use-location').css({
             top: newY + "px"
