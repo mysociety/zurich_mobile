@@ -1,3 +1,7 @@
+fieldset {
+    margin: 0px;
+}
+
 /* stop scrolling on iphone */
 #container {
     width: 100%;
@@ -246,6 +250,7 @@ a:visited:active.button-blue {
 }
 
 .ext-form-content {
+    font-size: 16px;
     display: block;
     background-color: white;
     padding: 0.5em;
@@ -283,6 +288,42 @@ a:visited:active.button-blue {
     text-shadow: none;
     margin: 2em 0;
     text-align: left;
+}
+
+/* override base.css margins */
+.ext-form-content textarea {
+    margin: 0px;
+}
+
+.ext-form-content > label:first-child {
+    margin-top: 0em;
+}
+
+.ext-form-content label {
+    margin-top: 0.75em;
+}
+
+.ext-form-content select,
+.ext-form-content textarea,
+.ext-form-content input {
+    max-width: 100%;
+}
+
+.ext-form-content #send_report {
+    margin-top: 1em;
+}
+
+#form_detail {
+    width: 100%;
+    min-height: 8em;
+}
+
+#form_category {
+    width: 100%;
+}
+
+#user-details {
+    font-size: 14px;
 }
 
 .ext-photo-preview {
