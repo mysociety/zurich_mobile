@@ -52,7 +52,7 @@
                         lon: res.longitude,
                         title: res.title,
                         details: res.detail,
-                        photo: CONFIG.FMS_URL + res.photo.url,
+                        photo: res.photo_url ? CONFIG.FMS_URL + res.photo.url : null,
                         meta: res.meta,
                         category: res.category,
                         state: res.state,
