@@ -118,7 +118,7 @@
 
             noMap: function( details ) {
                 if ( details.msg ) {
-                    this.displayError( STRINGS.location_error + ': ' + details.msg );
+                    this.displayError( details.msg );
                 } else if ( details.locs ) {
                     this.displayError( STRINGS.multiple_locations );
                 } else {
