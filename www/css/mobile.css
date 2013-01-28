@@ -12,16 +12,15 @@
     display: none;
 }
 
-
 .button-grey,
 .button-blue {
-    font-size: 1.2em;
-    -moz-border-radius: 0.25em;
-    -webkit-border-radius: 0.25em;
-    -o-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    -khtml-border-radius: 0.25em;
-    border-radius: 0.25em;
+    font-size: 16px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -o-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
     margin-top: 0.5em;
 
     text-align: center;
