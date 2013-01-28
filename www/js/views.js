@@ -47,7 +47,6 @@
                 var err = '<span id="' + err_id + '" for="' + id + '" class="form-error"> ' + error + '</span>';
                 if ( $('span[for='+id+']').length === 0 ) {
                     el.append(err);
-                    el.addClass('form-error');
                 }
             }
         })
