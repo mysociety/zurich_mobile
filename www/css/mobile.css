@@ -358,6 +358,7 @@ a:visited:active.button-blue {
     max-width: 100%;
 }
 
+.ext-form-content #save,
 .ext-form-content #send_report {
     margin-top: 1em;
 }
