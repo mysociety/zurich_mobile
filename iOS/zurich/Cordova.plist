@@ -29,6 +29,7 @@
 	<key>ExternalHosts</key>
 	<array>
 		<string>*.stadt-zuerich.ch</string>
+		<string>zurich.fixmystreet.staging.mysociety.org</string>
 	</array>
 	<key>Plugins</key>
 	<dict>
