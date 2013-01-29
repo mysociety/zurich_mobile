@@ -501,6 +501,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: UK Citizens Online Democracy";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: UK Citizens Online Democracy";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "zurich/zurich-Prefix.pch";
@@ -509,6 +511,8 @@
 				INFOPLIST_FILE = "zurich/zurich-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = zurich;
+				PROVISIONING_PROFILE = "E5FF8A4C-2EF9-4962-A01A-DD012D636557";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E5FF8A4C-2EF9-4962-A01A-DD012D636557";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
