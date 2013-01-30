@@ -213,6 +213,7 @@
             },
 
             onClickSearch: function() {
+                $('input:focus').blur();
                 var l = new Locate();
                 _.extend(l, Backbone.Events);
                 l.on('located', this.showMap, this );
