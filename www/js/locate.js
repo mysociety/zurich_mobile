@@ -32,6 +32,7 @@ var Locate = ( function() { return {
     },
 
     geolocate: function() {
+        $('#ajaxOverlay').show();
         var that = this;
         this.watch_id = navigator.geolocation.watchPosition(
             function(location) {
@@ -44,6 +45,7 @@ var Locate = ( function() { return {
                 if ( that.watch_id == undefined ) { return; }
                 navigator.geolocation.clearWatch( that.watch_id );
 
+                $('#ajaxOverlay').hide();
                 that.trigger('failed', { msg: STRINGS.geolocation_failed } );
             },
             { timeout: 7000, enableHighAccuracy: true }
