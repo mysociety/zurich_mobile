@@ -5,6 +5,12 @@
                 template = _.template( tpl.get( this.template ) );
                 this.$el.html(template(this.model.toJSON()));
                 this.afterRender();
+                // android doesn't support gradients in image mask so we need to
+                // add them dynamically
+                if ( typeof device !== 'undefined' && device.platform == 'iPhone' ) {
+                    this.$('.bar-title .button-prev').addClass('button-gradient');
+                    this.$('.bar-title .button-next').addClass('button-gradient');
+                }
                 return this;
             },
 
