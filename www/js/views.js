@@ -102,7 +102,23 @@
                         that.onClickSearch();
                         return true;
                     },
-                    source: CONFIG.FMS_URL + "/ajax/geocode"
+                    source: function( request, response ) {
+                        if ( that.xhr ) {
+                            that.xhr.abort();
+                        }
+                        that.xhr = $.ajax({
+                            url: CONFIG.FMS_URL + "/ajax/geocode",
+                            global: false,
+                            data: request,
+                            dataType: "json",
+                            success: function( data ) {
+                                response( data );
+                            },
+                            error: function() {
+                                response( [] );
+                            }
+                        });
+                    }
                 });
 
             },
