@@ -368,7 +368,6 @@ a {
   border-radius: 30px 100px 2px 40px / 2px 40px 30px 100px;
   content: '';
   box-shadow: inset 1px 0 #0e5895, inset 0 1px #0e5895;
-  z-index: -1;
   /*-webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));*/
                   /*mask-image: gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));*/
 }
