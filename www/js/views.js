@@ -93,6 +93,18 @@
                 } else {
                     this.locate();
                 }
+
+                var that = this;
+                this.$( "#pc" ).autocomplete({
+                    minLength: 3,
+                    select: function(event, ui) {
+                        $(this).val(ui.item.value);
+                        that.onClickSearch();
+                        return true;
+                    },
+                    source: CONFIG.FMS_URL + "/ajax/geocode"
+                });
+
             },
 
             locate: function() {
