@@ -8,5 +8,6 @@ var STRINGS = {
     location_check_failed: 'Could not check your location',
     geolocation_failed: 'Could not determine your location',
     select_category: '-- Wählen Sie eine Kategorie --',
-    required: 'required'
+    required: 'required',
+    invalid_email: 'Invalid email'
 };
