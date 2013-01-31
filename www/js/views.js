@@ -3,7 +3,11 @@
         ZurichView: Jr.View.extend({
             render: function(){
                 template = _.template( tpl.get( this.template ) );
-                this.$el.html(template(this.model.toJSON()));
+                if ( this.model ) {
+                    this.$el.html(template(this.model.toJSON()));
+                } else {
+                    this.$el.html(template());
+                }
                 this.afterRender();
                 // android doesn't support gradients in image mask so we need to
                 // add them dynamically
