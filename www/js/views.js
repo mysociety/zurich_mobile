@@ -254,12 +254,13 @@
             },
 
             onClickReport: function(e) {
-                var report_id = e.srcElement.id;
+                var report_id = e.currentTarget.id;
                 report_id = report_id.replace('report_', '');
 
                 var r = new FMS.Report( { id: report_id } );
                 r.on('change', this.showReport, this);
                 r.fetch();
+                return false;
             },
 
             showReport: function(r) {
