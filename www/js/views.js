@@ -12,14 +12,18 @@
                 } else {
                     this.$el.html(template());
                 }
+                this.fixNavButtons();
                 this.afterRender();
+                return this;
+            },
+
+            fixNavButtons: function() {
                 // android doesn't support gradients in image mask so we need to
                 // add them dynamically
                 if ( typeof device !== 'undefined' && device.platform == 'iPhone' ) {
                     this.$('.bar-title .button-prev').addClass('button-gradient');
                     this.$('.bar-title .button-next').addClass('button-gradient');
                 }
-                return this;
             },
 
             afterRender: function() {},
@@ -80,6 +84,7 @@
                     that.$el.html(template);
                     that.afterRender();
                 });
+                this.fixNavButtons();
                 return this;
             },
 
@@ -315,6 +320,7 @@
                     that.$el.html(template_c(that.model.toJSON()));
                     that.afterRender();
                 });
+                this.fixNavButtons();
                 return this;
             },
 
@@ -382,6 +388,7 @@
             render: function() {
                 template = _.template( tpl.get( this.template ) );
                 this.$el.html(template({ report: this.model.toJSON(), user: FMS.currentUser.toJSON() }));
+                this.fixNavButtons();
                 return this;
             },
 
