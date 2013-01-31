@@ -82,9 +82,9 @@
                 $.get("templates/" + this.template + ".html", function(template){
                     //var html = $(template);
                     that.$el.html(template);
+                    that.fixNavButtons();
                     that.afterRender();
                 });
-                this.fixNavButtons();
                 return this;
             },
 
@@ -318,9 +318,9 @@
                 $.get("templates/" + this.template + ".html", function(template){
                     template_c = _.template(template);
                     that.$el.html(template_c(that.model.toJSON()));
+                    that.fixNavButtons();
                     that.afterRender();
                 });
-                this.fixNavButtons();
                 return this;
             },
 
