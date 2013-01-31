@@ -497,6 +497,7 @@
             onsave: 'around',
 
             events: {
+                'submit #userForm': 'onClickSave',
                 'click #save': 'onClickSave'
             },
 
@@ -532,6 +533,7 @@
                         }
                     });
                 }
+                return false;
             }
         })
     });
@@ -545,6 +547,7 @@
             prev: 'details',
 
             events: {
+                'submit #userForm': 'onClickSave',
                 'click #save': 'onClickSave',
                 'click .button-prev': 'onClickButtonPrev'
             }
