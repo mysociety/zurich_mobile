@@ -2,6 +2,10 @@
     _.extend( FMS, {
         ZurichView: Jr.View.extend({
             render: function(){
+                if ( !this.template ) {
+                    console.log('no template to render');
+                    return;
+                }
                 template = _.template( tpl.get( this.template ) );
                 if ( this.model ) {
                     this.$el.html(template(this.model.toJSON()));
