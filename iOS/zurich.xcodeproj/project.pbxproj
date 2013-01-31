@@ -511,8 +511,8 @@
 				INFOPLIST_FILE = "zurich/zurich-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = zurich;
-				PROVISIONING_PROFILE = "E5FF8A4C-2EF9-4962-A01A-DD012D636557";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E5FF8A4C-2EF9-4962-A01A-DD012D636557";
+				PROVISIONING_PROFILE = "F646F5CE-C930-4495-9198-FD82984DFAE4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F646F5CE-C930-4495-9198-FD82984DFAE4";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -556,7 +556,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -581,6 +582,8 @@
 					"-all_load",
 					"-Obj-C",
 				);
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "";
