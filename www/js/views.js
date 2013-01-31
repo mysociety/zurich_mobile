@@ -182,7 +182,8 @@
                 'click #use-location': 'onClickButtonNext',
                 'click #select-another': 'onClickSelectAnother',
                 'click .report_pin': 'onClickReport',
-                'click #closeError': 'hideError'
+                'click #closeError': 'hideError',
+                'click .button-menu': 'onClickMenu'
             },
 
             onClickMarkHere: function() {
@@ -282,6 +283,16 @@
                 );
 
                 return position;
+            },
+
+            onClickMenu: function() {
+                Jr.Navigator.navigate('settings',{
+                    trigger: true,
+                    animation: {
+                        type: Jr.Navigator.animations.SLIDE_STACK,
+                        direction: Jr.Navigator.directions.LEFT
+                    }
+                });
             }
         })
     });
@@ -529,8 +540,73 @@
             events: {
                 'click #save': 'onClickSave',
                 'click .button-prev': 'onClickButtonPrev'
-            },
+            }
 
         })
     });
 })(FMS, Backbone, _, $, Jr);
+
+;(function (FMS, Backbone, _, $, Jr) {
+    _.extend( FMS, {
+        SettingsUserView: FMS.UserView.extend( {
+            template: 'user',
+            onsave: 'settings',
+            prev: 'settings'
+        })
+    });
+})(FMS, Backbone, _, $, Jr);
+
+;(function (FMS, Backbone, _, $, Jr) {
+    _.extend( FMS, {
+        SettingsView: FMS.ZurichView.extend({
+            template: 'settings',
+            prev: 'around',
+
+            events: {
+                'click .button-prev': 'onClickButtonPrev',
+                'click #settings': 'onClickSettings',
+                'click #help': 'onClickHelp',
+                'click #licence': 'onClickLicence',
+                'click #privacy': 'onClickPrivacy',
+                'click #about': 'onClickAbout'
+            },
+
+            onClickItem: function(target) {
+                Jr.Navigator.navigate(target,{
+                    trigger: true,
+                    animation: {
+                        type: Jr.Navigator.animations.SLIDE_STACK,
+                        direction: Jr.Navigator.directions.LEFT
+                    }
+                });
+            },
+
+            onClickSettings: function() { this.onClickItem('settings-user'); },
+            onClickHelp: function() { this.onClickItem('help'); },
+            onClickLicence: function() { this.onClickItem('licence'); },
+            onClickPrivacy: function() { this.onClickItem('privacy'); },
+            onClickAbout: function() { this.onClickItem('about'); }
+        })
+    });
+})(FMS, Backbone, _, $, Jr);
+
+;(function (FMS, Backbone, _, $, Jr) {
+    _.extend( FMS, {
+        TextView: FMS.ZurichView.extend({
+            prev: 'settings',
+
+            initialize: function() {
+                if ( this.options.t ) {
+                    this.template = this.options.t;
+                } else {
+                    console.log('no template option defined');
+                }
+            },
+
+            events: {
+                'click .button-prev': 'onClickButtonPrev'
+            }
+        })
+    });
+})(FMS, Backbone, _, $, Jr);
+

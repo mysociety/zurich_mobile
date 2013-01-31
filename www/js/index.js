@@ -45,7 +45,14 @@ var tpl = {
                 'photo': 'photo',
                 'details': 'details',
                 'sent': 'sent',
-                'user': 'user'
+                'user': 'user',
+                'settings-user': 'settingsuser',
+                'settings': 'settings',
+                'about': 'about',
+                'help': 'help',
+                'licence': 'licence',
+                'privacy': 'privacy',
+                'about': 'about'
             },
 
             initialize: function() {
@@ -94,6 +101,36 @@ var tpl = {
             user: function() {
                 var userView = new FMS.UserView({ model: FMS.currentUser });
                 this.renderView(userView);
+            },
+
+            settings: function() {
+                var settingsView = new FMS.SettingsView({ model: FMS.currentUser });
+                this.renderView(settingsView);
+            },
+
+            settingsuser: function() {
+                var settingsView = new FMS.SettingsUserView({ model: FMS.currentUser });
+                this.renderView(settingsView);
+            },
+
+            help: function() {
+                var textView = new FMS.TextView({ t: 'help' });
+                this.renderView(textView);
+            },
+
+            licence: function() {
+                var textView = new FMS.TextView({ t: 'licence' });
+                this.renderView(textView);
+            },
+
+            privacy: function() {
+                var textView = new FMS.TextView({ t: 'privacy' });
+                this.renderView(textView);
+            },
+
+            about: function() {
+                var textView = new FMS.TextView({ t: 'about' });
+                this.renderView(textView);
             }
         })
     });
@@ -102,7 +139,7 @@ var tpl = {
 ;(function (FMS, Backbone, _, $, Jr) {
     _.extend(FMS, {
         templates: [
-            'photo', 'details', 'around', 'sent', 'welcome', 'user', 'report'
+            'photo', 'details', 'around', 'sent', 'welcome', 'user', 'report', 'settings', 'help', 'licence', 'privacy', 'about'
         ],
 
         currentReport: new FMS.Report(),
