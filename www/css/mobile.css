@@ -403,6 +403,14 @@ a:visited:active.button-blue {
     display: block;
 }
 
+ul.list  {
+    margin-left: 0px;
+}
+
+.list li {
+    list-style: none;
+}
+
 .button-gradient:after,
 .button-gradient:before {
   -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));
