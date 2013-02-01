@@ -408,3 +408,20 @@ a:visited:active.button-blue {
   -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));
                   mask-image: gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));
 }
+
+.button-no-gradient {
+    border: none !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    z-index: 1;
+}
+
+.button-no-gradient:after,
+.button-no-gradient:before {
+    background-image: none !important;
+    background-color: #1eb0e9;
+    border-left: none !important;
+    border-radius: 10px 70px 2px 63px / 2px 63px 10px 70px !important;
+    box-shadow: none !important;
+    z-index: -1;
+}

@@ -23,6 +23,9 @@
                 if ( typeof device !== 'undefined' && device.platform == 'iPhone' ) {
                     this.$('.bar-title .button-prev').addClass('button-gradient');
                     this.$('.bar-title .button-next').addClass('button-gradient');
+                } else {
+                    this.$('.bar-title .button-prev').addClass('button-no-gradient');
+                    this.$('.bar-title .button-next').addClass('button-no-gradient');
                 }
             },
 
