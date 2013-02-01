@@ -2,3 +2,6 @@ iOS/zurich.xcodeproj/project.xcworkspace/xcuserdata/*
 android/bin
 android/gen
 www/js/config.js
+compiled/*.html
+compiled/*.js
+*.mo
