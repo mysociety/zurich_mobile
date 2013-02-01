@@ -1,0 +1,9 @@
+Basic recipie ( assumes you have fixmystreet checked out as well )
+
+./bin/gettext-extract
+./bin/gettext-merge
+../fixmystreet/commonlib/bin/gettext-makemo ZurichMobileApp
+perl -I../fixmystreet/commonlib/perllib -I../fixmystreet/local  bin/localise_templates
+
+copy compiled/*.html to www/templates
+copy compiled/*.js to www/js
