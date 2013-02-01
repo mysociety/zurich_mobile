@@ -1,0 +1,38 @@
+            <header class="bar-title">
+                <h1 class="title">[% loc('Welcome to') %]</h1>
+            </header>
+                <div class="content" role="main" id="first-page">
+                    <div id="welcome">
+                        <h1>FixMyZ&uuml;rich</h1>
+
+                        <p>
+                            [% loc('Fill out your details to get started reporting problems') %]
+                        </p>
+                    </div>
+
+                    <div id="side-form">
+                        <fieldset>
+                            <div id="problem_form">
+                                <div class="ext-form-content">
+                                    <div>
+                                        <label for="form-email">[% loc('Email') %]</label>
+                                        <input type="email" email="form-email" id="form-email">
+                                    </div>
+                                    <div>
+                                        <label for="form-name">[% loc('Name (optional)') %]</label>
+                                        <input type="text" name="form-name" id="form-name">
+                                    </div>
+                                    <div>
+                                        <label for="form-phone">[% loc('Phone number (optional)') %]</label>
+                                        <input type="tel" phone="form-phone" id="form-phone">
+                                    </div>
+
+                                  <div>
+                                      <input type="button" class="button-blue" id="save" value="[% loc('Save Details') %]">
+                                  </div>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>

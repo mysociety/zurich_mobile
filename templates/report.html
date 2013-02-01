@@ -1,0 +1,55 @@
+            <header class="bar-title">
+                <div class="button-prev">[% loc('Back') %]</div>
+                <h1 class="title"></h1>
+            </header>
+            <div class="content" role="main">
+            <div class="container">
+                <div class="content" role="main" style="min-height: 380px; ">
+                    <div id="map_box" style="height: 10em; ">
+                        <div id="map"></div>
+                    </div>
+
+                    <input type="hidden" name="zoom" value="7">
+                    <script type="text/javascript">
+                    var fixmystreet = {
+                        'page': 'report',
+                        'area': [  ],
+                        'all_pins': '',
+                        'latitude': <%= lat %>,
+                        'longitude': <%= lon %>,
+
+                        'zoom': 7,
+                        'numZoomLevels': 9,
+                        'zoomOffset': 0,
+                        'map_type': OpenLayers.Layer.WMTS,
+                        'pins': [     [ <%= lat %>, <%= lon %>, 'yellow', '', "", 'big' ]
+                     ]
+
+                    }
+                    </script>
+
+                    <% if ( is_fixed == 1 ) { %>
+                    <div class="banner">
+                        <p id="fixed"><%= state_t %></p>
+                    </div>
+                    <% } %>
+
+                    <div class="problem-header cf">
+                        <h1><%= title %></h1>
+                        <p class="sub">
+                            <%= created_pp %>
+                        </p>
+
+                        <% if ( photo ) { %>
+                        <div class="update-img">
+                            <img alt="[% loc('Photo of this report') %]" src="<%= photo %>">
+                        </div>
+                        <% } %>
+
+                        <p>
+                        <%= details %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>

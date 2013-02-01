@@ -1,0 +1,40 @@
+            <header class="bar-title">
+                <div class="button-prev">[% loc('Back') %]</div>
+                <h1 class="title">[% loc('Add Details') %]</h1>
+            </header>
+                <div class="content" role="main">
+                    <div id="side-form">
+                        <fieldset>
+                            <div id="problem_form">
+                                <div class="ext-form-content">
+
+                                    <% if ( report.categories ) { print( report.categories ) } else { %>
+                                    <div id="form_category_row">
+                                        <label class="inline" for="form_category">[% loc('Category') %]</label>
+                                        <select name="category" id="form_category" required><option>[% loc('Loading...') %]</option></select>
+                                    </div>
+                                    <% } %>
+
+                                    <label for="form_detail">[% loc('Details') %]</label>
+                                    <textarea name="detail" id="form_detail" placeholder="[% loc('Enter details of the problem') %]" required><%= report.details %></textarea>
+
+                                    <div>
+                                        <label for="user-details" class="select">[% loc('Personal details') %]</label>
+                                        <a id="user-details" name="user-details">[% tprintf( loc('Signed in as %s'), '<% if ( user.name ) { %><%= user.name %><% } else { %><%= user.email %><% } %>') %] <em class="edit_details-info">([% loc('click to edit') %])</em></a>
+                                    </div>
+
+                                    <div class="form-txt-submit-box">
+                                        <input class="button-blue" type="button" id="send_report" name="send_report" value="[% loc('Submit') %]">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            <nav class="bar-tab">
+                <ol class="ext-progress">
+                    <li class="step step-complete">1</li>
+                    <li class="step step-complete">2</li>
+                    <li class="step step-current">3</li>
+                </ol>
+            </nav>

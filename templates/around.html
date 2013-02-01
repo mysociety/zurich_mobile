@@ -1,0 +1,44 @@
+            <header class="bar-title" id="home-header">
+                <!--<h1 class="title">FixMyZ&uuml;rich</h1>-->
+                <a class="button-menu"><img src="img/menu.png"></a>
+            </header>
+                <div class="content" role="main">
+                    <form action="" method="post" name="mapForm" id="mapForm" enctype="multipart/form-data" class="validate">
+
+                    <script type="text/javascript">
+                        var fixmystreet = {
+                            'page': 'around',
+                            'area': '',
+                            'all_pins': '',
+                            'latitude': 0,
+                            'longitude': 0,
+
+                            'zoom': 6,
+                            'numZoomLevels': 5,
+                            'zoomOffset': 13,
+                            'map_type': "OpenLayers.Layer.WMTS",
+                            'pins': [  ]
+
+                        };
+
+                    </script>
+
+                    <div id="map_box">
+                        <div id="map"></div>
+                            <div id="search">
+                                <input name="pc" id="pc" autocorrect="off" autocomplete="off" placeholder="[% loc('Enter a Z&uuml;rich street name') %]"><input type="button" value="" id="btn-search">
+                            </div>
+                            <a id="mark-here" class="nodisplay button-blue">[% loc('Create Report') %]</a>
+                            <!-- a id="saved-reports" class="nodisplay button-grey">View Drafts</a -->
+                            <a id="use-location" class="nodisplay button-blue">[% loc('Use this Location') %]</a>
+                            <a id="select-another" class="nodisplay button-grey">[% loc('Select another') %]</a>
+                    </div>
+                    </form>
+                </div>
+            <nav class="bar-tab nodisplay">
+                <ol class="ext-progress">
+                    <li class="step step-current">1</li>
+                    <li class="step step">2</li>
+                    <li class="step step">3</li>
+                </ol>
+            </nav>

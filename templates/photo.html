@@ -1,0 +1,32 @@
+            <header class="bar-title">
+                <div class="button-prev">[% loc('Back') %]</div>
+                <h1 class="title">[% loc('Add a Photo') %]</h1>
+            </header>
+                <div class="content" role="main">
+                    <div id="side-form">
+                        <fieldset>
+                            <div id="problem_form">
+                                <div class="ext-form-content">
+                                  <div>
+                                      <a class="button-blue" id="add-photo">[% loc('Add Photo') %]</a>
+                                      <a class="nodisplay button-grey" id="del-photo">[% loc('Remove Photo') %]</a>
+                                  </div>
+                                  <img class="ext-photo-preview" src="img/placeholder-photo.png" alt="" id="report-photo">
+                                  <div>
+                                      <a class="button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
+                                      <a class="nodisplay button-blue" id="use-photo">[% loc('Use photo') %]</a>
+                                  </div>
+                                </div>
+
+                                <input type="hidden" name="photo" id="form_photo" value="">
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            <nav class="bar-tab">
+                <ol class="ext-progress">
+                    <li class="step step-complete">1</li>
+                    <li class="step step-current">2</li>
+                    <li class="step">3</li>
+                </ol>
+            </nav>

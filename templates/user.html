@@ -1,0 +1,33 @@
+            <header class="bar-title">
+                <div class="button-prev">[% loc('Back') %]</div>
+                <h1 class="title">[% loc('User details') %]</h1>
+            </header>
+                <div class="content" role="main">
+                    <form action="" method="post" name="userForm" id="userForm" enctype="multipart/form-data">
+                    <div id="side-form">
+                        <fieldset>
+                            <div id="problem_form">
+                                <div class="ext-form-content">
+                                    <div>
+                                        <label for="form-email">[% loc('Email') %]</label>
+                                        <input type="email" name="form-email" id="form-email" value="<%= email %>">
+                                    </div>
+                                    <div>
+                                        <label for="form-name">[% loc('Name (optional)') %]</label>
+                                        <input type="text" name="form-name" id="form-name" value="<%= name %>">
+                                    </div>
+                                    <div>
+                                        <label for="form-phone">[% loc('Phone number (optional)') %]</label>
+                                        <input type="tel" phone="form-phone" id="form-phone" value="<%= phone %>">
+                                    </div>
+
+                                  <div>
+                                      <input type="submit" class="button-blue" id="save" value="[% loc('Save Details') %]">
+                                  </div>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                    </form>
+                </div>
