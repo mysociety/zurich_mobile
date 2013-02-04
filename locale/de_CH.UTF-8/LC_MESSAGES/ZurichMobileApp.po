@@ -3,16 +3,14 @@
 # This file is distributed under the same license as the main FixMyStreet code.
 # Struan Donald <struan@mysociety.org>, 2013-02-01.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
 "POT-Creation-Date: 2013-02-01 12:50+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-02-04 15:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,29 +22,29 @@ msgstr "-- Wählen Sie eine Kategorie --"
 
 #: templates/about.html:3
 msgid "About"
-msgstr ""
+msgstr "Über"
 
 #: templates/settings.html:33
 msgid "About this App"
-msgstr ""
+msgstr "Über diese App"
 
 #: templates/details.html:3
 msgid "Add Details"
-msgstr ""
+msgstr "Beschreiben Sie den Mangel"
 
 #: templates/photo.html:11
 msgid "Add Photo"
-msgstr ""
+msgstr "Photo hinzufügen"
 
 #: templates/photo.html:3
 msgid "Add a Photo"
-msgstr ""
+msgstr "Foto"
 
 #: templates/about.html:2 templates/details.html:2 templates/help.html:2
 #: templates/licence.html:2 templates/photo.html:2 templates/privacy.html:2
 #: templates/report.html:2 templates/user.html:2
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 #: templates/details.html:13
 msgid "Category"
@@ -54,15 +52,15 @@ msgstr "Kategorie"
 
 #: templates/photo.html:16
 msgid "Continue without photo"
-msgstr ""
+msgstr "Weiter ohne Photo"
 
 #: templates/strings.js:8
 msgid "Could not check your location"
-msgstr ""
+msgstr "Ordung fehlgeschlagen"
 
 #: templates/strings.js:9
 msgid "Could not determine your location"
-msgstr ""
+msgstr "Ihre Position konnte nicht bestimmt werden"
 
 #: templates/around.html:31
 msgid "Create Report"
@@ -90,15 +88,15 @@ msgstr "Beschreiben Sie den Mangel."
 
 #: templates/welcome.html:9
 msgid "Fill out your details to get started reporting problems"
-msgstr ""
+msgstr "Geben Sie Ihre Kontaktdaten an um Mängel melden zu können"
 
 #: templates/help.html:3 templates/settings.html:15
 msgid "Help"
-msgstr ""
+msgstr "Hilfe"
 
 #: templates/settings.html:2
 msgid "Home"
-msgstr ""
+msgstr "Start"
 
 #: templates/sent.html:9
 msgid ""
@@ -111,31 +109,31 @@ msgstr ""
 
 #: templates/strings.js:12
 msgid "Invalid email"
-msgstr ""
+msgstr "Ungültiges E-Mail"
 
 #: templates/licence.html:3
 msgid "Licence"
-msgstr ""
+msgstr "Lizenz"
 
 #: templates/settings.html:21
 msgid "Licences"
-msgstr ""
+msgstr "Lizenzen"
 
 #: templates/details.html:14
 msgid "Loading..."
-msgstr ""
+msgstr "Lädt..."
 
 #: templates/strings.js:2
 msgid "Location error"
-msgstr ""
+msgstr "Adressfehler"
 
 #: templates/strings.js:4
 msgid "More than one location matched that name"
-msgstr ""
+msgstr "Mehrere Adressen gefunden"
 
 #: templates/user.html:16 templates/welcome.html:22
 msgid "Name (optional)"
-msgstr ""
+msgstr "Name (optional)"
 
 #: templates/sent.html:6
 msgid "Nearly Done! Now check your email..."
@@ -151,39 +149,39 @@ msgstr "Telefonnummer (optional)"
 
 #: templates/report.html:45
 msgid "Photo of this report"
-msgstr ""
+msgstr "Foto dieser Meldung"
 
 #: templates/strings.js:7
 msgid "Please enter a location"
-msgstr ""
+msgstr "Ungefähre Adresse de Mangels"
 
 #: templates/privacy.html:3 templates/settings.html:27
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Privacy Policy"
 
 #: templates/photo.html:12
 msgid "Remove Photo"
-msgstr ""
+msgstr "Foto löschen"
 
 #: templates/sent.html:2
 msgid "Report Sent"
-msgstr ""
+msgstr "Meldung wurde gesendet"
 
 #: templates/user.html:25 templates/welcome.html:31
 msgid "Save Details"
-msgstr ""
+msgstr "Speichern"
 
 #: templates/around.html:34
 msgid "Select another"
-msgstr ""
+msgstr "Anderer Ort"
 
 #: templates/settings.html:3 templates/settings.html:9
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: templates/details.html:23
 msgid "Signed in as %s"
-msgstr ""
+msgstr "Eingeloggt als %s"
 
 #: templates/details.html:27
 msgid "Submit"
@@ -191,36 +189,38 @@ msgstr "Abschicken"
 
 #: templates/strings.js:5
 msgid "Sync error"
-msgstr ""
+msgstr "Sync Fehler"
 
 #: templates/strings.js:3
 msgid "There was a problem looking up your location"
-msgstr ""
+msgstr "Ihr Ort konnte nicht identifiziert werden"
 
 #: templates/strings.js:6
 msgid "There was a problem submitting your report. Please try again"
 msgstr ""
+"Ihre Meldung konnte nicht übermittelt werden. Bitte versuchen Sie es "
+"nochmals."
 
 #: templates/photo.html:17
 msgid "Use photo"
-msgstr ""
+msgstr "Foto verwenden"
 
 #: templates/around.html:33
 msgid "Use this Location"
-msgstr ""
+msgstr "Hier erfassen"
 
 #: templates/user.html:3
 msgid "User details"
-msgstr ""
+msgstr "User Details"
 
 #: templates/welcome.html:2
 msgid "Welcome to"
-msgstr ""
+msgstr "Willkommen zu"
 
 #: templates/details.html:23
 msgid "click to edit"
-msgstr ""
+msgstr "ändern"
 
 #: templates/strings.js:11
 msgid "required"
-msgstr ""
+msgstr "benötigt"
