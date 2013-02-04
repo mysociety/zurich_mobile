@@ -393,6 +393,9 @@
                 template = _.template( tpl.get( this.template ) );
                 this.$el.html(template({ report: this.model.toJSON(), user: FMS.currentUser.toJSON() }));
                 this.fixNavButtons();
+                if ( this.model.get('category') ) {
+                    this.$('#form_category').val(this.model.get('category'));
+                }
                 return this;
             },
 
