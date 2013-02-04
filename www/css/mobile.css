@@ -42,6 +42,7 @@ textarea {
     display: none;
 }
 
+input[type=submit].button-blue,
 .button-grey,
 .button-blue {
     font-size: 16px;
@@ -90,6 +91,7 @@ a:visited:active.button-blue {
     color: white;
 }
 
+input[type=submit].button-blue,
 .button-blue {
     background: #315db7;
     color: white;
