@@ -347,13 +347,19 @@
                 'click .button-next': 'onClickButtonNext',
                 'click #use-photo': 'onClickButtonNext',
                 'click #skip-photo': 'onClickButtonNext',
+                'click #take-photo': 'takePhoto',
                 'click #add-photo': 'addPhoto',
                 'click #del-photo': 'deletePhoto'
             },
 
+            takePhoto: function() {
+                var that = this;
+                navigator.camera.getPicture( function(imgURI) { that.addPhotoSuccess(imgURI); }, function(error) { that.addPhotoFail(error); }, { saveToPhotoAlbum: true, quality: 49, destinationType: Camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.CAMERA, correctOrientation: true });
+            },
+
             addPhoto: function() {
                 var that = this;
-                navigator.camera.getPicture( function(imgURI) { that.addPhotoSuccess(imgURI); }, function(error) { that.addPhotoFail(error); }, { saveToPhotoAlbum: true, quality: 49, destinationType: Camera.DestinationType.FILE_URI, bourceType: navigator.camera.PictureSourceType.CAMERA, correctOrientation: true });
+                navigator.camera.getPicture( function(imgURI) { that.addPhotoSuccess(imgURI); }, function(error) { that.addPhotoFail(error); }, { saveToPhotoAlbum: false, quality: 49, destinationType: Camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY, correctOrientation: true });
             },
 
             addPhotoSuccess: function(imgURI) {
@@ -362,6 +368,7 @@
 
                 $('#del-photo').show().css('display', 'inline-block');
                 $('#use-photo').show().css('display', 'inline-block');
+                $('#take-photo').hide();
                 $('#add-photo').hide();
                 $('#skip-photo').hide();
             },
@@ -375,6 +382,7 @@
                 $('#report-photo').attr('src', 'img/placeholder-photo.png');
                 $('#del-photo').hide();
                 $('#use-photo').hide();
+                $('#take-photo').show();
                 $('#add-photo').show();
                 $('#skip-photo').show();
             }
