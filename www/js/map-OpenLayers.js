@@ -102,6 +102,7 @@ function fixmystreet_onload() {
             fixmystreet.map.removePopup(popup);
             popup.destroy();
             feature.popup = null;
+            $('#OpenLayers_Control_Crosshairs_crosshairs').show();
         });
         fixmystreet.markers.events.register( 'featureselected', fixmystreet.markers, function(evt) {
             var feature = evt.feature;
@@ -114,6 +115,10 @@ function fixmystreet_onload() {
                 true, onPopupClose);
             feature.popup = popup;
             fixmystreet.map.addPopup(popup);
+            // hide the crosshairs so they aren't in front of the popup. This seems
+            // a bit kludgy but attempts to place the popup in front using z-index
+            // failed due to the ordering of the elements and stacking rules :(
+            $('#OpenLayers_Control_Crosshairs_crosshairs').hide();
         });
         fixmystreet.map.addControl( fixmystreet.select_feature );
         fixmystreet.select_feature.activate();
