@@ -343,6 +343,7 @@
             next: 'details',
 
             events: {
+                'click #closeError': 'hideError',
                 'click .button-prev': 'onClickButtonPrev',
                 'click .button-next': 'onClickButtonNext',
                 'click #use-photo': 'onClickButtonNext',
@@ -374,7 +375,12 @@
             },
 
             addPhotoFail: function() {
-                this.displayError(STRINGS.photo_failed);
+                if ( message != 'no image selected' &&
+                    message != 'Selection cancelled.' &&
+                    message != 'Camera cancelled.'
+                    ) {
+                    this.displayError(STRINGS.photo_failed);
+                }
             },
 
             deletePhoto: function() {
