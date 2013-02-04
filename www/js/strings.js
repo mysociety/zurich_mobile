@@ -1,13 +1,14 @@
 var STRINGS = {
-    location_error: 'Location error',
-    location_problem: 'There was a problem looking up your location',
-    multiple_locations: 'More than one location matched that name',
-    sync_error: 'Sync error',
-    report_send_error: 'There was a problem submitting your report. Please try again',
-    missing_location: 'Please enter a location',
-    location_check_failed: 'Could not check your location',
-    geolocation_failed: 'Could not determine your location',
+    location_error: 'Adressfehler',
+    location_problem: 'Ihr Ort konnte nicht identifiziert werden',
+    multiple_locations: 'Mehrere Adressen gefunden',
+    sync_error: 'Sync Fehler',
+    report_send_error: 'Ihre Meldung konnte nicht übermittelt werden. Bitte versuchen Sie es nochmals.',
+    missing_location: 'Ungefähre Adresse de Mangels',
+    location_check_failed: 'Ordung fehlgeschlagen',
+    geolocation_failed: 'Ihre Position konnte nicht bestimmt werden',
     select_category: '-- Wählen Sie eine Kategorie --',
-    required: 'required',
-    invalid_email: 'Invalid email'
+    required: 'benötigt',
+    invalid_email: 'Ungültiges E-Mail',
+    photo_failed: 'There was a problem taking your photo
 };
