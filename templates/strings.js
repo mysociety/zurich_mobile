@@ -9,5 +9,6 @@ var STRINGS = {
     geolocation_failed: '[% loc('Could not determine your location') %]',
     select_category: '[% loc('-- Pick a categoy --') %]',
     required: '[% loc('required') %]',
-    invalid_email: '[% loc('Invalid email') %]'
+    invalid_email: '[% loc('Invalid email') %]',
+    photo_failed: '[% loc('There was a problem taking your photo') %]
 };

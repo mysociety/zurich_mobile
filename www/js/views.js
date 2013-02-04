@@ -374,7 +374,7 @@
             },
 
             addPhotoFail: function() {
-                alert('failed to take photo');
+                this.displayError(STRINGS.photo_failed);
             },
 
             deletePhoto: function() {
