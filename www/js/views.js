@@ -185,33 +185,10 @@
                 'click .button-next': 'onClickButtonNext',
                 'click #btn-search': 'onClickSearch',
                 'submit #mapForm': 'onClickSearch',
-                'click #mark-here': 'onClickMarkHere',
-                'click #try_again': 'onClickTryAgain',
-                'click #use-location': 'onClickButtonNext',
-                'click #select-another': 'onClickSelectAnother',
+                'click #mark-here': 'onClickButtonNext',
                 'click .report_pin': 'onClickReport',
                 'click #closeError': 'hideError',
                 'click .button-menu': 'onClickMenu'
-            },
-
-            onClickMarkHere: function() {
-                $('#use-location').show();
-                $('#select-another').show();
-                $('.bar-tab').show();
-                $('#mark-here').hide();
-                $('#saved-reports').hide();
-                $('#search').hide();
-                fixmystreet.nav_control.deactivate();
-            },
-
-            onClickSelectAnother: function() {
-                $('#use-location').hide();
-                $('#select-another').hide();
-                $('.bar-tab').hide();
-                $('#mark-here').show();
-                $('#saved-reports').show();
-                $('#search').show();
-                fixmystreet.nav_control.activate();
             },
 
             onClickButtonNext: function() {
@@ -236,13 +213,6 @@
                         direction: Jr.Navigator.directions.LEFT
                     }
                 });
-            },
-
-            onClickTryAgain: function() {
-                $('#mark-here').show();
-                $('#saved-reports').show();
-                $('#use-location').hide();
-                $('.bar-tab').hide();
             },
 
             onClickSearch: function() {
