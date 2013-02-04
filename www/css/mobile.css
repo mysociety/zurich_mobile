@@ -42,6 +42,10 @@ textarea {
     display: none;
 }
 
+.center {
+    text-align: center;
+}
+
 input[type=submit].button-blue,
 .button-grey,
 .button-blue {
