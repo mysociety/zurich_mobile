@@ -8,10 +8,6 @@
  */
  function set_map_config(perm) {
     // This stuff is copied from js/map-bing-ol.js
-    var permalink_id;
-    if ($('#map_permalink').length) {
-        permalink_id = 'map_permalink';
-    }
 
     var nav_opts = { zoomWheelEnabled: false };
     if (fixmystreet.page == 'around' && $('html').hasClass('mobile')) {
