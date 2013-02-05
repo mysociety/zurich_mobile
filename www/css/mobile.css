@@ -63,6 +63,7 @@ input[type=submit].button-blue,
     z-index: 2000;
     padding: 0.2em;
     margin: 0.4em;
+    text-transform: none;
 }
 
 #error .button-grey,
