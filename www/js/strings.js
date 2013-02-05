@@ -10,5 +10,5 @@ var STRINGS = {
     select_category: '-- Wählen Sie eine Kategorie --',
     required: 'benötigt',
     invalid_email: 'Ungültiges E-Mail',
-    photo_failed: 'There was a problem taking your photo
+    photo_failed: 'There was a problem taking your photo'
 };

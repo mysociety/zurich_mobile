@@ -10,5 +10,5 @@ var STRINGS = {
     select_category: '[% loc('-- Pick a categoy --') %]',
     required: '[% loc('required') %]',
     invalid_email: '[% loc('Invalid email') %]',
-    photo_failed: '[% loc('There was a problem taking your photo') %]
+    photo_failed: '[% loc('There was a problem taking your photo') %]'
 };
