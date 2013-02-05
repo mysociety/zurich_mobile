@@ -256,6 +256,12 @@ input[type=submit].button-blue,
     background: none;
 }
 
+
+.bar-title .button-menu img {
+    width: 30px;
+    height: 20px;
+}
+
 .button-prev, .button-next {
     z-index: 1;
 }
