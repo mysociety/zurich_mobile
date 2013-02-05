@@ -319,15 +319,14 @@ input[type=submit].button-blue,
     font-size: 16px;
     display: block;
     background-color: white;
-    padding: 0.5em;
-    margin: 0.5em 0.5em 0.5em 0.5em;
+    background-image: -webkit-linear-gradient(-90deg,rgb(238,238,238) 0%,rgb(221,221,221) 99%);
+    padding: 0.3em;
+    margin: 0.3em;
     -webkit-border-radius: 0.25em;
     border-radius: 0.5em;
 }
 
-.ext-form-content form > div {
-    border-bottom: 1px solid #ccc;
-    padding: 0.5em 0;
+.ext-form-content > div {
 }
 
 .ext-form-content h2, .ext-form-content h3 {
@@ -367,13 +366,16 @@ input[type=submit].button-blue,
 }
 
 .ext-form-content label {
-    margin-top: 0.75em;
+    font-weight: normal;
+    margin-top: 0.5em;
 }
 
 .ext-form-content select,
 .ext-form-content textarea,
 .ext-form-content input {
     max-width: 100%;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .ext-form-content #save,
@@ -383,7 +385,7 @@ input[type=submit].button-blue,
 
 #form_detail {
     width: 100%;
-    min-height: 8em;
+    min-height: 7em;
 }
 
 #form_category {
@@ -391,7 +393,20 @@ input[type=submit].button-blue,
 }
 
 #user-details {
-    font-size: 14px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    display: block;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    text-align: center;
+    padding: .6em 5px;
+    border: 1px solid rgb(128,128,128);
+}
+
+.edit_details-info {
+    font-size: 0.7em;
+    opacity: 0.6;
 }
 
 .form-error {

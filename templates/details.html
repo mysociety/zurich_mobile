@@ -8,15 +8,17 @@
                             <div id="problem_form">
                                 <div class="ext-form-content">
 
-                                    <% if ( report.categories ) { print( report.categories ) } else { %>
                                     <div id="form_category_row">
+                                    <% if ( report.categories ) { print( report.categories ) } else { %>
                                         <label class="inline" for="form_category">[% loc('Category') %]</label>
                                         <select name="category" id="form_category" required><option>[% loc('Loading...') %]</option></select>
-                                    </div>
                                     <% } %>
+                                    </div>
 
-                                    <label for="form_detail">[% loc('Details') %]</label>
-                                    <textarea name="detail" id="form_detail" placeholder="[% loc('Enter details of the problem') %]" required><%= report.details %></textarea>
+                                    <div>
+                                        <label for="form_detail">[% loc('Details') %]</label>
+                                        <textarea name="detail" id="form_detail" placeholder="[% loc('Enter details of the problem') %]" required><%= report.details %></textarea>
+                                    </div>
 
                                     <div>
                                         <label for="user-details" class="select">[% loc('Personal details') %]</label>
