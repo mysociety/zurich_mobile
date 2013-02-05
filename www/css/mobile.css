@@ -260,6 +260,11 @@ input[type=submit].button-blue,
     z-index: 1;
 }
 
+.dot-background {
+    background-color: transparent;
+    background-image: url(../img/bg-grey-dots.png);
+}
+
 .ext-progress {
     display: block;
     text-align: center;
