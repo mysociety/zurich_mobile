@@ -188,7 +188,8 @@
                 'click #mark-here': 'onClickButtonNext',
                 'click .report_pin': 'onClickReport',
                 'click #closeError': 'hideError',
-                'click .button-menu': 'onClickMenu'
+                'click .button-menu': 'onClickMenu',
+                'click #swap-map': 'onSwapMap'
             },
 
             onClickButtonNext: function() {
@@ -272,6 +273,24 @@
                         direction: Jr.Navigator.directions.LEFT
                     }
                 });
+            },
+
+            onSwapMap: function(e) {
+                var el = $('#swap-map');
+                var s = el.attr('src');
+                var layer = 1;
+                if ( s == 'img/luftbild.png' ) {
+                    el.attr('src', 'img/stadtplan.png');
+                } else {
+                    el.attr('src', 'img/luftbild.png');
+                    layer = 0;
+                }
+                fixmystreet.map.setBaseLayer(fixmystreet.map.layers[layer]);
+
+                // I don't know why this is required but for some reason all
+                // the child divs of the layer end up with display: none set
+                // so we have to manually show them :/
+                $(fixmystreet.map.layers[layer].div).children().show()
             }
         })
     });
