@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-02-01 12:50+0000\n"
+"POT-Creation-Date: 2013-02-06 12:16+0000\n"
 "PO-Revision-Date: 2013-02-04 15:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,9 +33,9 @@ msgstr "Über diese App"
 msgid "Add Details"
 msgstr "Beschreiben Sie den Mangel"
 
-#: templates/photo.html:11
-msgid "Add Photo"
-msgstr "Photo hinzufügen"
+#: templates/photo.html:15
+msgid "Add Existing Photo"
+msgstr ""
 
 #: templates/photo.html:3
 msgid "Add a Photo"
@@ -50,7 +51,7 @@ msgstr "Zurück"
 msgid "Category"
 msgstr "Kategorie"
 
-#: templates/photo.html:16
+#: templates/photo.html:21
 msgid "Continue without photo"
 msgstr "Weiter ohne Photo"
 
@@ -62,11 +63,11 @@ msgstr "Ordung fehlgeschlagen"
 msgid "Could not determine your location"
 msgstr "Ihre Position konnte nicht bestimmt werden"
 
-#: templates/around.html:31
+#: templates/around.html:32
 msgid "Create Report"
 msgstr "Eine Meldung erfassen"
 
-#: templates/details.html:18
+#: templates/details.html:19
 msgid "Details"
 msgstr "Beschreibung"
 
@@ -78,11 +79,11 @@ msgstr "Erledigt"
 msgid "Email"
 msgstr "E-Mail Adresse"
 
-#: templates/around.html:29
+#: templates/around.html:30
 msgid "Enter a Z&uuml;rich street name"
 msgstr "Ungef&auml;hre Adresse des Mangels"
 
-#: templates/details.html:19
+#: templates/details.html:20
 msgid "Enter details of the problem"
 msgstr "Beschreiben Sie den Mangel."
 
@@ -139,7 +140,7 @@ msgstr "Name (optional)"
 msgid "Nearly Done! Now check your email..."
 msgstr "Fast Fertig! Bitte checken Sie ihre Mailbox..."
 
-#: templates/details.html:22
+#: templates/details.html:24
 msgid "Personal details"
 msgstr "Persönlichen angaben"
 
@@ -171,7 +172,7 @@ msgstr "Meldung wurde gesendet"
 msgid "Save Details"
 msgstr "Speichern"
 
-#: templates/around.html:34
+#: templates/around.html:35
 msgid "Select another"
 msgstr "Anderer Ort"
 
@@ -179,17 +180,21 @@ msgstr "Anderer Ort"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: templates/details.html:23
+#: templates/details.html:25
 msgid "Signed in as %s"
 msgstr "Eingeloggt als %s"
 
-#: templates/details.html:27
+#: templates/details.html:29
 msgid "Submit"
 msgstr "Abschicken"
 
 #: templates/strings.js:5
 msgid "Sync error"
 msgstr "Sync Fehler"
+
+#: templates/photo.html:11
+msgid "Take Photo"
+msgstr ""
 
 #: templates/strings.js:3
 msgid "There was a problem looking up your location"
@@ -201,11 +206,15 @@ msgstr ""
 "Ihre Meldung konnte nicht übermittelt werden. Bitte versuchen Sie es "
 "nochmals."
 
-#: templates/photo.html:17
+#: templates/strings.js:13
+msgid "There was a problem taking your photo"
+msgstr ""
+
+#: templates/photo.html:22
 msgid "Use photo"
 msgstr "Foto verwenden"
 
-#: templates/around.html:33
+#: templates/around.html:34
 msgid "Use this Location"
 msgstr "Hier erfassen"
 
@@ -217,10 +226,13 @@ msgstr "User Details"
 msgid "Welcome to"
 msgstr "Willkommen zu"
 
-#: templates/details.html:23
+#: templates/details.html:25
 msgid "click to edit"
 msgstr "ändern"
 
 #: templates/strings.js:11
 msgid "required"
 msgstr "benötigt"
+
+#~ msgid "Add Photo"
+#~ msgstr "Photo hinzufügen"

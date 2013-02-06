@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-02-01 12:50+0000\n"
+"POT-Creation-Date: 2013-02-06 12:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -34,8 +34,8 @@ msgstr ""
 msgid "Add Details"
 msgstr ""
 
-#: templates/photo.html:11
-msgid "Add Photo"
+#: templates/photo.html:15
+msgid "Add Existing Photo"
 msgstr ""
 
 #: templates/photo.html:3
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
-#: templates/photo.html:16
+#: templates/photo.html:21
 msgid "Continue without photo"
 msgstr ""
 
@@ -64,11 +64,11 @@ msgstr ""
 msgid "Could not determine your location"
 msgstr ""
 
-#: templates/around.html:31
+#: templates/around.html:32
 msgid "Create Report"
 msgstr ""
 
-#: templates/details.html:18
+#: templates/details.html:19
 msgid "Details"
 msgstr ""
 
@@ -80,11 +80,11 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: templates/around.html:29
+#: templates/around.html:30
 msgid "Enter a Z&uuml;rich street name"
 msgstr ""
 
-#: templates/details.html:19
+#: templates/details.html:20
 msgid "Enter details of the problem"
 msgstr ""
 
@@ -139,7 +139,7 @@ msgstr ""
 msgid "Nearly Done! Now check your email..."
 msgstr ""
 
-#: templates/details.html:22
+#: templates/details.html:24
 msgid "Personal details"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Save Details"
 msgstr ""
 
-#: templates/around.html:34
+#: templates/around.html:35
 msgid "Select another"
 msgstr ""
 
@@ -179,16 +179,20 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: templates/details.html:23
+#: templates/details.html:25
 msgid "Signed in as %s"
 msgstr ""
 
-#: templates/details.html:27
+#: templates/details.html:29
 msgid "Submit"
 msgstr ""
 
 #: templates/strings.js:5
 msgid "Sync error"
+msgstr ""
+
+#: templates/photo.html:11
+msgid "Take Photo"
 msgstr ""
 
 #: templates/strings.js:3
@@ -199,11 +203,15 @@ msgstr ""
 msgid "There was a problem submitting your report. Please try again"
 msgstr ""
 
-#: templates/photo.html:17
+#: templates/strings.js:13
+msgid "There was a problem taking your photo"
+msgstr ""
+
+#: templates/photo.html:22
 msgid "Use photo"
 msgstr ""
 
-#: templates/around.html:33
+#: templates/around.html:34
 msgid "Use this Location"
 msgstr ""
 
@@ -215,7 +223,7 @@ msgstr ""
 msgid "Welcome to"
 msgstr ""
 
-#: templates/details.html:23
+#: templates/details.html:25
 msgid "click to edit"
 msgstr ""
 
