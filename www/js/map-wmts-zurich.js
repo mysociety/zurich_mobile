@@ -18,8 +18,7 @@
     fixmystreet.controls = [
         new OpenLayers.Control.Attribution(),
         new OpenLayers.Control.ArgParser(),
-        fixmystreet.nav_control,
-        new OpenLayers.Control.PanZoomFMS({id: 'fms_pan_zoom' })
+        fixmystreet.nav_control
     ];
 
     fixmystreet.map_type = OpenLayers.Layer.WMTS;
