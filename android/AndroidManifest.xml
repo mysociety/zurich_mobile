@@ -45,7 +45,7 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
 
 
-    <application android:icon="@drawable/icon" android:label="FixMyZürich"
+    <application android:icon="@drawable/icon" android:label="Züri wie neu"
         android:allowBackup="false"
         android:debuggable="true">
         <activity android:name="zurich_a" android:label="FixMyZürich"
