@@ -400,6 +400,12 @@ input[type=submit].button-blue,
     min-height: 7em;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (device-height: 568px) and (orientation: portrait) {
+    #form_detail {
+        min-height: 14em;
+    }
+}
+
 #form_category {
     width: 100%;
 }
