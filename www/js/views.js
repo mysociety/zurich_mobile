@@ -406,6 +406,7 @@
 
             events: {
                 'click .button-prev': 'onClickButtonPrev',
+                'click #closeError': 'hideError',
                 'click #send_report': 'onClickSubmit',
                 'click #user-details': 'editUserDetails'
             },
@@ -455,11 +456,17 @@
                     this.validation_error('form_category', STRINGS.required );
                 }
 
-                if ( !error ) {
-                    this.model.on('sync', this.onReportSync, this );
-                    this.model.on('error', this.onReportError, this );
+                if ( navigator && navigator.connection &&
+                    navigator.connection.type !== Connection.UKNOWN &&
+                    navigator.connection.type !== Connection.NONE ) {
+                    if ( !error ) {
+                        this.model.on('sync', this.onReportSync, this );
+                        this.model.on('error', this.onReportError, this );
 
-                    this.model.save();
+                        this.model.save();
+                    }
+                } else {
+                    this.displayError(STRINGS.no_connection);
                 }
             },
 
