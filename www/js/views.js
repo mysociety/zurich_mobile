@@ -398,6 +398,8 @@
                 this.fixNavButtons();
                 if ( this.model.get('category') ) {
                     this.$('#form_category').val(this.model.get('category'));
+                } else {
+                    this.$('#form_category').val('');
                 }
                 return this;
             },
