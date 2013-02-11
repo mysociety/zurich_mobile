@@ -250,17 +250,20 @@ input[type=submit].button-blue,
 .bar-title #swap-map {
     position: absolute;
     right: 55px;
-    top: 6px;
+    top: 3px;
     height: 28px;
+    padding: 3px 7px;
+    margin: 0px;
+    background: none;
 }
 
 .bar-title .button-menu {
     position: absolute;
     right: 0px;
     top: 2px;
-    border: none;
-    box-shadow: none;
     background: none;
+    padding: 3px 6px !important;
+    margin: 1px 6px 0px 0px !important;
 }
 
 
