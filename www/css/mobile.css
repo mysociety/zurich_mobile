@@ -156,7 +156,7 @@ input[type=submit].button-blue,
     background-repeat: no-repeat;
     background-size: auto 70%;
     background-color: #315db7;
-    background-position: 1em 0.75em;
+    background-position: 1em 0.5em;
 }
 
 #saved-reports, #select-another {
