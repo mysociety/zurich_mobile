@@ -103,7 +103,8 @@ input[type=submit].button-blue,
 }
 
 .bar-title {
-    background: #315db7;
+    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
+    background-color: #315db7;
 }
 
 .bar-tab {
@@ -152,6 +153,7 @@ input[type=submit].button-blue,
 }
 
 #home-header{
+    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
     background-image: url(../img/stadt_zurich-logo.png);
     background-repeat: no-repeat;
     background-size: auto 70%;
@@ -454,6 +456,12 @@ ul.list  {
     list-style: none;
 }
 
+.bar-title [class*=button],
+.bar-title .button-next:after,
+.bar-title .button-prev:before {
+    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
+}
+
 .button-gradient:after,
 .button-gradient:before {
   -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));
@@ -470,9 +478,20 @@ ul.list  {
 .button-no-gradient:after,
 .button-no-gradient:before {
     background-image: none !important;
-    background-color: #1eb0e9;
+    background-color: #315db7;
     border-left: none !important;
     border-radius: 10px 70px 2px 63px / 2px 63px 10px 70px !important;
     box-shadow: none !important;
     z-index: -1;
+}
+
+.bar-title [class*=button]:active,
+.bar-title .button-next:after:active,
+.bar-title .button-prev:before:active {
+    background-color: #315db7;
+}
+
+.bar-title .button-prev:active:before,
+.bar-title .button-prev:before {
+    background-image: -webkit-gradient(linear, left bottom, right top, from(#204DA5), to(#416CC7));
 }
