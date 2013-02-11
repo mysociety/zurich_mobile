@@ -50,12 +50,12 @@ input[type=submit].button-blue,
 .button-grey,
 .button-blue {
     font-size: 16px;
-    -moz-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -o-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -khtml-border-radius: 12px;
-    border-radius: 12px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -o-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
     margin-top: 0.5em;
 
     text-align: center;
@@ -98,6 +98,7 @@ a:visited:active.button-blue {
 
 input[type=submit].button-blue,
 .button-blue {
+    background-image: -webkit-linear-gradient(90deg, #416CC7, #315db7);
     background: #315db7;
     color: white;
 }
