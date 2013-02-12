@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="problem-header cf">
-                        <h1><%= title %></h1>
+                        <h1><%= title %><br>[% tprintf( loc('Reported in the %s category'), '<%= category %>' ) %]</h1>
                         <p class="sub">
                             <%= created_pp %>
                         </p>
