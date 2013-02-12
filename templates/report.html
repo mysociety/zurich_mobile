@@ -52,4 +52,18 @@
                         <%= details %>
                         </p>
                     </div>
+
+                    <% if (update_time ) { %>
+                        <h4 class="static-with-rule">[% loc('Updates') %]</h4>
+                        <ul class="issue-list">
+                            <li>
+                                <div class="update-wrap">
+                                    <div class="update-text">
+                                        <p class="meta-2"><%= update_time %></p>
+                                        <p><%= update %></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    <% } %>
         </div>

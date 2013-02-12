@@ -46,21 +46,23 @@
             },
 
             parse: function(res) {
-                if ( res.latitude ) {
+                if ( res.report.latitude ) {
                     return {
-                        lat: res.latitude,
-                        lon: res.longitude,
-                        title: res.title,
-                        details: res.detail,
-                        photo: res.photo && res.photo.url ? CONFIG.FMS_URL + res.photo.url : null,
-                        meta: res.meta,
-                        confirmed_pp: res.confirmed_pp,
-                        created_pp: res.created_pp,
-                        category: res.category,
-                        state: res.state,
-                        state_t: res.state_t,
-                        is_fixed: res.is_fixed,
-                        used_map: res.used_map
+                        lat: res.report.latitude,
+                        lon: res.report.longitude,
+                        title: res.report.title,
+                        details: res.report.detail,
+                        photo: res.report.photo && res.report.photo.url ? CONFIG.FMS_URL + res.report.photo.url : null,
+                        meta: res.report.meta,
+                        confirmed_pp: res.report.confirmed_pp,
+                        created_pp: res.report.created_pp,
+                        category: res.report.category,
+                        state: res.report.state,
+                        state_t: res.report.state_t,
+                        is_fixed: res.report.is_fixed,
+                        used_map: res.report.used_map,
+                        update_time: res.updates ? res.updates.update_pp : null,
+                        update: res.updates ? res.updates.details : null
                     };
                 }
                 return false;

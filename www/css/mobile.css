@@ -13,8 +13,13 @@ textarea {
     margin: 0em;
 }
 
-.problem-header {
+.problem-header,
+ul.issue-list {
     margin-left: 1em;
+}
+
+h4.static-with-rule {
+    padding-left: 1em;
 }
 
 .problem-header h1 {
