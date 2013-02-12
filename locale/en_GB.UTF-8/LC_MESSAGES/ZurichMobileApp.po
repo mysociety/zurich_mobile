@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-02-06 12:16+0000\n"
+"POT-Creation-Date: 2013-02-12 13:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -24,10 +24,6 @@ msgstr ""
 
 #: templates/about.html:3
 msgid "About"
-msgstr ""
-
-#: templates/settings.html:33
-msgid "About this App"
 msgstr ""
 
 #: templates/details.html:3
@@ -64,7 +60,7 @@ msgstr ""
 msgid "Could not determine your location"
 msgstr ""
 
-#: templates/around.html:32
+#: templates/around.html:35
 msgid "Create Report"
 msgstr ""
 
@@ -80,7 +76,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: templates/around.html:30
+#: templates/around.html:33
 msgid "Enter a Z&uuml;rich street name"
 msgstr ""
 
@@ -115,10 +111,6 @@ msgstr ""
 msgid "Licence"
 msgstr ""
 
-#: templates/settings.html:21
-msgid "Licences"
-msgstr ""
-
 #: templates/details.html:14
 msgid "Loading..."
 msgstr ""
@@ -139,6 +131,12 @@ msgstr ""
 msgid "Nearly Done! Now check your email..."
 msgstr ""
 
+#: templates/strings.js:14
+msgid ""
+"No network connection available for submitting your report. Please try again "
+"later"
+msgstr ""
+
 #: templates/details.html:24
 msgid "Personal details"
 msgstr ""
@@ -147,7 +145,7 @@ msgstr ""
 msgid "Phone number (optional)"
 msgstr ""
 
-#: templates/report.html:45
+#: templates/report.html:49
 msgid "Photo of this report"
 msgstr ""
 
@@ -155,7 +153,7 @@ msgstr ""
 msgid "Please enter a location"
 msgstr ""
 
-#: templates/privacy.html:3 templates/settings.html:27
+#: templates/privacy.html:3 templates/settings.html:21
 msgid "Privacy Policy"
 msgstr ""
 
@@ -167,11 +165,15 @@ msgstr ""
 msgid "Report Sent"
 msgstr ""
 
+#: templates/report.html:42
+msgid "Reported in the %s category"
+msgstr ""
+
 #: templates/user.html:25 templates/welcome.html:31
 msgid "Save Details"
 msgstr ""
 
-#: templates/around.html:35
+#: templates/around.html:38
 msgid "Select another"
 msgstr ""
 
@@ -211,7 +213,7 @@ msgstr ""
 msgid "Use photo"
 msgstr ""
 
-#: templates/around.html:34
+#: templates/around.html:37
 msgid "Use this Location"
 msgstr ""
 
