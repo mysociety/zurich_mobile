@@ -27,7 +27,7 @@
                     </script>
 
                     <% var banner_class = 'closed';
-                        if ( state == 'fixed' ) {
+                        if ( state.contains('fixed') || state == 'closed' ) {
                             banner_class = 'fixed';
                         } else if ( state == 'in progress' ) {
                             banner_class = 'progress';
