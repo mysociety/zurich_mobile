@@ -67,8 +67,11 @@ h4.static-with-rule {
 
 input[type=submit].button-blue,
 .button-grey,
-.button-blue {
-    font-size: 16px;
+.button-blue,
+input[type=submit].button-blue:active,
+.button-grey:active,
+.button-blue:active {
+    font-size: 18px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     -o-border-radius: 8px;
@@ -78,11 +81,12 @@ input[type=submit].button-blue,
     margin-top: 0.5em;
 
     text-align: center;
-    width: 95%;
+    width: 90%;
     z-index: 2000;
-    padding: 0.2em;
-    margin: 0.4em;
+    padding: 0.4em;
+    margin: 0.3em 0.5em 0.1em 0.5em;
     text-transform: none;
+    font-weight: normal;
 }
 
 #error .button-grey,
