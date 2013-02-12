@@ -28,11 +28,15 @@
                     }
                     </script>
 
-                    <% if ( is_fixed == 1 ) { %>
+                    <% var banner_class = 'closed';
+                        if ( state == 'fixed' ) {
+                            banner_class = 'fixed';
+                        } else if ( state == 'in progress' ) {
+                            banner_class = 'progress';
+                    } %>
                     <div class="banner">
-                        <p id="fixed"><%= state_t %></p>
+                        <p id="<%= banner_class %>"><%= state_t %></p>
                     </div>
-                    <% } %>
 
                     <div class="problem-header cf">
                         <h1><%= title %></h1>
