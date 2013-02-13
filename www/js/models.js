@@ -76,7 +76,8 @@
                     category: model.get('category'),
                     lat: model.get('lat'),
                     lon: model.get('lon'),
-                    pc: model.get('pc')
+                    pc: model.get('pc'),
+                    used_map: 1
                 };
 
                 if ( FMS.currentUser ) {
