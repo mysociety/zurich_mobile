@@ -473,9 +473,17 @@ input[type=submit].button-blue,
     z-index: 3000;
 }
 
-#spinner {
+.spinner {
     margin: 60% auto 0 auto;
-    display: block;
+    height: 32px;
+    width:32px;
+
+    background-image: url(../img/ajax-loader.gif);
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    box-shadow: 0px 5px 20px #000;
 }
 
 ul.list  {
