@@ -46,7 +46,7 @@
             },
 
             parse: function(res) {
-                if ( res.report.latitude ) {
+                if ( res.report && res.report.latitude ) {
                     return {
                         lat: res.report.latitude,
                         lon: res.report.longitude,
