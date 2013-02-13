@@ -24,8 +24,8 @@
                     this.$('.bar-title .button-prev').addClass('button-gradient');
                     this.$('.bar-title .button-next').addClass('button-gradient');
                 } else {
-                    this.$('.bar-title .button-prev').addClass('button-no-gradient');
-                    this.$('.bar-title .button-next').addClass('button-no-gradient');
+                    this.$('.bar-title .button-prev').hide();
+                    this.$('.bar-title .button-next').hide();
                 }
             },
 
@@ -303,6 +303,7 @@
             prev: 'around',
 
             events: {
+                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev'
             },
 
@@ -333,6 +334,7 @@
 
             events: {
                 'click #closeError': 'hideError',
+                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev',
                 'click .button-next': 'onClickButtonNext',
                 'click #use-photo': 'onClickButtonNext',
@@ -405,6 +407,7 @@
             },
 
             events: {
+                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev',
                 'click #closeError': 'hideError',
                 'click #send_report': 'onClickSubmit',
@@ -572,6 +575,7 @@
             events: {
                 'submit #userForm': 'onClickSave',
                 'click #save': 'onClickSave',
+                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev'
             }
 
@@ -596,6 +600,7 @@
             prev: 'around',
 
             events: {
+                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev',
                 'click #settings': 'onClickSettings',
                 'click #help': 'onClickHelp',
@@ -637,6 +642,7 @@
             },
 
             events: {
+                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev'
             }
         })
