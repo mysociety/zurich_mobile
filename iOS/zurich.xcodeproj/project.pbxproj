@@ -490,7 +490,7 @@
 				INFOPLIST_FILE = "zurich/zurich-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = zurich;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -511,7 +511,7 @@
 				PRODUCT_NAME = zurich;
 				PROVISIONING_PROFILE = "F646F5CE-C930-4495-9198-FD82984DFAE4";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F646F5CE-C930-4495-9198-FD82984DFAE4";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
