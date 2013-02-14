@@ -179,6 +179,7 @@
             positionMarkHere: function() {
                 $('#mark-here').show();
                 $('#saved-reports').show();
+                $('#relocate').show();
             },
 
             events: {
@@ -189,7 +190,8 @@
                 'click .report_pin': 'onClickReport',
                 'click #closeError': 'hideError',
                 'click .button-menu': 'onClickMenu',
-                'click #swap-map': 'onSwapMap'
+                'click #swap-map': 'onSwapMap',
+                'click #relocate': 'locate'
             },
 
             onClickButtonNext: function() {
