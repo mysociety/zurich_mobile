@@ -442,6 +442,18 @@ input[type=submit].button-blue,
     }
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (device-height: 2048px) and (orientation: portrait) {
+    #form_detail {
+        min-height: 40em;
+    }
+}
+
+@media only screen and (device-height: 1024px) and (orientation: portrait) {
+    #form_detail {
+        min-height: 40em;
+    }
+}
+
 #form_category {
     width: 100%;
 }

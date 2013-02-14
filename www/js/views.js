@@ -20,7 +20,7 @@
             fixNavButtons: function() {
                 // android doesn't support gradients in image mask so we need to
                 // add them dynamically
-                if ( typeof device !== 'undefined' && device.platform == 'iPhone' ) {
+                if ( typeof device !== 'undefined' && ( device.platform.contains('iPhone') || device.platform.contains('iPad') ) ) {
                     this.$('.bar-title .button-prev').addClass('button-gradient');
                     this.$('.bar-title .button-next').addClass('button-gradient');
                 } else {
