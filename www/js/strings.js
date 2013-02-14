@@ -5,11 +5,12 @@ var STRINGS = {
     sync_error: 'Sync Fehler',
     report_send_error: 'Ihre Meldung konnte nicht übermittelt werden. Bitte versuchen Sie es nochmals.',
     missing_location: 'Ungefähre Adresse de Mangels',
-    location_check_failed: 'Ordung fehlgeschlagen',
+    location_check_failed: 'Ortung fehlgeschlagen',
     geolocation_failed: 'Ihre Position konnte nicht bestimmt werden',
     select_category: '-- Wählen Sie eine Kategorie --',
     required: 'benötigt',
     invalid_email: 'Ungültiges E-Mail',
-    photo_failed: 'There was a problem taking your photo',
-    no_connection: 'No network connection available for submitting your report. Please try again later'
+    photo_failed: 'Fehler bei Foto',
+    no_connection: 'No network connection available for submitting your report. Please try again later',
+    more_details: 'Beschreiben'
 };

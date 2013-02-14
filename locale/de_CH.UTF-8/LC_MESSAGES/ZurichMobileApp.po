@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-02-12 13:01+0000\n"
+"POT-Creation-Date: 2013-02-14 10:32+0000\n"
 "PO-Revision-Date: 2013-02-06 17:09+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -63,7 +63,7 @@ msgstr "Ihre Position konnte nicht bestimmt werden"
 msgid "Create Report"
 msgstr "Eine Meldung erfassen"
 
-#: templates/details.html:19
+#: templates/details.html:19 templates/report.html:3
 msgid "Details"
 msgstr "Beschreibung"
 
@@ -119,6 +119,10 @@ msgstr "Lädt..."
 msgid "Location error"
 msgstr "Adressfehler"
 
+#: templates/strings.js:15
+msgid "More details"
+msgstr "Beschreiben"
+
 #: templates/strings.js:4
 msgid "More than one location matched that name"
 msgstr "Mehrere Adressen gefunden"
@@ -148,7 +152,7 @@ msgstr "Persönlichen angaben"
 msgid "Phone number (optional)"
 msgstr "Telefonnummer (optional)"
 
-#: templates/report.html:49
+#: templates/report.html:47
 msgid "Photo of this report"
 msgstr "Foto dieser Meldung"
 
@@ -168,7 +172,7 @@ msgstr "Foto löschen"
 msgid "Report Sent"
 msgstr "Meldung wurde gesendet"
 
-#: templates/report.html:42
+#: templates/report.html:40
 msgid "Reported in the %s category"
 msgstr "In der Kategorie %s gemeldet"
 
@@ -213,6 +217,10 @@ msgstr ""
 #: templates/strings.js:13
 msgid "There was a problem taking your photo"
 msgstr "Fehler bei Foto"
+
+#: templates/report.html:57
+msgid "Updates"
+msgstr "Antwort"
 
 #: templates/photo.html:22
 msgid "Use photo"

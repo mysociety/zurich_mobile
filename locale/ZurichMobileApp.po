@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-02-12 13:01+0000\n"
+"POT-Creation-Date: 2013-02-14 10:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Create Report"
 msgstr ""
 
-#: templates/details.html:19
+#: templates/details.html:19 templates/report.html:3
 msgid "Details"
 msgstr ""
 
@@ -113,6 +113,10 @@ msgstr ""
 msgid "Location error"
 msgstr ""
 
+#: templates/strings.js:15
+msgid "More details"
+msgstr ""
+
 #: templates/strings.js:4
 msgid "More than one location matched that name"
 msgstr ""
@@ -137,7 +141,7 @@ msgstr ""
 msgid "Phone number (optional)"
 msgstr ""
 
-#: templates/report.html:49
+#: templates/report.html:47
 msgid "Photo of this report"
 msgstr ""
 
@@ -157,7 +161,7 @@ msgstr ""
 msgid "Report Sent"
 msgstr ""
 
-#: templates/report.html:42
+#: templates/report.html:40
 msgid "Reported in the %s category"
 msgstr ""
 
@@ -199,6 +203,10 @@ msgstr ""
 
 #: templates/strings.js:13
 msgid "There was a problem taking your photo"
+msgstr ""
+
+#: templates/report.html:57
+msgid "Updates"
 msgstr ""
 
 #: templates/photo.html:22
