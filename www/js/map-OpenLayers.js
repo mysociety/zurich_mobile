@@ -229,6 +229,12 @@ function show_map(){
             markHere.css({
                 top: markY + "px"
             });
+
+            var relocateY = markY - 30;
+            $('#relocate').css({
+                top: relocateY + "px"
+            });
+
         }
         $('#use-location').css({
             top: newY + "px"
