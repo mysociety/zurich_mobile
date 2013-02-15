@@ -53,8 +53,14 @@
 
             displayError: function(msg) {
                 console.log( 'displayError: ' + msg );
-                $('#error #msg').html(msg);
-                $('#errorOverlay').show();
+                /* There seems to be some issue with the event for the button of the
+                 * faux alerts on android so use the system alert instead */
+                if ( typeof device !== 'undefined' && ( device.platform.contains('iPhone') || device.platform.contains('iPad') ) ) {
+                    $('#error #msg').html(msg);
+                    $('#errorOverlay').show();
+                } else {
+                    alert( msg );
+                }
             },
 
             hideError: function() {
