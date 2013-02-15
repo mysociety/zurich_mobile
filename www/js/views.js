@@ -268,6 +268,9 @@
             },
 
             onClickMenu: function() {
+                var position = this.getCrossHairPosition();
+                FMS.currentLocation = position;
+
                 Jr.Navigator.navigate('settings',{
                     trigger: true,
                     animation: {
