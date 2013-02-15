@@ -26,6 +26,9 @@
                 } else {
                     this.$('.bar-title .button-prev').hide();
                     this.$('.bar-title .button-next').hide();
+                    if ( typeof device !== 'undefined' && device.platform == 'Android' && parseInt(device.version,10) < 3 ) {
+                        this.$('.bar-title').css('height', '34px');
+                    }
                 }
             },
 
