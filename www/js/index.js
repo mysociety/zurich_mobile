@@ -164,4 +164,18 @@ var tpl = {
     });
 })(FMS, Backbone, _, $, Jr);
 
+var androidStartUp = function() {
+    // deviceready does not fire on some android versions very reliably so
+    // we do this instead
+
+    if ( typeof device != 'undefined' ) {
+        if ( device.platform == 'Android' ) {
+            FMS.initialize();
+        }
+    } else {
+        window.setTimeout( androidStartUp, 1000 );
+    }
+}
+
 document.addEventListener('deviceready', FMS.initialize, false);
+window.setTimeout( androidStartUp, 2000 );
