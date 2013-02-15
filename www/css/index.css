@@ -26,7 +26,6 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#315db7;
     background-attachment:fixed;
-    font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;

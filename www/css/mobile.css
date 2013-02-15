@@ -43,7 +43,7 @@ h4.static-with-rule {
     background-color: #112855;
     text-align: left;
     font-weight: normal;
-    font-size: 1.75em;
+    font-size: 1.3em;
     padding: 0.5em 0em 0.5em 1em;
 }
 
@@ -136,7 +136,7 @@ input[type=submit].button-blue,
 }
 
 #error {
-    font-size: 1.2em;
+    font-size: 1.1em;
     -moz-border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
     -o-border-radius: 0.5em;
@@ -322,7 +322,7 @@ input[type=submit].button-blue,
 .ext-progress {
     display: block;
     text-align: center;
-    margin: 0.5em 25%;
+    margin: 0.3em 25%;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAABlBMVEUaGhoAAAAS3qDqAAAADElEQVQIHWNgoA4AAABIAAG8nVfVAAAAAElFTkSuQmCC) repeat-x scroll center center;
 }
 
@@ -375,6 +375,15 @@ input[type=submit].button-blue,
 }
 
 .ext-form-content > div {
+}
+
+.ext-form-content input[type=submit].button-blue,
+.ext-form-content .button-grey,
+.ext-form-content .button-blue,
+.ext-form-content input[type=submit].button-blue:active,
+.ext-form-content .button-grey:active,
+.ext-form-content .button-blue:active {
+    margin: 0.3em 5% 0.1em 5%;
 }
 
 .ext-form-content h2, .ext-form-content h3 {
@@ -433,26 +442,33 @@ input[type=submit].button-blue,
 
 #form_detail {
     width: 100%;
-    min-height: 7em;
+    min-height: 8em;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (device-height: 568px) and (orientation: portrait) {
     #form_detail {
-        min-height: 14em;
+        min-height: 13.5em;
     }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (device-height: 2048px) and (orientation: portrait) {
+@media only screen and (min-device-height: 700px) and (orientation: portrait) {
     #form_detail {
-        min-height: 40em;
+        min-height: 400px;
     }
 }
 
 @media only screen and (device-height: 1024px) and (orientation: portrait) {
     #form_detail {
-        min-height: 40em;
+        min-height: 42em;
     }
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (device-height: 2048px) and (orientation: portrait) {
+    #form_detail {
+        min-height: 42em;
+    }
+}
+
 
 #form_category {
     width: 100%;
