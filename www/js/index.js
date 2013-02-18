@@ -155,6 +155,7 @@ var tpl = {
             'photo', 'details', 'around', 'sent', 'welcome', 'user', 'report', 'settings', 'help', 'licence', 'privacy', 'about'
         ],
 
+        initialized: 0,
         currentReport: new FMS.Report(),
         currentUser: null,
         currentLocation: null,
@@ -164,6 +165,10 @@ var tpl = {
         users: new FMS.Users(),
 
         initialize: function () {
+            if ( this.initialized == 1 ) {
+                return this;
+            }
+            FMS.initialized = 1;
             tpl.loadTemplates( FMS.templates, function() {
                 _.extend(FMS, {
                     router: new FMS.appRouter()
@@ -183,6 +188,10 @@ var tpl = {
 var androidStartUp = function() {
     // deviceready does not fire on some android versions very reliably so
     // we do this instead
+
+    if (FMS.initialized === 1) {
+        return;
+    }
 
     if ( typeof device != 'undefined' ) {
         if ( device.platform == 'Android' ) {
