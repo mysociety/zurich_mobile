@@ -38,6 +38,8 @@ var tpl = {
 ;(function (FMS, Backbone, _, $, Jr) {
     _.extend(FMS, {
         appRouter: Jr.Router.extend({
+            currentView: null,
+
             routes: {
                 'home': 'home',
                 'around': 'around',
@@ -62,6 +64,12 @@ var tpl = {
                 $(document).on('ajaxStop', function() { $('#ajaxOverlay').hide(); } );
             },
 
+            back: function() {
+                if (this.currentView && this.currentView.prev) {
+                    this.currentView.onClickButtonPrev();
+                }
+            },
+
             home: function(){
                 if (FMS.currentUser) {
                     var homeView = new FMS.HomeView({ model: FMS.currentReport });
@@ -75,62 +83,67 @@ var tpl = {
 
             around: function() {
                 var homeView = new FMS.HomeView({ model: FMS.currentReport });
-                this.renderView(homeView);
+                this.changeView(homeView);
             },
 
             report: function() {
                 var reportView = new FMS.ReportView({ model: FMS.reportToView });
-                this.renderView(reportView);
+                this.changeView(reportView);
             },
 
             photo: function() {
                 var photoView = new FMS.PhotoView({ model: FMS.currentReport });
-                this.renderView(photoView);
+                this.changeView(photoView);
             },
 
             details: function() {
                 var detailsView = new FMS.DetailsView({ model: FMS.currentReport, u: FMS.currentUser });
-                this.renderView(detailsView);
+                this.changeView(detailsView);
             },
 
             sent: function() {
                 var sentView = new FMS.SentView({ model: FMS.currentUser });
-                this.renderView(sentView);
+                this.changeView(sentView);
             },
 
             user: function() {
                 var userView = new FMS.UserView({ model: FMS.currentUser });
-                this.renderView(userView);
+                this.changeView(userView);
             },
 
             settings: function() {
                 var settingsView = new FMS.SettingsView({ model: FMS.currentUser });
-                this.renderView(settingsView);
+                this.changeView(settingsView);
             },
 
             settingsuser: function() {
                 var settingsView = new FMS.SettingsUserView({ model: FMS.currentUser });
-                this.renderView(settingsView);
+                this.changeView(settingsView);
             },
 
             help: function() {
                 var textView = new FMS.TextView({ t: 'help' });
-                this.renderView(textView);
+                this.changeView(textView);
             },
 
             licence: function() {
                 var textView = new FMS.TextView({ t: 'licence' });
-                this.renderView(textView);
+                this.changeView(textView);
             },
 
             privacy: function() {
                 var textView = new FMS.TextView({ t: 'privacy' });
-                this.renderView(textView);
+                this.changeView(textView);
             },
 
             about: function() {
                 var textView = new FMS.TextView({ t: 'about' });
-                this.renderView(textView);
+                this.changeView(textView);
+            },
+
+            changeView: function(view) {
+                this.currentView = view;
+                this.renderView(view);
             }
         })
     });
@@ -155,6 +168,9 @@ var tpl = {
                 _.extend(FMS, {
                     router: new FMS.appRouter()
                 });
+
+                document.addEventListener('backbutton', function() { FMS.router.back(); }, true);
+
                 Backbone.history.start();
                 Jr.Navigator.navigate('home',{
                     trigger: true
