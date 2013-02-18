@@ -277,8 +277,12 @@
             },
 
             onClickMenu: function() {
-                var position = this.getCrossHairPosition();
-                FMS.currentLocation = position;
+                // if there is no map then there are no crosshairs and
+                // this will fail
+                if ( fixmystreet.map ) {
+                    var position = this.getCrossHairPosition();
+                    FMS.currentLocation = position;
+                }
 
                 Jr.Navigator.navigate('settings',{
                     trigger: true,
