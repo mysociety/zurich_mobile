@@ -194,13 +194,13 @@ input[type=submit].button-blue,
 #mark-here, #use-location {
     position: absolute;
     left: 0px;
-    top: 300px;
+    bottom: 20px;
 }
 
 #relocate {
     position: absolute;
     left: 0.5em;
-    bottom: 100px;
+    bottom: 65px;
     height: 16px;
     width: 16px;
     padding: 2px 5px 6px 4px;

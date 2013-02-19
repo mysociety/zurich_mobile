@@ -217,35 +217,6 @@ function show_map(){
         }
 
         $('#mark-here').show();
-        markHere = $('#mark-here');
-        var newX = $(window).width() / 2 - markHere.width() / 2;
-        var markY = $(window).height() * 6 / 8 - markHere.height() / 2;
-        var newY = $(window).height() * 4 / 6 - markHere.height() / 2;
-        if ( device.platform.contains( 'iPad') ) {
-            markHere.css({
-                top: '900px'
-            });
-        } else {
-            markHere.css({
-                top: markY + "px"
-            });
-
-            var relocateY = markY - 30;
-            $('#relocate').css({
-                top: relocateY + "px"
-            });
-
-        }
-        $('#use-location').css({
-            top: newY + "px"
-        });
-        var savedY = newY + 40;
-        $('#saved-reports').css({
-            top: savedY + "px"
-        });
-        $('#select-another').css({
-            top: savedY + "px"
-        });
         $('#swap-map').show();
     }
 
