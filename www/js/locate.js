@@ -1,4 +1,6 @@
 var Locate = ( function() { return {
+    locating: 0,
+
     lookup: function(q) {
         var that = this;
         if (!q) {
@@ -32,17 +34,21 @@ var Locate = ( function() { return {
     },
 
     geolocate: function() {
+        this.locating = 1;
+
         $('#ajaxOverlay').show();
         var that = this;
         this.watch_id = navigator.geolocation.watchPosition(
             function(location) {
                 if ( that.watch_id == undefined ) { console.log( 'no watch id' ); return; }
+                that.locating = 0;
                 navigator.geolocation.clearWatch( that.watch_id );
 
                 that.check_location(location.coords);
             },
             function() {
                 if ( that.watch_id == undefined ) { return; }
+                that.locating = 0;
                 navigator.geolocation.clearWatch( that.watch_id );
 
                 $('#ajaxOverlay').hide();
