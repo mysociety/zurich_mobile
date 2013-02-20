@@ -428,6 +428,17 @@
                 } else {
                     this.$('#form_category').val('');
                 }
+
+                // This makes sure the textarea takes up enough and unused screen estate
+                // do this after any animation has happend which takes 400ms as otherwise it's not properly
+                // part of the DOM so the heights get messed up.
+                window.setTimeout( function() {
+                    // -50 to take account of the top margin plus a bit to leave a gap
+                    var details_height = $('.content').height() - $('#form_category_row').height() - $('#bottom').height() - $('header').height() - $('.bar-tab').height() - 50;
+
+                    var details = $('#form_detail');
+                    details.height( details_height );
+                }, 450 );
                 return this;
             },
 

@@ -445,31 +445,6 @@ input[type=submit].button-blue,
     min-height: 8em;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (device-height: 568px) and (orientation: portrait) {
-    #form_detail {
-        min-height: 13.5em;
-    }
-}
-
-@media only screen and (min-device-height: 700px) and (orientation: portrait) {
-    #form_detail {
-        min-height: 400px;
-    }
-}
-
-@media only screen and (device-height: 1024px) and (orientation: portrait) {
-    #form_detail {
-        min-height: 42em;
-    }
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (device-height: 2048px) and (orientation: portrait) {
-    #form_detail {
-        min-height: 42em;
-    }
-}
-
-
 #form_category {
     width: 100%;
 }

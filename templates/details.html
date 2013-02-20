@@ -20,13 +20,15 @@
                                         <textarea name="detail" id="form_detail" placeholder="[% loc('Enter details of the problem') %]" required><%= report.details %></textarea>
                                     </div>
 
-                                    <div>
-                                        <label for="user-details" class="select">[% loc('Personal details') %]</label>
-                                        <a id="user-details" name="user-details">[% tprintf( loc('Signed in as %s'), '<% if ( user.name ) { %><%= user.name %><% } else { %><%= user.email %><% } %>') %] <em class="edit_details-info">([% loc('click to edit') %])</em></a>
-                                    </div>
+                                    <div id="bottom">
+                                        <div>
+                                            <label for="user-details" class="select">[% loc('Personal details') %]</label>
+                                            <a id="user-details" name="user-details">[% tprintf( loc('Signed in as %s'), '<% if ( user.name ) { %><%= user.name %><% } else { %><%= user.email %><% } %>') %] <em class="edit_details-info">([% loc('click to edit') %])</em></a>
+                                        </div>
 
-                                    <div class="form-txt-submit-box">
-                                        <input class="button-blue" type="button" id="send_report" name="send_report" value="[% loc('Submit') %]">
+                                        <div class="form-txt-submit-box">
+                                            <input class="button-blue" type="button" id="send_report" name="send_report" value="[% loc('Submit') %]">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

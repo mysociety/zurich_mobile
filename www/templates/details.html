@@ -20,13 +20,15 @@
                                         <textarea name="detail" id="form_detail" placeholder="Beschreiben Sie den Mangel." required><%= report.details %></textarea>
                                     </div>
 
-                                    <div>
-                                        <label for="user-details" class="select">Persönlichen angaben</label>
-                                        <a id="user-details" name="user-details">Eingeloggt als <% if ( user.name ) { %><%= user.name %><% } else { %><%= user.email %><% } %> <em class="edit_details-info">(ändern)</em></a>
-                                    </div>
+                                    <div id="bottom">
+                                        <div>
+                                            <label for="user-details" class="select">Persönlichen angaben</label>
+                                            <a id="user-details" name="user-details">Eingeloggt als <% if ( user.name ) { %><%= user.name %><% } else { %><%= user.email %><% } %> <em class="edit_details-info">(ändern)</em></a>
+                                        </div>
 
-                                    <div class="form-txt-submit-box">
-                                        <input class="button-blue" type="button" id="send_report" name="send_report" value="Abschicken">
+                                        <div class="form-txt-submit-box">
+                                            <input class="button-blue" type="button" id="send_report" name="send_report" value="Abschicken">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
