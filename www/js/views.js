@@ -110,15 +110,6 @@
                     margin: 0
                 });
 
-                if ( FMS.currentLocation ) {
-                    this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon } } );
-                    FMS.currentLocation = null;
-                } else if ( this.model.get('lat') && this.model.get('lon') ) {
-                    this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') } } );
-                } else {
-                    this.locate();
-                }
-
                 var that = this;
                 this.$( "#pc" ).autocomplete({
                     minLength: 3,
@@ -146,6 +137,14 @@
                     }
                 });
 
+                if ( FMS.currentLocation ) {
+                    this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon } } );
+                    FMS.currentLocation = null;
+                } else if ( this.model.get('lat') && this.model.get('lon') ) {
+                    this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') } } );
+                } else {
+                    this.locate();
+                }
             },
 
             locate: function() {
