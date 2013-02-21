@@ -394,12 +394,8 @@ input[type=submit].button-blue,
 .ext-form-content > div {
 }
 
-.ext-form-content input[type=submit].button-blue,
-.ext-form-content .button-grey,
-.ext-form-content .button-blue,
-.ext-form-content input[type=submit].button-blue:active,
-.ext-form-content .button-grey:active,
-.ext-form-content .button-blue:active {
+.ext-form-content input.button-grey,
+.ext-form-content input.button-blue {
     margin: 0.3em 5% 0.1em 5%;
 }
 
