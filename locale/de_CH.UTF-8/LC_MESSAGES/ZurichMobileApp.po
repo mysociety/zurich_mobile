@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
 "POT-Creation-Date: 2013-02-14 10:32+0000\n"
-"PO-Revision-Date: 2013-02-06 17:09+0100\n"
+"PO-Revision-Date: 2013-02-20 15:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
 "Language: \n"
@@ -121,7 +121,7 @@ msgstr "Adressfehler"
 
 #: templates/strings.js:15
 msgid "More details"
-msgstr "Beschreiben"
+msgstr "Beschreibung"
 
 #: templates/strings.js:4
 msgid "More than one location matched that name"
@@ -136,17 +136,14 @@ msgid "Nearly Done! Now check your email..."
 msgstr "Fast Fertig! Bitte checken Sie ihre Mailbox..."
 
 #: templates/strings.js:14
-#, fuzzy
 msgid ""
 "No network connection available for submitting your report. Please try again "
 "later"
-msgstr ""
-"Ihre Meldung konnte nicht übermittelt werden. Bitte versuchen Sie es "
-"nochmals."
+msgstr "Keine Internetverbindung gefunden. Bitte versuchen Sie es später nochmals."
 
 #: templates/details.html:24
 msgid "Personal details"
-msgstr "Persönlichen angaben"
+msgstr "Persönliche Angaben"
 
 #: templates/user.html:20 templates/welcome.html:26
 msgid "Phone number (optional)"
@@ -158,7 +155,7 @@ msgstr "Foto dieser Meldung"
 
 #: templates/strings.js:7
 msgid "Please enter a location"
-msgstr "Ungefähre Adresse de Mangels"
+msgstr "Geben Sie die ungefähre Adresse des Mangels an"
 
 #: templates/privacy.html:3 templates/settings.html:21
 msgid "Privacy Policy"
