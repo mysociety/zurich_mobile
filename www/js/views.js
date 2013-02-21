@@ -183,6 +183,7 @@
             },
 
             noMap: function( details ) {
+                $('#ajaxOverlay').hide();
                 if ( details.msg ) {
                     this.displayError( details.msg );
                 } else if ( details.locs ) {
