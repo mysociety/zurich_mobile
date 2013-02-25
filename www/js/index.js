@@ -180,6 +180,7 @@ var tpl = {
                 Jr.Navigator.navigate('home',{
                     trigger: true
                 });
+                navigator.splashscreen.hide();
             });
         }
     });
