@@ -302,12 +302,12 @@
 
             onSwapMap: function(e) {
                 var el = $('#swap-map');
-                var s = el.attr('src');
+                var s = el.text();
                 var layer = 1;
-                if ( s == 'img/luftbild.png' ) {
-                    el.attr('src', 'img/stadtplan.png');
+                if ( s == 'Luftbild' ) {
+                    el.text('Stadtplan');
                 } else {
-                    el.attr('src', 'img/luftbild.png');
+                    el.text('Luftbild');
                     layer = 0;
                 }
                 fixmystreet.map.setBaseLayer(fixmystreet.map.layers[layer]);

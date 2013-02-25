@@ -258,6 +258,25 @@ input[type=submit].button-blue,
     width: 36px;
 }
 
+#swap-map {
+    position: absolute;
+    z-index: 2000;
+    bottom: 80px;
+    right: 0px;
+    background: #a9a9a9;
+    background-color: #a9a9a9;
+    border-color: #a9a9a9;
+    border-radius: 6px 0px 0px 6px;
+    color: white;
+    line-height: 1.8em;
+    font-size: 0.8em;
+    width: 5em;
+    padding-left: 0.5em;
+    text-align: left;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+
 #OpenLayers_Control_Crosshairs_crosshairs {
     pointer-events: none
 }
@@ -300,16 +319,6 @@ input[type=submit].button-blue,
 
 .ui-btn-icon-notext .ui-btn-inner {
     border: 0px !important;
-}
-
-.bar-title #swap-map {
-    position: absolute;
-    right: 55px;
-    top: 3px;
-    height: 28px;
-    padding: 3px 7px;
-    margin: 0px;
-    background: none;
 }
 
 .bar-title .button-menu {
