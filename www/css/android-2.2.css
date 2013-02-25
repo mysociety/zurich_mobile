@@ -1,0 +1,14 @@
+.content {
+    position: absolute !important;
+    top: 34px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: 0px;
+}
+
+.bar-tab {
+    position: absolute !important;
+    padding-bottom: 3px !important;
+    bottom: 0px;
+}
