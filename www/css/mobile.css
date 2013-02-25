@@ -340,7 +340,7 @@ input[type=submit].button-blue,
     display: block;
     text-align: center;
     margin: 0.3em 25%;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAABlBMVEUaGhoAAAAS3qDqAAAADElEQVQIHWNgoA4AAABIAAG8nVfVAAAAAElFTkSuQmCC) repeat-x scroll center center;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAABlBMVEUaGhoAAAAS3qDqAAAADElEQVQIHWNgoA4AAABIAAG8nVfVAAAAAElFTkSuQmCC) repeat-x scroll 50% 35%;
 }
 
 .ext-progress .step {
