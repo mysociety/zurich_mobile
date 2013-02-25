@@ -129,6 +129,7 @@ function fixmystreet_onload() {
 
     if ( fixmystreet.page == 'around' ) {
         fixmystreet.map.addControl( new OpenLayers.Control.Crosshairs(null) );
+        fixmystreet.map.events.register( 'moveend', fixmystreet.map, function(e) { $('#OpenLayers_Control_Crosshairs_crosshairs').show(); } );
     }
 }
 
