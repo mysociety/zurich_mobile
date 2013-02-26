@@ -1,6 +1,19 @@
 ;(function (FMS, Backbone, _, $, Jr) {
     _.extend( FMS, {
         ZurichView: Jr.View.extend({
+            is_android: -1,
+
+            check_if_android: function() {
+                if ( this.is_android == -1 ) {
+                    if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                        this.is_android = parseInt(device.version,10);
+                    } else {
+                        this.is_android = 0;
+                    }
+                }
+                return this.is_android;
+            },
+
             render: function(){
                 if ( !this.template ) {
                     console.log('no template to render');
@@ -34,24 +47,33 @@
 
             afterRender: function() {},
 
-            onClickButtonPrev: function() {
-                Jr.Navigator.navigate(this.prev,{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.RIGHT
+            navigate: function( target, direction ) {
+                var opts = { trigger: true };
+
+                /* On android the css transitions involved can cause form inputs
+                 * to appear in the wrong place so we disable these, particularly
+                 * as they did nothing in the first place */
+                if ( this.check_if_android() === 0 ) {
+                    var dir = Jr.Navigator.directions.RIGHT;
+                    if ( direction == 'left' ) {
+                        dir = Jr.Navigator.directions.LEFT;
                     }
-                });
+
+                    opts.animation = {
+                        type: Jr.Navigator.animations.SLIDE_STACK,
+                        direction: dir
+                    };
+                }
+
+                Jr.Navigator.navigate(target, opts);
+            },
+
+            onClickButtonPrev: function() {
+                this.navigate( this.prev, 'right' );
             },
 
             onClickButtonNext: function() {
-                Jr.Navigator.navigate(this.next,{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( this.next, 'left' );
             },
 
             displayError: function(msg) {
@@ -232,13 +254,7 @@
                 this.model.set('lon', info.coordinates.longitude );
                 this.model.set('categories', info.details.category );
 
-                Jr.Navigator.navigate('photo',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( 'photo', 'left' );
             },
 
             onClickSearch: function() {
@@ -268,13 +284,7 @@
                 FMS.currentLocation = position;
                 FMS.reportToView = r;
 
-                Jr.Navigator.navigate('report',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( 'report', 'left' );
             },
 
             getCrossHairPosition: function() {
@@ -298,13 +308,7 @@
                     FMS.currentLocation = position;
                 }
 
-                Jr.Navigator.navigate('settings',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( 'settings', 'left' );
             },
 
             onSwapMap: function(e) {
@@ -465,25 +469,13 @@
             editUserDetails: function() {
                 this.saveDetails();
 
-                Jr.Navigator.navigate('user',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( 'user', 'left' );
             },
 
             onClickButtonPrev: function() {
                 this.saveDetails();
 
-                Jr.Navigator.navigate('photo',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.RIGHT
-                    }
-                });
+                this.navigate( 'photo', 'right' );
             },
 
             onClickSubmit: function() {
@@ -517,13 +509,7 @@
             },
 
             onReportSync: function(model, resp, options) {
-                Jr.Navigator.navigate('sent',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( 'sent', 'left' );
             },
 
             onReportError: function(model, err, options) {
@@ -543,13 +529,7 @@
             },
 
             onClickDone: function() {
-                Jr.Navigator.navigate('home',{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( 'home', 'left' );
             }
         })
     });
@@ -594,13 +574,7 @@
 
             onClickSave: function () {
                 if ( this.saveDetails() ) {
-                    Jr.Navigator.navigate(this.onsave,{
-                        trigger: true,
-                        animation: {
-                            type: Jr.Navigator.animations.SLIDE_STACK,
-                            direction: Jr.Navigator.directions.LEFT
-                        }
-                    });
+                    this.navigate( this.onsave, 'left' );
                 }
                 return false;
             }
@@ -653,13 +627,7 @@
             },
 
             onClickItem: function(target) {
-                Jr.Navigator.navigate(target,{
-                    trigger: true,
-                    animation: {
-                        type: Jr.Navigator.animations.SLIDE_STACK,
-                        direction: Jr.Navigator.directions.LEFT
-                    }
-                });
+                this.navigate( target, 'left' );
             },
 
             onClickSettings: function() { this.onClickItem('settings-user'); },
