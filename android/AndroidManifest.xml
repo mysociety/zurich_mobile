@@ -39,7 +39,7 @@
     <application android:icon="@drawable/icon" android:label="Züri wie neu"
         android:allowBackup="false"
         android:debuggable="true">
-        <activity android:name="zurich_a" android:label="FixMyZürich"
+        <activity android:name="zurich_a" android:label="Züri wie neu"
                 android:theme="@android:style/Theme.Black.NoTitleBar"
                 android:screenOrientation="portrait">
             <intent-filter>
