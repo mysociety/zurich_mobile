@@ -4,9 +4,11 @@ fieldset {
 
 input[type="text"], input[type="password"],
 input[type="email"], input[type="file"],
+input[type="tel"],
 textarea {
     border: 1px solid rgba(0, 0, 0, .2);
     margin: 0px;
+    padding: 0px;
 }
 
 .full-width, .shadow-wrap, #footer-mobileapps, #map_box, .promo, .alert, #front-main #postcodeForm {
