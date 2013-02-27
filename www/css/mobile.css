@@ -252,7 +252,7 @@ input[type=submit].button-blue,
 }
 #search #btn-search {
     background-repeat: no-repeat;
-    background-image: url("themes/zurich/images/icons-36-white.png");
+    background-image: url("../img/icons-36-white.png");
     background-position: -540px -44px;
     background-color: rgb(201,201,201);
     border-color: rgb(201,201,201);
