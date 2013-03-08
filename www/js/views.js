@@ -529,6 +529,7 @@
             },
 
             onClickDone: function() {
+                FMS.currentReport = new FMS.Report();
                 this.navigate( 'home', 'left' );
             }
         })
