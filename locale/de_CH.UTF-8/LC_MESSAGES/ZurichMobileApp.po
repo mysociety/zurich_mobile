@@ -229,7 +229,7 @@ msgstr "Hier erfassen"
 
 #: templates/user.html:3
 msgid "User details"
-msgstr "User Details"
+msgstr "Benutzerdaten"
 
 #: templates/welcome.html:2
 msgid "Welcome to"
