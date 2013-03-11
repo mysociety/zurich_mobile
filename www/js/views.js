@@ -84,6 +84,7 @@
                     $('#error #msg').html(msg);
                     $('#errorOverlay').show();
                 } else {
+                    $('#ajaxOverlay').hide();
                     // we're using an alert box which on some android versions does not display entities
                     // properly so we use this quick hack to decode them
                     var decoded = $('<div/>').html(msg).text();
