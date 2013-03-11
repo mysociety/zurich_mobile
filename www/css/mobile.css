@@ -305,6 +305,36 @@ input[type=submit].button-blue,
     text-align: center;
 }
 
+.textpage {
+    padding: 1em;
+}
+
+.textpage h3,
+.textpage dt {
+    font-weight: bold;
+}
+
+.textpage p {
+    margin-left: 0.5em;
+}
+
+.textpage dt {
+    margin-top: 1em;
+}
+
+.textpage dd {
+    padding-left: 0em;
+    margin-left: 0.5em;
+}
+
+.textpage dd p {
+    margin-left: 0.5em;
+}
+
+.textpage dd ul {
+    margin-bottom: 0em;
+}
+
 /* Jquery mobile overrides */
 
 .ui-btn, .ui-btn-corner-all, .ui-btn-inner {
