@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-02-14 10:32+0000\n"
+"POT-Creation-Date: 2013-03-13 11:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Could not determine your location"
 msgstr ""
 
-#: templates/around.html:35
+#: templates/around.html:34
 msgid "Create Report"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: templates/around.html:33
+#: templates/around.html:30
 msgid "Enter a Z&uuml;rich street name"
 msgstr ""
 
@@ -133,7 +133,7 @@ msgstr ""
 msgid "No network connection available for submitting your report. Please try again later"
 msgstr ""
 
-#: templates/details.html:24
+#: templates/details.html:25
 msgid "Personal details"
 msgstr ""
 
@@ -141,12 +141,16 @@ msgstr ""
 msgid "Phone number (optional)"
 msgstr ""
 
-#: templates/report.html:47
+#: templates/report.html:51
 msgid "Photo of this report"
 msgstr ""
 
 #: templates/strings.js:7
 msgid "Please enter a location"
+msgstr ""
+
+#: templates/strings.js:16
+msgid "Please wait"
 msgstr ""
 
 #: templates/privacy.html:3 templates/settings.html:21
@@ -161,7 +165,7 @@ msgstr ""
 msgid "Report Sent"
 msgstr ""
 
-#: templates/report.html:40
+#: templates/report.html:44
 msgid "Reported in the %s category"
 msgstr ""
 
@@ -173,15 +177,15 @@ msgstr ""
 msgid "Select another"
 msgstr ""
 
-#: templates/settings.html:3 templates/settings.html:9
+#: templates/settings.html:3
 msgid "Settings"
 msgstr ""
 
-#: templates/details.html:25
+#: templates/details.html:26
 msgid "Signed in as %s"
 msgstr ""
 
-#: templates/details.html:29
+#: templates/details.html:30
 msgid "Submit"
 msgstr ""
 
@@ -205,7 +209,7 @@ msgstr ""
 msgid "There was a problem taking your photo"
 msgstr ""
 
-#: templates/report.html:57
+#: templates/report.html:61
 msgid "Updates"
 msgstr ""
 
@@ -217,7 +221,7 @@ msgstr ""
 msgid "Use this Location"
 msgstr ""
 
-#: templates/user.html:3
+#: templates/settings.html:9 templates/user.html:3
 msgid "User details"
 msgstr ""
 
@@ -225,7 +229,7 @@ msgstr ""
 msgid "Welcome to"
 msgstr ""
 
-#: templates/details.html:25
+#: templates/details.html:26
 msgid "click to edit"
 msgstr ""
 

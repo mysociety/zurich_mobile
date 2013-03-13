@@ -12,5 +12,6 @@ var STRINGS = {
     invalid_email: 'Ungültiges E-Mail',
     photo_failed: 'Fehler bei Foto',
     no_connection: 'Keine Internetverbindung gefunden. Bitte versuchen Sie es später nochmals.',
-    more_details: 'Beschreibung'
+    more_details: 'Beschreibung',
+    please_wait: 'Bitte warten'
 };

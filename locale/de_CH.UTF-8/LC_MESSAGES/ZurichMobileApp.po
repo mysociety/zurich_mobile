@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-02-14 10:32+0000\n"
+"POT-Creation-Date: 2013-03-13 11:48+0000\n"
 "PO-Revision-Date: 2013-02-20 15:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -59,7 +59,7 @@ msgstr "Ortung fehlgeschlagen"
 msgid "Could not determine your location"
 msgstr "Ihre Position konnte nicht bestimmt werden"
 
-#: templates/around.html:35
+#: templates/around.html:34
 msgid "Create Report"
 msgstr "Eine Meldung erfassen"
 
@@ -75,7 +75,7 @@ msgstr "Erledigt"
 msgid "Email"
 msgstr "E-Mail Adresse"
 
-#: templates/around.html:33
+#: templates/around.html:30
 msgid "Enter a Z&uuml;rich street name"
 msgstr "Ungefähre Adresse des Mangels"
 
@@ -139,9 +139,10 @@ msgstr "Fast Fertig! Bitte checken Sie ihre Mailbox..."
 msgid ""
 "No network connection available for submitting your report. Please try again "
 "later"
-msgstr "Keine Internetverbindung gefunden. Bitte versuchen Sie es später nochmals."
+msgstr ""
+"Keine Internetverbindung gefunden. Bitte versuchen Sie es später nochmals."
 
-#: templates/details.html:24
+#: templates/details.html:25
 msgid "Personal details"
 msgstr "Persönliche Angaben"
 
@@ -149,13 +150,17 @@ msgstr "Persönliche Angaben"
 msgid "Phone number (optional)"
 msgstr "Telefonnummer (optional)"
 
-#: templates/report.html:47
+#: templates/report.html:51
 msgid "Photo of this report"
 msgstr "Foto dieser Meldung"
 
 #: templates/strings.js:7
 msgid "Please enter a location"
 msgstr "Geben Sie die ungefähre Adresse des Mangels an"
+
+#: templates/strings.js:16
+msgid "Please wait"
+msgstr "Bitte warten"
 
 #: templates/privacy.html:3 templates/settings.html:21
 msgid "Privacy Policy"
@@ -169,7 +174,7 @@ msgstr "Foto löschen"
 msgid "Report Sent"
 msgstr "Meldung wurde gesendet"
 
-#: templates/report.html:40
+#: templates/report.html:44
 msgid "Reported in the %s category"
 msgstr "In der Kategorie %s gemeldet"
 
@@ -181,15 +186,15 @@ msgstr "Speichern"
 msgid "Select another"
 msgstr "Anderer Ort"
 
-#: templates/settings.html:3 templates/settings.html:9
+#: templates/settings.html:3
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: templates/details.html:25
+#: templates/details.html:26
 msgid "Signed in as %s"
 msgstr "Eingeloggt als %s"
 
-#: templates/details.html:29
+#: templates/details.html:30
 msgid "Submit"
 msgstr "Abschicken"
 
@@ -215,7 +220,7 @@ msgstr ""
 msgid "There was a problem taking your photo"
 msgstr "Fehler bei Foto"
 
-#: templates/report.html:57
+#: templates/report.html:61
 msgid "Updates"
 msgstr "Antwort"
 
@@ -227,7 +232,7 @@ msgstr "Foto verwenden"
 msgid "Use this Location"
 msgstr "Hier erfassen"
 
-#: templates/user.html:3
+#: templates/settings.html:9 templates/user.html:3
 msgid "User details"
 msgstr "Benutzerdaten"
 
@@ -235,7 +240,7 @@ msgstr "Benutzerdaten"
 msgid "Welcome to"
 msgstr "Willkommen zu"
 
-#: templates/details.html:25
+#: templates/details.html:26
 msgid "click to edit"
 msgstr "ändern"
 
