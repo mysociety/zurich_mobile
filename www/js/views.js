@@ -172,7 +172,12 @@
                 } else if ( this.model.get('lat') && this.model.get('lon') ) {
                     this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') } } );
                 } else {
-                    this.locate();
+                    // this is because on android the timing is such that the ajaxStop event
+                    // on the call to get the template can fire after locate is called and so
+                    // dismisses the wait dialog and the user is left staring at a blank map
+                    // while geolocation whirs away
+                    var that = this;
+                    window.setTimeout( function() { that.locate(); }, 20 );
                 }
             },
 
