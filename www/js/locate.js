@@ -36,7 +36,11 @@ var Locate = ( function() { return {
     geolocate: function() {
         this.locating = 1;
 
-        $('#ajaxOverlay').show();
+        if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+            navigator.notification.activityStart('', STRINGS.please_wait);
+        } else {
+            $('#ajaxOverlay').show();
+        }
         var that = this;
         this.watch_id = navigator.geolocation.watchPosition(
             function(location) {
@@ -51,7 +55,11 @@ var Locate = ( function() { return {
                 that.locating = 0;
                 navigator.geolocation.clearWatch( that.watch_id );
 
-                $('#ajaxOverlay').hide();
+                if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                    navigator.notification.activityStop();
+                } else {
+                    $('#ajaxOverlay').hide();
+                }
                 that.trigger('failed', { msg: STRINGS.geolocation_failed } );
             },
             { timeout: 7000, enableHighAccuracy: true }

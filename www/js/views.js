@@ -84,7 +84,6 @@
                     $('#error #msg').html(msg);
                     $('#errorOverlay').show();
                 } else {
-                    $('#ajaxOverlay').hide();
                     // we're using an alert box which on some android versions does not display entities
                     // properly so we use this quick hack to decode them
                     var decoded = $('<div/>').html(msg).text();
@@ -185,13 +184,6 @@
                 l.on('failed', this.noMap, this );
 
                 l.geolocate();
-
-                // android is quite slow to load things and hence on initial display it sometimes
-                // displays the overlay before the map screen and then the map screen jumps in
-                // front of the overlay so this kludge resolves the overlay never being seen.
-                if ( l.locating == 1 && typeof device !== 'undefined' && device.platform == 'Android' ) {
-                    window.setTimeout( function() { $('#ajaxOverlay').show(); }, 250 );
-                }
             },
 
             showMap: function( info ) {
@@ -212,7 +204,11 @@
             },
 
             noMap: function( details ) {
-                $('#ajaxOverlay').hide();
+                if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                    navigator.notification.activityStop();
+                } else {
+                    $('#ajaxOverlay').hide();
+                }
                 if ( details.msg ) {
                     this.displayError( details.msg );
                 } else if ( details.locs ) {

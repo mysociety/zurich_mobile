@@ -60,8 +60,13 @@ var tpl = {
             initialize: function() {
                 FMS.users.fetch();
                 FMS.currentUser = FMS.users.get(1);
-                $(document).on('ajaxStart', function() { $('#ajaxOverlay').show(); } );
-                $(document).on('ajaxStop', function() { $('#ajaxOverlay').hide(); } );
+                if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                    $(document).on('ajaxStart', function() { navigator.notification.activityStart('', STRINGS.please_wait); } );
+                    $(document).on('ajaxStop', function() { navigator.notification.activityStop(); } );
+                } else {
+                    $(document).on('ajaxStart', function() { $('#ajaxOverlay').show(); } );
+                    $(document).on('ajaxStop', function() { $('#ajaxOverlay').hide(); } );
+                }
             },
 
             back: function() {
