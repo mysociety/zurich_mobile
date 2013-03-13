@@ -341,7 +341,6 @@
             prev: 'around',
 
             events: {
-                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev'
             },
 
@@ -372,7 +371,6 @@
 
             events: {
                 'click #closeError': 'hideError',
-                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev',
                 'click .button-next': 'onClickButtonNext',
                 'click #use-photo': 'onClickButtonNext',
@@ -456,7 +454,6 @@
             },
 
             events: {
-                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev',
                 'click #closeError': 'hideError',
                 'click #send_report': 'onClickSubmit',
@@ -595,7 +592,6 @@
             events: {
                 'submit #userForm': 'onClickSave',
                 'click #save': 'onClickSave',
-                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev'
             }
 
@@ -620,7 +616,6 @@
             prev: 'around',
 
             events: {
-                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev',
                 'click #settings': 'onClickSettings',
                 'click #help': 'onClickHelp',
@@ -656,7 +651,6 @@
             },
 
             events: {
-                'backbutton': 'onClickButtonPrev',
                 'click .button-prev': 'onClickButtonPrev'
             }
         })

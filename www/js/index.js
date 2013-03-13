@@ -72,6 +72,8 @@ var tpl = {
             back: function() {
                 if (this.currentView && this.currentView.prev) {
                     this.currentView.onClickButtonPrev();
+                } else if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                    setTimeout( function() { navigator.app.exitApp(); } );
                 }
             },
 
