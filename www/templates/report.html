@@ -7,6 +7,16 @@
                         <div id="map"></div>
                     </div>
 
+                    <% var banner_class = 'closed';
+                        var pin_colour = 'red';
+                        if ( state.contains('fixed') || state == 'closed' ) {
+                            pin_colour = 'green';
+                            banner_class = 'fixed';
+                        } else if ( state == 'in progress' ) {
+                            pin_colour = 'yellow';
+                            banner_class = 'progress';
+                    } %>
+
                     <input type="hidden" name="zoom" value="7">
                     <script type="text/javascript">
                     var fixmystreet = {
@@ -20,18 +30,12 @@
                         'numZoomLevels': 9,
                         'zoomOffset': 0,
                         'map_type': OpenLayers.Layer.WMTS,
-                        'pins': [     [ <%= lat %>, <%= lon %>, 'yellow', '', "", 'big' ]
+                        'pins': [     [ <%= lat %>, <%= lon %>, '<%= pin_colour %>', '', "", 'big' ]
                      ]
 
                     }
                     </script>
 
-                    <% var banner_class = 'closed';
-                        if ( state.contains('fixed') || state == 'closed' ) {
-                            banner_class = 'fixed';
-                        } else if ( state == 'in progress' ) {
-                            banner_class = 'progress';
-                    } %>
                     <div class="banner">
                         <p id="<%= banner_class %>"><%= state_t %></p>
                     </div>
