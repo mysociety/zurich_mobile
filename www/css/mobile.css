@@ -35,9 +35,19 @@ h4.static-with-rule {
     font-size: 14px;
 }
 
-banner p.fixed {
+.banner p#fixed {
     background-color: #648721;
-};
+}
+
+.banner p#progress {
+    color: #1a1a1a;
+    background: #f3d74b;
+}
+
+.banner p#closed {
+    color: #1a1a1a;
+    background: #e25436;
+}
 
 .page-title {
     position: fixed;
