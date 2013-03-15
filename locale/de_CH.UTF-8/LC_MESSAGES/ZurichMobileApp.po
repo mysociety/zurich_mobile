@@ -57,7 +57,7 @@ msgstr "Ortung fehlgeschlagen"
 
 #: templates/strings.js:9
 msgid "Could not determine your location"
-msgstr "Ihre Position konnte nicht bestimmt werden"
+msgstr "Ihre Position konnte nicht bestimmt werden, bitte verwenden Sie die Adresssuche."
 
 #: templates/around.html:34
 msgid "Create Report"
