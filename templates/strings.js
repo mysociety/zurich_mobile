@@ -13,5 +13,5 @@ var STRINGS = {
     photo_failed: '[% loc('There was a problem taking your photo') %]',
     no_connection: '[% loc('No network connection available for submitting your report. Please try again later') %]',
     more_details: '[% loc('More details') %]',
-    please_wait: '[% loc('Please wait') %]
+    please_wait: '[% loc('Please wait') %]'
 };
