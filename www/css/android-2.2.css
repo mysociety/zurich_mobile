@@ -1,10 +1,24 @@
-.content {
+div.content {
     position: absolute !important;
-    top: 34px;
+    top: 44px;
     right: 0;
-    bottom: 0;
+    bottom: 30px;
     left: 0;
     margin-top: 0px;
+}
+
+#around-content {
+    bottom: 0px;
+}
+
+[class*="bar-"] {
+  position: absolute !important;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: 44px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .bar-tab {

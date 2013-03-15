@@ -134,13 +134,6 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Hack to force all relatively and absolutely positioned elements still render while scrolling
-   Note: This is a bug for "-webkit-overflow-scrolling: touch" */
-.content > * {
-  -webkit-transform: translateZ(0px);
-          transform: translateZ(0px);
-}
-
 /* Utility wrapper to pad in components like forms, block buttons and segmented-controllers so they're not full-bleed */
 .content-padded {
   padding: 10px;
@@ -148,26 +141,8 @@ a {
 
 /* Pad top/bottom of content so it doesn't hide behind .bar-title and .bar-tab.
    Note: For these to work, content must come after both bars in the markup */
-.bar-title ~ .content {
-  top: 44px;
-}
-.bar-tab ~ .content {
-  bottom: 51px;
-}
-.bar-header-secondary ~ .content {
-  top: 88px;
-}/* General bar styles
+/* General bar styles
 -------------------------------------------------- */
-
-[class*="bar-"] {
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 10;
-  height: 44px;
-  padding: 5px;
-  box-sizing: border-box;
-}
 
 /* Modifier class to dock any bar below .bar-title */
 .bar-header-secondary {

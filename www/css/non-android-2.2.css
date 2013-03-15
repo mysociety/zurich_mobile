@@ -13,3 +13,31 @@ body {
     bottom: 0;
     left: 0;
 }
+
+/* Hack to force all relatively and absolutely positioned elements still render while scrolling
+   Note: This is a bug for "-webkit-overflow-scrolling: touch" */
+.content > * {
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+
+
+[class*="bar-"] {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: 44px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.bar-title ~ .content {
+  top: 44px;
+}
+.bar-tab ~ .content {
+  bottom: 51px;
+}
+.bar-header-secondary ~ .content {
+  top: 88px;
+}
