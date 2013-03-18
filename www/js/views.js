@@ -271,6 +271,7 @@
             },
 
             onClickReport: function(e) {
+                e.preventDefault();
                 var report_id = e.currentTarget.id;
                 report_id = report_id.replace('report_', '');
 
