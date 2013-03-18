@@ -145,14 +145,15 @@ a:visited:active.button-blue {
 }
 
 .button-grey {
-    background: #a9a9a9;
+    background-color: #a9a9a9;
+    background-image: -webkit-linear-gradient(-90deg,#c9c9c9 0%, #a9a9a9 98%);
     color: white;
 }
 
 input[type=submit].button-blue,
 .button-blue {
+    background-color: #315db7;
     background-image: -webkit-linear-gradient(90deg, #416CC7, #315db7);
-    background: #315db7;
     color: white;
 }
 
