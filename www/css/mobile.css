@@ -150,6 +150,11 @@ a:visited:active.button-blue {
     color: white;
 }
 
+.button-grey-plain {
+    background-color: #a9a9a9;
+    background-image: none;
+}
+
 input[type=submit].button-blue,
 .button-blue {
     background-color: #315db7;
