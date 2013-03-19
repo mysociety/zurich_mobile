@@ -587,6 +587,11 @@ ul.list  {
     list-style: none;
 }
 
+.list li a,
+.list li a:active {
+    text-decoration: none;
+}
+
 .bar-title [class*=button],
 .bar-title .button-next:after,
 .bar-title .button-prev:before {
