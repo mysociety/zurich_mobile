@@ -45,6 +45,8 @@
                 }
             },
 
+            preventScroll: function(e) { e.preventDefault(); return false; },
+
             afterRender: function() {},
 
             navigate: function( target, direction ) {
@@ -230,6 +232,10 @@
             },
 
             events: {
+                'touchmove #relocate': 'preventScroll',
+                'touchmove #mark-here': 'preventScroll',
+                'touchmove #swap-map': 'preventScroll',
+                'touchmove #search': 'preventScroll',
                 'click .button-next': 'onClickButtonNext',
                 'click #btn-search': 'onClickSearch',
                 'submit #mapForm': 'onClickSearch',
