@@ -51,15 +51,13 @@ var Locate = ( function() { return {
                 that.check_location(location.coords);
             },
             function() {
-                if ( that.watch_id == undefined ) { return; }
-                that.locating = 0;
-                navigator.geolocation.clearWatch( that.watch_id );
-
                 if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
                     navigator.notification.activityStop();
                 } else {
                     $('#ajaxOverlay').hide();
                 }
+                that.locating = 0;
+                navigator.geolocation.clearWatch( that.watch_id );
                 that.trigger('failed', { msg: STRINGS.geolocation_failed } );
             },
             { timeout: 7000, enableHighAccuracy: true }
