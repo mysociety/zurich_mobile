@@ -232,6 +232,7 @@
             },
 
             events: {
+                'touchmove #map_box': 'preventScroll',
                 'touchmove #relocate': 'preventScroll',
                 'touchmove #mark-here': 'preventScroll',
                 'touchmove #swap-map': 'preventScroll',
