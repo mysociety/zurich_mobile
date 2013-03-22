@@ -133,7 +133,7 @@ msgstr "Name (optional)"
 
 #: templates/sent.html:6
 msgid "Nearly Done! Now check your email..."
-msgstr "Fast Fertig! Bitte checken Sie ihre Mailbox..."
+msgstr "Fast Fertig! Bitte checken Sie Ihre Mailbox..."
 
 #: templates/strings.js:14
 msgid ""
