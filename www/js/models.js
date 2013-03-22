@@ -29,7 +29,8 @@
                 may_show_name: '',
                 category: '',
                 phone: '',
-                pc: ''
+                pc: '',
+                file: ''
             },
 
             sync: function(method, model, options) {

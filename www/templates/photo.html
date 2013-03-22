@@ -15,7 +15,11 @@
                                       <a class="button-blue" id="add-photo">Foto hochladen</a>
                                   </div>
                                   <div class="center">
-                                  <img class="ext-photo-preview" src="img/placeholder-photo.png" alt="" id="report-photo">
+                                  <% if ( file ) { %>
+                                      <img class="ext-photo-preview" src="<%= file %>" alt="" id="report-photo">
+                                  <% } else { %>
+                                      <img class="ext-photo-preview" src="img/placeholder-photo.png" alt="" id="report-photo">
+                                  <% } %>
                                   </div>
                                   <div>
                                       <a class="button-grey" id="skip-photo">Weiter ohne Photo</a>
