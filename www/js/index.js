@@ -181,6 +181,8 @@ var tpl = {
                     router: new FMS.appRouter()
                 });
 
+                $(document).on('touchmove', '.ui-autocomplete', function(e) { console.log('auto move'); e.preventDefault(); } );
+
                 document.addEventListener('backbutton', function() { FMS.router.back(); }, true);
 
                 Backbone.history.start();
