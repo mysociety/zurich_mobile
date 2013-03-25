@@ -232,6 +232,8 @@
             },
 
             events: {
+                'touchmove #home-header': 'preventScroll',
+                'touchmove .page-title': 'preventScroll',
                 'touchmove #map_box': 'preventScroll',
                 'touchmove #relocate': 'preventScroll',
                 'touchmove #mark-here': 'preventScroll',
