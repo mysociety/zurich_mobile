@@ -15,7 +15,6 @@
 		1F766FE213BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDF13BBADB100FB74C0 /* Localizable.strings */; };
 		243329D816B1B037006D4944 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 243329D716B1B037006D4944 /* Icon.png */; };
 		243329DA16B1B046006D4944 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 243329D916B1B046006D4944 /* Icon@2x.png */; };
-		24D5B5F716B1A01800D762D7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D5B5F616B1A01800D762D7 /* Default@2x.png */; };
 		24D5B5F916B1A01C00D762D7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D5B5F816B1A01C00D762D7 /* Default-568h@2x.png */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
@@ -392,7 +391,6 @@
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
-				24D5B5F716B1A01800D762D7 /* Default@2x.png in Resources */,
 				24D5B5F916B1A01C00D762D7 /* Default-568h@2x.png in Resources */,
 				243329D816B1B037006D4944 /* Icon.png in Resources */,
 				243329DA16B1B046006D4944 /* Icon@2x.png in Resources */,
