@@ -184,6 +184,12 @@
             },
 
             locate: function() {
+                if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                    navigator.notification.activityStart('', STRINGS.please_wait);
+                } else {
+                    $('#ajaxOverlay').show();
+                }
+
                 var that = this;
                 var l = new Locate();
                 _.extend(l, Backbone.Events);
@@ -194,6 +200,11 @@
             },
 
             showMap: function( info ) {
+                if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                    navigator.notification.activityStop();
+                } else {
+                    $('#ajaxOverlay').hide();
+                }
                 var coords = info.coordinates;
                 fixmystreet.latitude = coords.latitude;
                 fixmystreet.longitude = coords.longitude;
@@ -212,7 +223,9 @@
 
             noMap: function( details ) {
                 if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
-                    navigator.notification.activityStop();
+                    // set a timeout here as if GPS is disabled then there seems to be a timing/thread issue
+                    // with when this and it doesn't dismiss the activity indicator on Android 4.1.x
+                    window.setTimeout( function() { navigator.notification.activityStop(); }, 1000 );
                 } else {
                     $('#ajaxOverlay').hide();
                 }

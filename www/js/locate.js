@@ -36,11 +36,6 @@ var Locate = ( function() { return {
     geolocate: function() {
         this.locating = 1;
 
-        if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
-            navigator.notification.activityStart('', STRINGS.please_wait);
-        } else {
-            $('#ajaxOverlay').show();
-        }
         var that = this;
         this.watch_id = navigator.geolocation.watchPosition(
             function(location) {
@@ -51,11 +46,6 @@ var Locate = ( function() { return {
                 that.check_location(location.coords);
             },
             function() {
-                if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
-                    navigator.notification.activityStop();
-                } else {
-                    $('#ajaxOverlay').hide();
-                }
                 that.locating = 0;
                 navigator.geolocation.clearWatch( that.watch_id );
                 that.trigger('failed', { msg: STRINGS.geolocation_failed } );
