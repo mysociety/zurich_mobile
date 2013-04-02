@@ -7,6 +7,15 @@
                         <fieldset>
                             <div id="problem_form">
                                 <div class="ext-form-content">
+                                  <% if ( file ) { %>
+                                  <div>
+                                      <a class="nodisplay button-blue" id="take-photo">[% loc('Take Photo') %]</a>
+                                      <a class="button-grey" id="del-photo">[% loc('Remove Photo') %]</a>
+                                  </div>
+                                  <div>
+                                      <a class="nodisplay button-blue" id="add-photo">[% loc('Add Existing Photo') %]</a>
+                                  </div>
+                                  <% } else { %>
                                   <div>
                                       <a class="button-blue" id="take-photo">[% loc('Take Photo') %]</a>
                                       <a class="nodisplay button-grey" id="del-photo">[% loc('Remove Photo') %]</a>
@@ -14,6 +23,7 @@
                                   <div>
                                       <a class="button-blue" id="add-photo">[% loc('Add Existing Photo') %]</a>
                                   </div>
+                                  <% } %>
                                   <div class="center">
                                   <% if ( file ) { %>
                                       <img class="ext-photo-preview" src="<%= file %>" alt="" id="report-photo">
@@ -22,8 +32,13 @@
                                   <% } %>
                                   </div>
                                   <div>
-                                      <a class="button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
+                                  <% if ( file ) { %>
+                                      <a class="button-blue" id="use-photo">[% loc('Use photo') %]</a>
+                                      <a class="nodisplay button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
+                                  <% } else { %>
                                       <a class="nodisplay button-blue" id="use-photo">[% loc('Use photo') %]</a>
+                                      <a class="button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
+                                  <% } %>
                                   </div>
                                 </div>
 

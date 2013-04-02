@@ -7,6 +7,15 @@
                         <fieldset>
                             <div id="problem_form">
                                 <div class="ext-form-content">
+                                  <% if ( file ) { %>
+                                  <div>
+                                      <a class="nodisplay button-blue" id="take-photo">Neues Foto machen</a>
+                                      <a class="button-grey" id="del-photo">Foto löschen</a>
+                                  </div>
+                                  <div>
+                                      <a class="nodisplay button-blue" id="add-photo">Foto hochladen</a>
+                                  </div>
+                                  <% } else { %>
                                   <div>
                                       <a class="button-blue" id="take-photo">Neues Foto machen</a>
                                       <a class="nodisplay button-grey" id="del-photo">Foto löschen</a>
@@ -14,6 +23,7 @@
                                   <div>
                                       <a class="button-blue" id="add-photo">Foto hochladen</a>
                                   </div>
+                                  <% } %>
                                   <div class="center">
                                   <% if ( file ) { %>
                                       <img class="ext-photo-preview" src="<%= file %>" alt="" id="report-photo">
@@ -22,8 +32,13 @@
                                   <% } %>
                                   </div>
                                   <div>
-                                      <a class="button-grey" id="skip-photo">Weiter ohne Photo</a>
+                                  <% if ( file ) { %>
+                                      <a class="button-blue" id="use-photo">Foto verwenden</a>
+                                      <a class="nodisplay button-grey" id="skip-photo">Weiter ohne Photo</a>
+                                  <% } else { %>
                                       <a class="nodisplay button-blue" id="use-photo">Foto verwenden</a>
+                                      <a class="button-grey" id="skip-photo">Weiter ohne Photo</a>
+                                  <% } %>
                                   </div>
                                 </div>
 
