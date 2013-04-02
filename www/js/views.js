@@ -438,9 +438,9 @@
                 $('#report-photo').attr('src', 'img/placeholder-photo.png');
                 $('#del-photo').hide();
                 $('#use-photo').hide();
-                $('#take-photo').show();
-                $('#add-photo').show();
-                $('#skip-photo').show();
+                $('#take-photo').show().css('display', 'inline-block');
+                $('#add-photo').show().css('display', 'inline-block');
+                $('#skip-photo').show().css('display', 'inline-block');
             }
         })
     });
