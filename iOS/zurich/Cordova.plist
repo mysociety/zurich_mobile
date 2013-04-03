@@ -28,6 +28,7 @@
 	<string>cloud</string>
 	<key>ExternalHosts</key>
 	<array>
+		<string>www.zueriwieneu.ch</string>
 		<string>*.stadt-zuerich.ch</string>
 		<string>zurich.fixmystreet.staging.mysociety.org</string>
 	</array>
