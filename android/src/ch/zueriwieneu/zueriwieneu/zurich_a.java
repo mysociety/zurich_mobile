@@ -17,11 +17,12 @@
        under the License.
  */
 
-package org.mysociety.zurich_a;
+package ch.zueriwieneu.zueriwieneu;
 
 import android.app.Activity;
 import android.os.Bundle;
 import org.apache.cordova.*;
+import ch.zueriwieneu.zueriwieneu.R;
 
 public class zurich_a extends DroidGap
 {
