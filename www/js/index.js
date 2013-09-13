@@ -79,8 +79,15 @@ var tpl = {
 
             home: function(){
                 if (FMS.currentUser) {
-                    var homeView = new FMS.HomeView({ model: FMS.currentReport });
-                    this.renderView(homeView);
+                    // Users are now required to have a phone number, so we
+                    // redirect to the welcome view if they haven't got one.
+                    if ( ! FMS.currentUser.get('phone') ) {
+                        var welcomeView = new FMS.WelcomeView({ model: FMS.currentUser });
+                        this.renderView(welcomeView);
+                    } else {
+                        var homeView = new FMS.HomeView({ model: FMS.currentReport });
+                        this.renderView(homeView);
+                    }
                 } else {
                     FMS.currentUser = new FMS.User({ id: 1 });
                     var welcomeView = new FMS.WelcomeView({ model: FMS.currentUser });
