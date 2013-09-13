@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-03-13 11:48+0000\n"
+"POT-Creation-Date: 2013-09-13 13:28+0100\n"
 "PO-Revision-Date: 2013-02-20 15:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -29,7 +29,7 @@ msgstr "Über"
 msgid "Add Details"
 msgstr "Details"
 
-#: templates/photo.html:15
+#: templates/photo.html:16 templates/photo.html:24
 msgid "Add Existing Photo"
 msgstr "Foto hochladen"
 
@@ -47,7 +47,7 @@ msgstr "Zurück"
 msgid "Category"
 msgstr "Kategorie"
 
-#: templates/photo.html:21
+#: templates/photo.html:37 templates/photo.html:40
 msgid "Continue without photo"
 msgstr "Weiter ohne Photo"
 
@@ -57,7 +57,9 @@ msgstr "Ortung fehlgeschlagen"
 
 #: templates/strings.js:9
 msgid "Could not determine your location"
-msgstr "Ihre Position konnte nicht bestimmt werden, bitte verwenden Sie die Adresssuche."
+msgstr ""
+"Ihre Position konnte nicht bestimmt werden, bitte verwenden Sie die "
+"Adresssuche."
 
 #: templates/around.html:34
 msgid "Create Report"
@@ -147,8 +149,8 @@ msgid "Personal details"
 msgstr "Persönliche Angaben"
 
 #: templates/user.html:20 templates/welcome.html:26
-msgid "Phone number (optional)"
-msgstr "Telefonnummer (optional)"
+msgid "Phone number"
+msgstr "Telefonnummer"
 
 #: templates/report.html:51
 msgid "Photo of this report"
@@ -166,7 +168,7 @@ msgstr "Bitte warten"
 msgid "Privacy Policy"
 msgstr "Disclaimer"
 
-#: templates/photo.html:12
+#: templates/photo.html:13 templates/photo.html:21
 msgid "Remove Photo"
 msgstr "Foto löschen"
 
@@ -202,7 +204,7 @@ msgstr "Abschicken"
 msgid "Sync error"
 msgstr "Sync Fehler"
 
-#: templates/photo.html:11
+#: templates/photo.html:12 templates/photo.html:20
 msgid "Take Photo"
 msgstr "Neues Foto machen"
 
@@ -224,7 +226,7 @@ msgstr "Fehler bei Foto"
 msgid "Updates"
 msgstr "Antwort"
 
-#: templates/photo.html:22
+#: templates/photo.html:36 templates/photo.html:39
 msgid "Use photo"
 msgstr "Foto verwenden"
 
