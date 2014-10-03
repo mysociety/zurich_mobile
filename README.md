@@ -78,3 +78,32 @@ Cordova by default writes it out to that file in your project root
 `platforms/android/cordova` and run `./log`. I found that I needed to be in the
 directory for it to actually print anything, YMMV.
 - Leave the emulators running once they start, it's much quicker!
+
+Releasing
+---------
+### Android
+To release the app on Android, you need to do the following:
+
+1. Change your config.js to include production settings
+
+2. Bump the version code in config.xml, both the main one and the android specific one
+
+2. Build a release version of the app: `cordova build android --release`
+
+3. Sign that `.apk` (the cordova command tells you where it put it):
+    1. Clone the mySociety keys repository
+    2. `cd` into the folder containing your new release `.apk`
+    3. Sign the .apk with our key: `jarsigner -verbose -keystore <path-to-keys-repo>keys/android/android_keystore -sigalg SHA1withRSA -digestalg SHA1 ZuriWieNeu-release-unsigned.apk zurich` Double check that you're signing the right .apk here as there
+    will be debug ones too.
+
+      This will ask first for a password for the keystore (it's in the usual place
+      if you're a mysociety developer), then a password for the app specific key,
+      (`zurich` in the command above is a special shortname for the app that
+      identifies which key to use.)
+
+4. Verify that the signing was ok: `jarsigner -verify -verbose -certs ZuriWieNeu-release-unsigned.apk` (The signing doesn't change the name of your `.apk`). You should
+see `sm` next to every file.
+
+5. Align the `.apk` using `zipalign` (Note, you might have to manually find `zipalign` in `build-tools` inside the sdk-folder): `zipalign -v 4 ZuriWieNeu-release-unsigned.apk ZuriWieNeu.apk`
+
+Note: most of this comes from: http://developer.android.com/tools/publishing/app-signing.html#signing-manually, you can also do it via Eclipse or Android Studio if you wish.
