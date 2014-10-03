@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ch.zueriwieneu.zueriwieneu" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Zuri Wie Neu</name>
+    <author email="apps@mysociety.org" href="http://www.mysociety.org">
+        mySociety Ltd
+    </author>
+    <content src="index.html" />
+
+    <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
+
+    <access origin="global.mapit.mysociety.org" />
+    <access origin="zurich.fixmystreet.staging.mysociety.org" />
+    <access origin="www.zueriwieneu.ch" />
+    <access origin="zurich.fixmystreet.com" />
+    <access origin="www.wmts.stadt-zuerich.ch" />
+
+    <log level="DEBUG"/>
+    <preference name="useBrowserHistory" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+
+    <!-- Icons and Splash Screens -->
+    <icon src="www/res/icon.png" />
+
+    <platform name="android">
+        <icon src="www/res/android/ldpi.png" density="ldpi" />
+        <icon src="www/res/android/mdpi.png" density="mdpi" />
+        <icon src="www/res/android/hdpi.png" density="hdpi" />
+        <icon src="www/res/android/xhdpi.png" density="xhdpi" />
+
+        <splash src="www/res/screen/android/splash-hdpi.png" density="hdpi"/>
+        <splash src="www/res/screen/android/splash-ldpi.png" density="ldpi"/>
+        <splash src="www/res/screen/android/splash-mdpi.png" density="mdpi"/>
+        <splash src="www/res/screen/android/splash-xhdpi.png" density="xhdpi"/>
+    </platform>
+
+    <platform name="ios">
+        <!-- iPhone / iPod Touch -->
+        <icon src="www/res/ios/Icon.png" width="57" height="57" />
+        <icon src="www/res/ios/Icon@2x.png" width="114" height="114" />
+        <!-- iPad -->
+        <icon src="www/res/ios/icon-72.png" width="72" height="72" />
+        <icon src="www/res/ios/icon-144.png" width="144" height="144" />
+
+        <!-- Splash Screens -->
+        <splash src="www/res/screen/ios/Default~iphone.png" width="320" height="480"/>
+        <splash src="www/res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
+        <splash src="www/res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
+        <splash src="www/res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+        <splash src="www/res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+        <splash src="www/res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+        <splash src="www/res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+     </platform>
+</widget>
+
