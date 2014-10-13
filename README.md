@@ -93,12 +93,12 @@ To release the app on Android, you need to do the following:
 3. Sign that `.apk` (the cordova command tells you where it put it):
     1. Clone the mySociety keys repository
     2. `cd` into the folder containing your new release `.apk`
-    3. Sign the .apk with our key: `jarsigner -verbose -keystore <path-to-keys-repo>keys/android/android_keystore -sigalg SHA1withRSA -digestalg SHA1 ZuriWieNeu-release-unsigned.apk zurich` Double check that you're signing the right .apk here as there
+    3. Sign the .apk with our key: `jarsigner -verbose -keystore <path-to-keys-repo>keys/android/android_keystore -sigalg SHA1withRSA -digestalg SHA1 ZuriWieNeu-release-unsigned.apk fixmyzurich` Double check that you're signing the right .apk here as there
     will be debug ones too.
 
       This will ask first for a password for the keystore (it's in the usual place
       if you're a mysociety developer), then a password for the app specific key,
-      (`zurich` in the command above is a special shortname for the app that
+      (`fixmyzurich` in the command above is a special shortname for the app that
       identifies which key to use.)
 
 4. Verify that the signing was ok: `jarsigner -verify -verbose -certs ZuriWieNeu-release-unsigned.apk` (The signing doesn't change the name of your `.apk`). You should
