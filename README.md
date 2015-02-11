@@ -9,23 +9,25 @@ This project uses Apache Cordova to produce Android and iOS apps. There is
 some mildly complicated configuration and setup required to be able to develop
 with it. The following all assumes you're working on a Mac.
 
-1. Make sure you have the latest versions of XCode, the Android SDK, node and
+1. Make sure you have the latest versions of XCode, JDK 1.8, the Android SDK, node and
 npm installed. It's a very good idea to have installed the Intel HAXM versions
 of the Android emulator because they're about 100 times faster to run. You need
 to download it from the Android SDK Manager (run `android` on the command line)
-and then actually run the `.dmg` that this creates in your sdk folder.
+and then actually run the `.dmg` that this creates in your sdk folder. (Alternatively `brew cask install intel-haxm` if you use [Homebrew Cask](http://caskroom.io).)
 
 2. Install the cordova CLI with npm: `npm install -g cordova`
 Note that this is not the same as the phonegap CLI and the two should not be
 mixed up. The latter gives you access to Adobe's proprietary phonegap build
 service, which we **don't** use!
 
-3. Checkout the project
+3. Install the "Android 4.4.2 (API 19)" and "Android SDK Build-tools" packages within the Android SDK Manager (run `android` on the command line)
 
-4. `cd` into the project directory and install the Cordova platforms you need:
-`cordova platform add android` and `cordova platform add ios`
+4. Checkout the project
 
-5. Add the cordova plugins we use. As of writing the list is: (from `cordova plugin list`)
+5. `cd` into the project directory and install the Cordova platforms you need:
+`cordova platform add android` and `cordova platform add ios`. You need to ensure `ANDROID_HOME` and `JAVA_HOME` environment variables are set correctly beforehand.
+
+6. Add the cordova plugins we use. As of writing the list is: (from `cordova plugin list`)
 
    ```
    org.apache.cordova.battery-status 0.2.11 "Battery"
@@ -45,14 +47,17 @@ service, which we **don't** use!
    org.apache.cordova.splashscreen 0.3.3 "Splashscreen"
    ```
 
-   So to install them: `cordova plugin install org.apache.cordova.battery-status org.apache.cordova.camera org.apache.cordova.contacts org.apache.cordova.device org.apache.cordova.device-motion org.apache.cordova.device-orientation org.apache.cordova.dialogs org.apache.cordova.file org.apache.cordova.file-transfer org.apache.cordova.geolocation org.apache.cordova.globalization org.apache.cordova.media org.apache.cordova.media-capture org.apache.cordova.network-information org.apache.cordova.splashscreen`
+   So to install them: `cordova plugin add org.apache.cordova.battery-status org.apache.cordova.camera org.apache.cordova.contacts org.apache.cordova.device org.apache.cordova.device-motion org.apache.cordova.device-orientation org.apache.cordova.dialogs org.apache.cordova.file org.apache.cordova.file-transfer org.apache.cordova.geolocation org.apache.cordova.globalization org.apache.cordova.media org.apache.cordova.media-capture org.apache.cordova.network-information org.apache.cordova.splashscreen`
 
    (These might be installed automatically, I'm not totally sure how Cordova remembers them)
 
-6. Copy `www/js/config.js-example to www/js/config.js` and edit if needed
+7. Install Apache Ant (`brew install ant`, if you use Homebrew) for Android build support, and `ios-sim` (`npm install -g ios-sim`) for iOS simulator support.
 
-7. To run the project on one of the platforms, use: `cordova emulate ios` or `cordova emulate android`
-(You might need to `npm install -g ios-sim` to run it on ios)
+8. Create a new 'Android Virtual Device' for emulating a real device by running `android avd` and using one of the 'Device Definitions' on the second tab as a template. It doesn't matter which one, but set the CPU type to 'Atom (x86)' otherwise it will be very very slow. Enable 'Use Host GPU', if available, to massively speed up the UI. Ticking 'Hardware keyboard present' will allow you to use your keyboard instead of hunting-and-pecking the on-screen keyboard.
+
+9. Copy `www/js/config.js-example to www/js/config.js` and edit if needed
+
+10. To run the project on one of the platforms, use: `cordova emulate ios` or `cordova emulate android`
 
 Tips and Tricks
 --------------
@@ -78,6 +83,7 @@ Cordova by default writes it out to that file in your project root
 `platforms/android/cordova` and run `./log`. I found that I needed to be in the
 directory for it to actually print anything, YMMV.
 - Leave the emulators running once they start, it's much quicker!
+- If you're using your own FMS backend, you'll need to add an `<access origin="" />` tag to `config.xml` to allow access from within the app. **Make sure** you remove any such lines before building/committing!
 
 Releasing
 ---------
