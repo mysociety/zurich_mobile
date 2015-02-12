@@ -537,7 +537,11 @@
 
             onReportError: function(model, err, options) {
                 this.model.off('error', this.onReportError);
-                alert( STRINGS.sync_error + ': ' + err.errors);
+                var message = STRINGS.sync_error + ':\n';
+                for (var field in err.errors) {
+                    message += err.errors[field] + "\n";
+                }
+                alert(message);
             }
         })
     });
