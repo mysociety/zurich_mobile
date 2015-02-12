@@ -531,10 +531,12 @@
             },
 
             onReportSync: function(model, resp, options) {
+                this.model.off('sync', this.onReportSync);
                 this.navigate( 'sent', 'left' );
             },
 
             onReportError: function(model, err, options) {
+                this.model.off('error', this.onReportError);
                 alert( STRINGS.sync_error + ': ' + err.errors);
             }
         })
