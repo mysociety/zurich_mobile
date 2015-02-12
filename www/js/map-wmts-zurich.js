@@ -32,13 +32,11 @@
         scales: [ '64000', '32000', '16000', '8000', '4000', '2000', '1000', '500']
     };
 
-    var layer_options = {
+    // These values are common to both the Stadtplan and Luftbild map layers
+    var base_layer_options = {
         projection: new OpenLayers.Projection("EPSG:21781"),
-        name: "StadtPlan",
-        layer: "StadtPlan",
         matrixSet: "nativeTileMatrixSet",
         requestEncoding: "REST",
-        url: "http://www.wmts.stadt-zuerich.ch/Stadtplan/MapServer/WMTS/tile/",
         style: "default",
         matrixIds: [
             //{ identifier: "0", matrixHeight: 2, matrixWidth: 2, scaleDenominator: 250000,  supportedCRS: "urn:ogc:def:crs:EPSG::21781", tileHeight: 256, tileWidth: 256, topLeftCorner: { lat: 30814423, lon: -29386322 } },
@@ -53,13 +51,32 @@
             { identifier: "9", matrixHeight: 415, matrixWidth: 414, scaleDenominator: 500, supportedCRS: "urn:ogc:def:crs:EPSG::21781", tileHeight: 256, tileWidth: 256, topLeftCorner: { lat: 30814423, lon: -29386322 } }
         ]
     };
-    fixmystreet.layer_options = [
-        layer_options, OpenLayers.Util.applyDefaults({
+
+    // The satellite (Luftbild) layer
+    var hybrid_layer_options = OpenLayers.Util.applyDefaults({
             name: "Hybrid",
             layer: "Hybrid",
             url:  "http://www.wmts.stadt-zuerich.ch/Hybrid/MapServer/WMTS/tile/"
-        }, layer_options)
+        }, base_layer_options);
+
+    // The street (Stadtplan) layer
+    var stadtplan_layer_options = OpenLayers.Util.applyDefaults({
+            name: "StadtPlan",
+            layer: "StadtPlan",
+            url: "http://www.wmts.stadt-zuerich.ch/Stadtplan/MapServer/WMTS/tile/"
+        }, base_layer_options);
+
+    // Whichever layer appears first in this list will be the default used for
+    // the map.
+    // NB: If you change the default, you must update the contents of
+    // #swap-map in www/templates/around.html to match.
+    fixmystreet.layer_options = [
+        hybrid_layer_options,
+        stadtplan_layer_options
     ];
+
+    fixmystreet.HYBRID_LAYER_INDEX = fixmystreet.layer_options.indexOf(hybrid_layer_options);
+    fixmystreet.STADTPLAN_LAYER_INDEX = fixmystreet.layer_options.indexOf(stadtplan_layer_options);
 
 
     // Give main code a new bbox_strategy that translates between

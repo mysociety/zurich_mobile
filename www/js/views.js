@@ -339,12 +339,13 @@
             onSwapMap: function(e) {
                 var el = $('#swap-map');
                 var s = el.text();
-                var layer = 1;
+                var layer;
                 if ( s == 'Luftbild' ) {
                     el.text('Stadtplan');
+                    layer = fixmystreet.HYBRID_LAYER_INDEX;
                 } else {
                     el.text('Luftbild');
-                    layer = 0;
+                    layer = fixmystreet.STADTPLAN_LAYER_INDEX;
                 }
                 fixmystreet.map.setBaseLayer(fixmystreet.map.layers[layer]);
 
