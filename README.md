@@ -45,9 +45,10 @@ service, which we **don't** use!
    org.apache.cordova.media-capture 0.3.3 "Capture"
    org.apache.cordova.network-information 0.2.12 "Network Information"
    org.apache.cordova.splashscreen 0.3.3 "Splashscreen"
+   org.apache.cordova.statusbar 0.1.10 "StatusBar"
    ```
 
-   So to install them: `cordova plugin add org.apache.cordova.battery-status org.apache.cordova.camera org.apache.cordova.contacts org.apache.cordova.device org.apache.cordova.device-motion org.apache.cordova.device-orientation org.apache.cordova.dialogs org.apache.cordova.file org.apache.cordova.file-transfer org.apache.cordova.geolocation org.apache.cordova.globalization org.apache.cordova.media org.apache.cordova.media-capture org.apache.cordova.network-information org.apache.cordova.splashscreen`
+   So to install them: `cordova plugin add org.apache.cordova.battery-status org.apache.cordova.camera org.apache.cordova.contacts org.apache.cordova.device org.apache.cordova.device-motion org.apache.cordova.device-orientation org.apache.cordova.dialogs org.apache.cordova.file org.apache.cordova.file-transfer org.apache.cordova.geolocation org.apache.cordova.globalization org.apache.cordova.media org.apache.cordova.media-capture org.apache.cordova.network-information org.apache.cordova.splashscreen org.apache.cordova.statusbar`
 
    (These might be installed automatically, I'm not totally sure how Cordova remembers them)
 

@@ -21,6 +21,8 @@
     <log level="DEBUG"/>
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
 
     <!-- Icons and Splash Screens -->
     <icon src="www/res/icon.png" />
