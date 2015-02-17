@@ -21,18 +21,18 @@
         Report: Backbone.Model.extend({
             urlRoot: CONFIG.FMS_URL + 'report/ajax',
 
-            defaults: {
-                lat: 0,
-                lon: 0,
-                title: '',
-                details: '',
-                may_show_name: '',
-                category: '',
-                phone: '',
-                pc: '',
-                file: '',
-                file2: '',
-                file3: ''
+            defaults: function(){
+                return {
+                    lat: 0,
+                    lon: 0,
+                    title: '',
+                    details: '',
+                    may_show_name: '',
+                    category: '',
+                    phone: '',
+                    pc: '',
+                    files: [],
+                };
             },
 
             sync: function(method, model, options) {
@@ -113,13 +113,11 @@
                 return name;
             },
 
-            _addExtraPhotos: function(model, options, success, error) {
+            _addExtraPhotos: function(files, options, success, error) {
                 var photos = [];
-                if ( model.get('file2') && model.get('file2') !== '' ) {
-                    photos.push({field: "photo2", uri: model.get('file2')});
-                }
-                if ( model.get('file3') && model.get('file3') !== '' ) {
-                    photos.push({field: "photo3", uri: model.get('file3')});
+                for (var i = 0; i < files.length; i++) {
+                    var uri = files[i];
+                    photos.push({field: "photo"+(i+2), uri: uri});
                 }
                 this._addNextExtraPhoto(photos, options, success, error);
             },
@@ -169,7 +167,7 @@
                     });
                 }
 
-                if ( model.get('file') && model.get('file') !== '' ) {
+                if ( model.get('files') && model.get('files').length > 0 ) {
                     var handlers = options;
                     var fileUploadSuccess = function(r) {
                         $('#ajaxOverlay').hide();
@@ -192,7 +190,8 @@
                         handlers.error(STRINGS.report_send_error);
                     };
 
-                    fileURI = model.get('file');
+                    files = model.get('files').slice();
+                    fileURI = files.shift();
 
                     var options = new FileUploadOptions();
                     options.fileKey="photo";
@@ -205,7 +204,7 @@
                     // add the photos to the file upload request manually
                     // as FileTransfer only supports a single file upload.
                     this._addExtraPhotos(
-                        model,
+                        files,
                         options,
                         function() {
                             $('#ajaxOverlay').show();
