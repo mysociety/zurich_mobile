@@ -7,38 +7,37 @@
                         <fieldset>
                             <div id="problem_form">
                                 <div class="ext-form-content">
-                                  <% if ( file ) { %>
-                                  <div>
-                                      <a class="nodisplay button-blue" id="take-photo">[% loc('Take Photo') %]</a>
-                                      <a class="button-grey" id="del-photo">[% loc('Remove Photo') %]</a>
-                                  </div>
-                                  <div>
-                                      <a class="nodisplay button-blue" id="add-photo">[% loc('Add Existing Photo') %]</a>
-                                  </div>
-                                  <% } else { %>
-                                  <div>
-                                      <a class="button-blue" id="take-photo">[% loc('Take Photo') %]</a>
-                                      <a class="nodisplay button-grey" id="del-photo">[% loc('Remove Photo') %]</a>
-                                  </div>
-                                  <div>
-                                      <a class="button-blue" id="add-photo">[% loc('Add Existing Photo') %]</a>
-                                  </div>
+                                  <% if ( files.length < 3 ) { %>
+                                      <div>
+                                          <a class="button-blue" id="take-photo">[% loc('Take Photo') %]</a>
+                                      </div>
+                                      <div>
+                                          <a class="button-blue" id="add-photo">[% loc('Add Existing Photo') %]</a>
+                                      </div>
                                   <% } %>
-                                  <div class="center">
-                                  <% if ( file ) { %>
-                                      <img class="ext-photo-preview" src="<%= file %>" alt="" id="report-photo">
+
+                                  <% if ( files.length == 0 ) { %>
+                                      <div class="center">
+                                          <img class="ext-photo-preview" src="img/placeholder-photo.png" alt="">
+                                      </div>
                                   <% } else { %>
-                                      <img class="ext-photo-preview" src="img/placeholder-photo.png" alt="" id="report-photo">
+                                      <div class="center">
+                                          <% _.each(files, function(file, index) { %>
+                                              <div class="ext-photo-preview photo-size-<%= files.length %>" style="background-image: url(<%= file %>)">
+                                                  <a class="del-photo button-grey" data-file-index="<%= index %>">[% loc('Remove Photo') %]</a>
+                                              </div>
+                                          <% }); %>
+                                      </div>
                                   <% } %>
-                                  </div>
+
                                   <div>
-                                  <% if ( file ) { %>
-                                      <a class="button-blue" id="use-photo">[% loc('Use photo') %]</a>
-                                      <a class="nodisplay button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
-                                  <% } else { %>
-                                      <a class="nodisplay button-blue" id="use-photo">[% loc('Use photo') %]</a>
-                                      <a class="button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
-                                  <% } %>
+                                      <% if ( files.length == 0 ) { %>
+                                          <a class="button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
+                                      <% } else if ( files.length == 1 ) { %>
+                                          <a class="button-blue" id="use-photo">[% loc('Use photo') %]</a>
+                                      <% } else { %>
+                                          <a class="button-blue" id="use-photo">[% loc('Use photos') %]</a>
+                                      <% } %>
                                   </div>
                                 </div>
 

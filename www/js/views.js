@@ -401,7 +401,7 @@
                 'click #skip-photo': 'onClickButtonNext',
                 'click #take-photo': 'takePhoto',
                 'click #add-photo': 'addPhoto',
-                'click #del-photo': 'deletePhoto'
+                'click .del-photo': 'deletePhoto'
             },
 
             takePhoto: function() {
@@ -415,14 +415,10 @@
             },
 
             addPhotoSuccess: function(imgURI) {
-                $('#report-photo').attr('src', imgURI );
-                this.model.set('file', imgURI);
-
-                $('#del-photo').show().css('display', 'inline-block');
-                $('#use-photo').show().css('display', 'inline-block');
-                $('#take-photo').hide();
-                $('#add-photo').hide();
-                $('#skip-photo').hide();
+                var files = this.model.get('files');
+                files.push(imgURI);
+                this.model.set('files', files);
+                this.render();
             },
 
             addPhotoFail: function() {
@@ -434,14 +430,13 @@
                 }
             },
 
-            deletePhoto: function() {
-                this.model.set('file', '');
-                $('#report-photo').attr('src', 'img/placeholder-photo.png');
-                $('#del-photo').hide();
-                $('#use-photo').hide();
-                $('#take-photo').show().css('display', 'inline-block');
-                $('#add-photo').show().css('display', 'inline-block');
-                $('#skip-photo').show().css('display', 'inline-block');
+            deletePhoto: function(event) {
+                console.log(arguments);
+                var files = this.model.get('files');
+                var index = parseInt($(event.target).data('fileIndex'));
+                files.splice(index, 1);
+                this.model.set('files', files);
+                this.render();
             }
         })
     });
