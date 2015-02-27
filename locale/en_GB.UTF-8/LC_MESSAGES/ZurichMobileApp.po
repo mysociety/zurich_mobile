@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-09-13 13:28+0100\n"
+"POT-Creation-Date: 2015-02-27 14:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -30,7 +30,7 @@ msgstr ""
 msgid "Add Details"
 msgstr ""
 
-#: templates/photo.html:16 templates/photo.html:24
+#: templates/photo.html:15
 msgid "Add Existing Photo"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
-#: templates/photo.html:37 templates/photo.html:40
+#: templates/photo.html:35
 msgid "Continue without photo"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: templates/photo.html:13 templates/photo.html:21
+#: templates/photo.html:27
 msgid "Remove Photo"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Sync error"
 msgstr ""
 
-#: templates/photo.html:12 templates/photo.html:20
+#: templates/photo.html:12
 msgid "Take Photo"
 msgstr ""
 
@@ -221,8 +221,12 @@ msgstr ""
 msgid "Updates"
 msgstr ""
 
-#: templates/photo.html:36 templates/photo.html:39
+#: templates/photo.html:37
 msgid "Use photo"
+msgstr ""
+
+#: templates/photo.html:39
+msgid "Use photos"
 msgstr ""
 
 #: templates/around.html:37

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2013-09-13 13:28+0100\n"
+"POT-Creation-Date: 2015-02-27 14:25+0000\n"
 "PO-Revision-Date: 2013-02-20 15:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -29,7 +29,7 @@ msgstr "Über"
 msgid "Add Details"
 msgstr "Details"
 
-#: templates/photo.html:16 templates/photo.html:24
+#: templates/photo.html:15
 msgid "Add Existing Photo"
 msgstr "Foto hochladen"
 
@@ -47,7 +47,7 @@ msgstr "Zurück"
 msgid "Category"
 msgstr "Kategorie"
 
-#: templates/photo.html:37 templates/photo.html:40
+#: templates/photo.html:35
 msgid "Continue without photo"
 msgstr "Weiter ohne Photo"
 
@@ -168,7 +168,7 @@ msgstr "Bitte warten"
 msgid "Privacy Policy"
 msgstr "Disclaimer"
 
-#: templates/photo.html:13 templates/photo.html:21
+#: templates/photo.html:27
 msgid "Remove Photo"
 msgstr "Foto löschen"
 
@@ -204,7 +204,7 @@ msgstr "Abschicken"
 msgid "Sync error"
 msgstr "Sync Fehler"
 
-#: templates/photo.html:12 templates/photo.html:20
+#: templates/photo.html:12
 msgid "Take Photo"
 msgstr "Neues Foto machen"
 
@@ -226,8 +226,13 @@ msgstr "Fehler bei Foto"
 msgid "Updates"
 msgstr "Antwort"
 
-#: templates/photo.html:36 templates/photo.html:39
+#: templates/photo.html:37
 msgid "Use photo"
+msgstr "Foto verwenden"
+
+#: templates/photo.html:39
+#, fuzzy
+msgid "Use photos"
 msgstr "Foto verwenden"
 
 #: templates/around.html:37
