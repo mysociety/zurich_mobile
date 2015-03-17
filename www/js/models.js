@@ -151,6 +151,13 @@
                     used_map: 1
                 };
 
+                var extra_fields = model.get('extra_details');
+                if ( extra_fields && extra_fields.length > 0 ) {
+                    for ( var i = 0; i < extra_fields.length; i++ ) {
+                        params[extra_fields[i]] = model.get(extra_fields[i]);
+                    }
+                }
+
                 if ( FMS.currentUser ) {
                     params.name = FMS.currentUser.get('name');
                     params.email = FMS.currentUser.get('email');

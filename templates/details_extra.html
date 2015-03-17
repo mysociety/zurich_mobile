@@ -1,0 +1,28 @@
+            <header class="bar-title">
+                <div class="button-prev">[% loc('Back') %]</div>
+                <h1 class="title">[% loc('Further Details') %]</h1>
+            </header>
+
+            <div class="content dot-background" role="main">
+                <div id="side-form">
+                    <fieldset>
+                        <div id="problem_form">
+                            <div class="ext-form-content">
+                                <%= category_extras %>
+
+                                <div class="form-txt-submit-box">
+                                    <input class="button-blue" type="button" id="send_report" name="send_report" value="[% loc('Submit') %]">
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <nav class="bar-tab">
+                <ol class="ext-progress">
+                    <li class="step step-complete">1</li>
+                    <li class="step step-complete">2</li>
+                    <li class="step step-current">3</li>
+                </ol>
+            </nav>

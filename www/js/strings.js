@@ -8,6 +8,7 @@ var STRINGS = {
     location_check_failed: 'Ortung fehlgeschlagen',
     geolocation_failed: 'Ihre Position konnte nicht bestimmt werden, bitte verwenden Sie die Adresssuche.',
     select_category: '-- Wählen Sie eine Kategorie --',
+    category_extra_check_error: 'There was a problem checking if we have all the details we need. Please try again later.',
     required: 'benötigt',
     invalid_email: 'Ungültiges E-Mail',
     photo_failed: 'Fehler bei Foto',
