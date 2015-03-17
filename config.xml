@@ -16,7 +16,7 @@
     <access origin="zurich.fixmystreet.staging.mysociety.org" />
     <access origin="www.zueriwieneu.ch" />
     <access origin="zurich.fixmystreet.com" />
-    <access origin="www.wmts.stadt-zuerich.ch" />
+    <access origin="www.gis.stadt-zuerich.ch" />
 
     <log level="DEBUG"/>
     <preference name="useBrowserHistory" value="true" />
