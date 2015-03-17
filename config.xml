@@ -55,6 +55,8 @@
         <splash src="www/res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
         <splash src="www/res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
         <splash src="www/res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+        <splash src="www/res/screen/ios/Default-667h@2x~iphone.png" width="750" height="1334"/>
+        <splash src="www/res/screen/ios/Default-736h@3x~iphone.png" width="1242" height="2208"/>
      </platform>
 </widget>
 
