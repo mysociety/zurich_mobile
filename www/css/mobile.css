@@ -500,7 +500,8 @@ input[type=submit].button-blue,
 
 .ext-form-content label {
     font-weight: normal;
-    margin-top: 0.5em;
+    margin-top: 0.125em;
+    margin-bottom: 0.125em;
     padding-left: 0.5em;
 }
 
@@ -515,7 +516,7 @@ input[type=submit].button-blue,
 
 .ext-form-content #save,
 .ext-form-content #send_report {
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
 
 #form_detail {
