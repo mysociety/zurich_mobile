@@ -33,7 +33,7 @@
             fixNavButtons: function() {
                 // android doesn't support gradients in image mask so we need to
                 // add them dynamically
-                if ( typeof device !== 'undefined' && ( device.platform.contains('iPhone') || device.platform.contains('iPad') ) ) {
+                if ( typeof device !== 'undefined' && ( device.platform.contains('iPhone') || device.platform.contains('iPad') || device.platform.contains('iOS') ) ) {
                     this.$('.bar-title .button-prev').addClass('button-gradient');
                     this.$('.bar-title .button-next').addClass('button-gradient');
                 } else {
@@ -82,7 +82,7 @@
                 console.log( 'displayError: ' + msg );
                 /* There seems to be some issue with the event for the button of the
                  * faux alerts on android so use the system alert instead */
-                if ( typeof device !== 'undefined' && ( device.platform.contains('iPhone') || device.platform.contains('iPad') ) ) {
+                if ( typeof device !== 'undefined' && ( device.platform.contains('iPhone') || device.platform.contains('iPad') || device.platform.contains('iOS') ) ) {
                     $('#error #msg').html(msg);
                     $('#errorOverlay').show();
                 } else {
