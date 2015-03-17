@@ -46,6 +46,7 @@ var tpl = {
                 'report': 'report',
                 'photo': 'photo',
                 'details': 'details',
+                'details_extra': 'details_extra',
                 'sent': 'sent',
                 'user': 'user',
                 'settings-user': 'settingsuser',
@@ -115,6 +116,11 @@ var tpl = {
                 this.changeView(detailsView);
             },
 
+            details_extra: function(){
+                var detailsExtraView = new FMS.DetailsExtraView({ model: FMS.currentReport });
+                this.changeView(detailsExtraView);
+            },
+
             sent: function() {
                 var sentView = new FMS.SentView({ model: FMS.currentUser });
                 this.changeView(sentView);
@@ -166,7 +172,7 @@ var tpl = {
 ;(function (FMS, Backbone, _, $, Jr) {
     _.extend(FMS, {
         templates: [
-            'photo', 'details', 'around', 'sent', 'welcome', 'user', 'report', 'settings', 'help', 'licence', 'privacy', 'about'
+            'photo', 'details', 'details_extra', 'around', 'sent', 'welcome', 'user', 'report', 'settings', 'help', 'licence', 'privacy', 'about'
         ],
 
         initialized: 0,
