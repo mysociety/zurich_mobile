@@ -154,7 +154,7 @@
                             that.xhr.abort();
                         }
                         that.xhr = $.ajax({
-                            url: CONFIG.FMS_URL + "/ajax/geocode",
+                            url: CONFIG.FMS_URL + "ajax/geocode",
                             global: false,
                             data: request,
                             dataType: "json",
@@ -516,10 +516,33 @@
                     navigator.connection.type !== Connection.UKNOWN &&
                     navigator.connection.type !== Connection.NONE ) {
                     if ( !error ) {
-                        this.model.on('sync', this.onReportSync, this );
-                        this.model.on('error', this.onReportError, this );
-
-                        this.model.save();
+                        // Check if the selected category requires
+                        // extra data from the user before submitting.
+                        var that = this;
+                        $.ajax( {
+                            url: CONFIG.FMS_URL + 'report/new/category_extras',
+                            type: 'POST',
+                            data: {
+                                category: this.model.get('category'),
+                                latitude: this.model.get('lat'),
+                                longitude: this.model.get('lon')
+                            },
+                            dataType: 'json',
+                            timeout: 30000,
+                            success: function( data, status ) {
+                                if ( data && data.category_extra && data.category_extra.length > 0 ) {
+                                    that.model.set('category_extras', data.category_extra);
+                                    that.navigate('details_extra', 'left');
+                                } else {
+                                    that.model.on('sync', that.onReportSync, that );
+                                    that.model.on('error', that.onReportError, that );
+                                    that.model.save();
+                                }
+                            },
+                            error: function() {
+                                that.displayError(STRINGS.category_extra_check_error);
+                            }
+                        } );
                     }
                 } else {
                     this.displayError(STRINGS.no_connection);
@@ -537,7 +560,128 @@
                 for (var field in err.errors) {
                     message += err.errors[field] + "\n";
                 }
-                alert(message);
+                this.displayError(message);
+            }
+        })
+    });
+})(FMS, Backbone, _, $, Jr);
+
+;(function (FMS, Backbone, _, $, Jr) {
+    _.extend( FMS, {
+        DetailsExtraView: FMS.ZurichView.extend({
+            template: 'details_extra',
+            id: 'details-extra-page',
+            prev: 'details',
+            next: 'submit',
+
+            events: {
+                'click .button-prev': 'onClickButtonPrev',
+                'click #send_report': 'onClickSubmit',
+                'blur textarea': 'updateCurrentReport',
+                'change select': 'updateCurrentReport',
+                'blur input': 'updateCurrentReport'
+            },
+
+            afterRender: function() {
+                this.populateFields();
+            },
+
+            onClickButtonPrev: function() {
+                this.model.set('hasExtras', 0);
+                this.updateCurrentReport();
+                this.navigate( this.prev );
+            },
+
+            onClickSubmit: function() {
+                this.clearValidationErrors();
+                var valid = 1;
+                var that = this;
+
+                var isRequired = function(index) {
+                    var el = $(this);
+                    if ( el.attr('required') && el.val() === '' ) {
+                        valid = 0;
+                        that.validationError(el.attr('id'), FMS.strings.required);
+                    }
+                };
+                // do validation
+                $('input').each(isRequired);
+                $('textarea').each(isRequired);
+                $('select').each(isRequired);
+                this.model.set('hasExtras', 1);
+
+                if ( valid ) {
+                    this.clearValidationErrors();
+                    this.updateCurrentReport();
+                    this.model.on('sync', this.onReportSync, this );
+                    this.model.on('error', this.onReportError, this );
+                    this.model.save();
+                }
+            },
+
+            onReportSync: function(model, resp, options) {
+                this.model.off('sync', this.onReportSync);
+                this.navigate( 'sent', 'left' );
+            },
+
+            onReportError: function(model, err, options) {
+                this.model.off('error', this.onReportError);
+                var message = STRINGS.sync_error + ':\n';
+                for (var field in err.errors) {
+                    message += err.errors[field] + "\n";
+                }
+                this.displayError(message);
+            },
+
+            validationError: function(id, error) {
+                var el_id = '#' + id;
+                var el = $(el_id);
+
+                el.addClass('error');
+                if ( el.val() === '' ) {
+                    el.attr('orig-placeholder', el.attr('placeholder'));
+                    el.attr('placeholder', error);
+                }
+            },
+
+            clearValidationErrors: function() {
+                $('.error').removeClass('error');
+                $('.error').each(function(el) { if ( el.attr('orig-placeholder') ) { el.attr('placeholder', el.attr('orig-placeholder') ); } } );
+            },
+
+            updateSelect: function() {
+                this.updateCurrentReport();
+            },
+
+            updateCurrentReport: function() {
+                var fields = [];
+                var that = this;
+                var update = function(index) {
+                    var el = $(this);
+                    if ( el.val() !== '' ) {
+                        that.model.set(el.attr('name'), el.val());
+                        fields.push(el.attr('name'));
+                    } else {
+                        that.model.set(el.attr('name'), '');
+                    }
+
+                };
+
+                $('input').each(update);
+                $('select').each(update);
+                $('textarea').each(update);
+
+                this.model.set('extra_details', fields);
+            },
+
+            populateFields: function() {
+                var that = this;
+                var populate = function(index) {
+                    that.$(this).val(that.model.get(that.$(this).attr('name')));
+                };
+                this.$('input').each(populate);
+                this.$('select').each(populate);
+                this.$('textarea').each(populate);
             }
         })
     });
