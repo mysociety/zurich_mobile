@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="ch.zueriwieneu.zueriwieneu"
-    version="1.0.2b2"
-    android-versionCode="18"
+    version="1.0.2b3"
+    android-versionCode="19"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Zuri Wie Neu</name>
