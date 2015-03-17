@@ -559,15 +559,15 @@ input[type=submit].button-blue,
 }
 
 .ext-photo-preview.photo-size-1 {
-    height: 275px;
+    height: 240px;
 }
 
 .ext-photo-preview.photo-size-2 {
-    height: 140px;
+    height: 120px;
 }
 
 .ext-photo-preview.photo-size-3 {
-    height: 120px;
+    height: 105px;
 }
 
 #ajaxOverlay, #errorOverlay {
