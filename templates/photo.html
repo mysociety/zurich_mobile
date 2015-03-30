@@ -30,15 +30,17 @@
                                       </div>
                                   <% } %>
 
-                                  <div>
-                                      <% if ( files.length == 0 ) { %>
-                                          <a class="button-grey" id="skip-photo">[% loc('Continue without photo') %]</a>
-                                      <% } else if ( files.length == 1 ) { %>
-                                          <a class="button-blue" id="use-photo">[% loc('Use photo') %]</a>
-                                      <% } else { %>
-                                          <a class="button-blue" id="use-photo">[% loc('Use photos') %]</a>
-                                      <% } %>
-                                  </div>
+                                  <% if ( files.length > 0 ) { %>
+                                      <div>
+                                          <a class="button-blue" id="use-photo">
+                                              <% if ( files.length == 1 ) { %>
+                                                  [% loc('Use photo') %]
+                                              <% } else { %>
+                                                  [% loc('Use photos') %]
+                                              <% } %>
+                                          </a>
+                                      </div>
+                                  <% } %>
                                 </div>
 
                                 <input type="hidden" name="photo" id="form_photo" value="">
