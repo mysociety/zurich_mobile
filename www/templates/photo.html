@@ -30,15 +30,17 @@
                                       </div>
                                   <% } %>
 
-                                  <div>
-                                      <% if ( files.length == 0 ) { %>
-                                          <a class="button-grey" id="skip-photo">Weiter ohne Photo</a>
-                                      <% } else if ( files.length == 1 ) { %>
-                                          <a class="button-blue" id="use-photo">Foto verwenden</a>
-                                      <% } else { %>
-                                          <a class="button-blue" id="use-photo">Use photos</a>
-                                      <% } %>
-                                  </div>
+                                  <% if ( files.length > 0 ) { %>
+                                      <div>
+                                          <a class="button-blue" id="use-photo">
+                                              <% if ( files.length == 1 ) { %>
+                                                  Foto verwenden
+                                              <% } else { %>
+                                                  Use photos
+                                              <% } %>
+                                          </a>
+                                      </div>
+                                  <% } %>
                                 </div>
 
                                 <input type="hidden" name="photo" id="form_photo" value="">
