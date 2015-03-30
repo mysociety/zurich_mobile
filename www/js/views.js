@@ -605,9 +605,9 @@
                     }
                 };
                 // do validation
-                $('input').each(isRequired);
-                $('textarea').each(isRequired);
-                $('select').each(isRequired);
+                $('#category_extras input').each(isRequired);
+                $('#category_extras textarea').each(isRequired);
+                $('#category_extras select').each(isRequired);
                 this.model.set('hasExtras', 1);
 
                 if ( valid ) {
@@ -667,9 +667,9 @@
 
                 };
 
-                $('input').each(update);
-                $('select').each(update);
-                $('textarea').each(update);
+                $('#category_extras input').each(update);
+                $('#category_extras select').each(update);
+                $('#category_extras textarea').each(update);
 
                 this.model.set('extra_details', fields);
             },
@@ -679,9 +679,9 @@
                 var populate = function(index) {
                     that.$(this).val(that.model.get(that.$(this).attr('name')));
                 };
-                this.$('input').each(populate);
-                this.$('select').each(populate);
-                this.$('textarea').each(populate);
+                this.$('#category_extras input').each(populate);
+                this.$('#category_extras select').each(populate);
+                this.$('#category_extras textarea').each(populate);
             }
         })
     });
