@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2015-03-17 19:16+0000\n"
+"POT-Creation-Date: 2015-03-30 12:47+0000\n"
 "PO-Revision-Date: 2013-02-20 15:04+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -47,10 +47,6 @@ msgstr "Zurück"
 #: templates/details.html:13
 msgid "Category"
 msgstr "Kategorie"
-
-#: templates/photo.html:35
-msgid "Continue without photo"
-msgstr "Weiter ohne Photo"
 
 #: templates/strings.js:8
 msgid "Could not check your location"
@@ -269,6 +265,9 @@ msgstr "ändern"
 #: templates/strings.js:12
 msgid "required"
 msgstr "benötigt"
+
+#~ msgid "Continue without photo"
+#~ msgstr "Weiter ohne Photo"
 
 #~ msgid "About this App"
 #~ msgstr "Über diese App"
