@@ -194,7 +194,20 @@ var tpl = {
                     router: new FMS.appRouter()
                 });
 
-                $(document).on('touchmove', '.ui-autocomplete', function(e) { console.log('auto move'); e.preventDefault(); } );
+                $(document).on('touchmove', '.ui-autocomplete', function(e) {
+                    var $target = $(e.target);
+                    if ($target.is(".ui-autocomplete")) {
+                        e.preventDefault();
+                        return;
+                    }
+                    var $list = $target.closest(".ui-autocomplete");
+                    if ($list.length == 0) {
+                        return;
+                    }
+                    if (!($target.is("li.ui-menu-item, a") && $list.find("li.ui-menu-item").length > 4)) {
+                        e.preventDefault();
+                    }
+                } );
 
                 document.addEventListener('backbutton', function() { FMS.router.back(); }, true);
 

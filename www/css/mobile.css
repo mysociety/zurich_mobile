@@ -375,6 +375,12 @@ input[type=submit].button-blue,
     border: 0px !important;
 }
 
+.ui-autocomplete {
+    max-height: 120px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .bar-title .button-menu {
     position: absolute;
     right: 0px;
