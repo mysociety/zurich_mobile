@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2015-03-30 12:47+0000\n"
-"PO-Revision-Date: 2013-02-20 15:04+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-05-19 15:04+0000\n"
+"PO-Revision-Date: 2015-05-19 14:08+0100\n"
+"Last-Translator: \n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.7.6\n"
 
 #: templates/strings.js:10
 msgid "-- Pick a categoy --"
@@ -76,20 +77,19 @@ msgstr "E-Mail Adresse"
 
 #: templates/around.html:30
 msgid "Enter a Z&uuml;rich street name"
-msgstr "Ungefähre Adresse des Mangels"
+msgstr "Ungefähre Adresse des Schadens"
 
 #: templates/details.html:20
 msgid "Enter details of the problem"
-msgstr "Beschreiben Sie den Mangel."
+msgstr "Beschreiben Sie den Schaden."
 
 #: templates/welcome.html:9
 msgid "Fill out your details to get started reporting problems"
-msgstr "Geben Sie Ihre Kontaktdaten an um Mängel melden zu können."
+msgstr "Geben Sie Ihre Kontaktdaten an um Schäden melden zu können."
 
 #: templates/details_extra.html:3
-#, fuzzy
 msgid "Further Details"
-msgstr "Speichern"
+msgstr "Weitere Details"
 
 #: templates/help.html:3 templates/settings.html:15
 msgid "Help"
@@ -133,7 +133,7 @@ msgstr "Mehrere Adressen gefunden"
 
 #: templates/user.html:16 templates/welcome.html:22
 msgid "Name (optional)"
-msgstr "Name (optional)"
+msgstr "Name"
 
 #: templates/sent.html:6
 msgid "Nearly Done! Now check your email..."
@@ -160,7 +160,7 @@ msgstr "Foto dieser Meldung"
 
 #: templates/strings.js:7
 msgid "Please enter a location"
-msgstr "Geben Sie die ungefähre Adresse des Mangels an"
+msgstr "Geben Sie die ungefähre Adresse des Schadens an"
 
 #: templates/strings.js:17
 msgid "Please wait"
@@ -211,13 +211,12 @@ msgid "Take Photo"
 msgstr "Neues Foto machen"
 
 #: templates/strings.js:11
-#, fuzzy
 msgid ""
 "There was a problem checking if we have all the details we need. Please try "
 "again later."
 msgstr ""
-"Ihre Meldung konnte nicht übermittelt werden. Bitte versuchen Sie es "
-"nochmals."
+"Die Korrektheit Ihrer Angaben konnte nicht überprüft werden. Bitte versuchen "
+"Sie es nochmals."
 
 #: templates/strings.js:3
 msgid "There was a problem looking up your location"
@@ -242,9 +241,8 @@ msgid "Use photo"
 msgstr "Foto verwenden"
 
 #: templates/photo.html:39
-#, fuzzy
 msgid "Use photos"
-msgstr "Foto verwenden"
+msgstr "Fotos verwenden"
 
 #: templates/around.html:37
 msgid "Use this Location"
