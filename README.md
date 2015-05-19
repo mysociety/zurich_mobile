@@ -114,3 +114,10 @@ see `sm` next to every file.
 5. Align the `.apk` using `zipalign` (Note, you might have to manually find `zipalign` in `build-tools` inside the sdk-folder): `zipalign -v 4 ZuriWieNeu-release-unsigned.apk ZuriWieNeu.apk`
 
 Note: most of this comes from: http://developer.android.com/tools/publishing/app-signing.html#signing-manually, you can also do it via Eclipse or Android Studio if you wish.
+
+
+### iOS
+
+Notes and observations from doing the release process:
+
+ * Whilst the PhoneGap strings in the app are already in German, the native UI presented by iOS (e.g. photo selection) won't be. Add a 'Localizations' key (of type array) to 'Custom iOS Target Properties' in Xcode, with a single string entry of 'German'.
