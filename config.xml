@@ -45,7 +45,10 @@
         <icon src="www/res/ios/Icon@2x.png" width="114" height="114" />
         <!-- iPad -->
         <icon src="www/res/ios/icon-72.png" width="72" height="72" />
+        <icon src="www/res/ios/icon-76.png" width="76" height="76" />
+        <icon src="www/res/ios/icon-120.png" width="120" height="120" />
         <icon src="www/res/ios/icon-144.png" width="144" height="144" />
+        <icon src="www/res/ios/icon-152.png" width="152" height="152" />
 
         <!-- Splash Screens -->
         <splash src="www/res/screen/ios/Default~iphone.png" width="320" height="480"/>
