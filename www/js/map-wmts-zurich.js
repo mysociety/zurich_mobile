@@ -196,7 +196,7 @@
     var stadtplan_layer_options = OpenLayers.Util.applyDefaults({
             name: "StadtPlan3D",
             layer: "StadtPlan3D",
-            url:  "http://www.gis.stadt-zuerich.ch/maps/rest/services/tiled/Stadtplan3D/MapServer/WMTS/tile/"
+            url: "http://www.gis.stadt-zuerich.ch/maps/rest/services/tiled/Stadtplan3D/MapServer/WMTS/tile/"
         }, base_layer_options);
 
     // Whichever layer appears first in this list will be the default used for
