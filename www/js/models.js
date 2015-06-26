@@ -186,7 +186,12 @@
                             catch(err) {
                                 data = {};
                             }
-                            handlers.success(data);
+                            if (data.success) {
+                                handlers.success(data);
+                            }
+                            else {
+                                handlers.error(data);
+                            }
                         } else {
                             handlers.error(STRINGS.report_send_error);
                         }
