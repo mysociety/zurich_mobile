@@ -404,6 +404,27 @@
                 'click .del-photo': 'deletePhoto'
             },
 
+            renameFile: function(src, callback) {
+                var d = new Date();
+                //find the FileEntry for the file on the device
+                window.resolveLocalFileSystemURL(src, function(fileEntry) {
+                    //get the parent directory (callback gives a DirectoryEntry)
+                    fileEntry.getParent(function(parent) {
+                        //rename the file, prepending a timestamp.
+                        fileEntry.moveTo(parent, d.getTime() + fileEntry.name, function(s) {
+                            //Callback with the new URL of the file.
+                            callback(s.nativeURL);
+                        }, function(error) {
+                            callback(src); //Fallback, use the src given
+                        });
+                    }, function(error) {
+                        callback(src); //Fallback
+                    });
+                }, function(error) {
+                    callback(src); //Fallback
+                });
+            },
+
             takePhoto: function() {
                 var that = this;
                 navigator.camera.getPicture( function(imgURI) { that.addPhotoSuccess(imgURI); }, function(error) { that.addPhotoFail(error); }, { saveToPhotoAlbum: true, quality: 49, targetHeight: 768, targetWidth: 1024, destinationType: Camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.CAMERA, correctOrientation: true });
@@ -411,7 +432,35 @@
 
             addPhoto: function() {
                 var that = this;
-                navigator.camera.getPicture( function(imgURI) { that.addPhotoSuccess(imgURI); }, function(error) { that.addPhotoFail(error); }, { saveToPhotoAlbum: false, quality: 49, targetHeight: 768, targetWidth: 1024, destinationType: Camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY, correctOrientation: true });
+                navigator.camera.getPicture(
+                    function(imgURI) {
+                        // Because we've asked for a resized version of the
+                        // image, Android will create a temporary file for us.
+                        // Unfortunately, it'll use the same filename for any
+                        // number of files we request, so if we add more than
+                        // one, it'll overwrite the previous images with the
+                        // latest one, meaning we upload multiple copies of
+                        // the same file.
+                        // Instead, we create our own temporary file and then
+                        // pass that into our normal success function.
+                        if (that.check_if_android()) {
+                            that.renameFile(imgURI, function(imgURI) {that.addPhotoSuccess(imgURI)});
+                        } else {
+                            that.addPhotoSuccess(imgURI);
+                        }
+                    },
+                    function(error) {
+                        that.addPhotoFail(error);
+                    },
+                    {
+                        saveToPhotoAlbum: false,
+                        quality: 49,
+                        targetHeight: 768,
+                        targetWidth: 1024,
+                        destinationType: Camera.DestinationType.FILE_URI,
+                        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+                        correctOrientation: true
+                    });
             },
 
             addPhotoSuccess: function(imgURI) {
