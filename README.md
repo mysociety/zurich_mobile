@@ -118,6 +118,25 @@ Note: most of this comes from: http://developer.android.com/tools/publishing/app
 
 ### iOS
 
+To release the app in the iTunes App Store you need to do the following:
+
+1. Change your config.js to include production settings
+
+2. Bump the version code in config.xml, both the main one and the android specific one
+
+3. Run the emulator to make sure you've built the latest version of the app: `cordova emulate ios`
+
+4. Open the app in XCode (the xcodeproj project file you need is in `platforms/ios`)
+
+5. Select `Product > Archive` from the XCode menu
+
+6. In the "navigator" window that pops up, select the latest build and then hit "Validate" in the top right. It'll ask to access your keychain, so you'll need to make sure you've installed the latest certificates there already.
+
+7. Once the validation has finished, hit "Submit" and pick the certificate again to actually send it to Apple.
+
+8. Now you need to log into iTunes Connect and add a new version of the app for this build, then submit it for review.
+
+
 Notes and observations from doing the release process:
 
  * Whilst the PhoneGap strings in the app are already in German, the native UI presented by iOS (e.g. photo selection) won't be. Add a 'Localizations' key (of type array) to 'Custom iOS Target Properties' in Xcode, with a single string entry of 'German'.
