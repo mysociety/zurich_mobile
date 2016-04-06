@@ -20,37 +20,13 @@ Note that this is not the same as the phonegap CLI and the two should not be
 mixed up. The latter gives you access to Adobe's proprietary phonegap build
 service, which we **don't** use!
 
-3. Install the "Android 4.4.2 (API 19)" and "Android SDK Build-tools" packages within the Android SDK Manager (run `android` on the command line)
+3. Install the latest android api and build tools packages within the Android
+SDK Manager (run `android` on the command line to launch it)
 
 4. Checkout the project
 
-5. `cd` into the project directory and install the Cordova platforms you need:
-`cordova platform add android` and `cordova platform add ios`. You need to ensure `ANDROID_HOME` and `JAVA_HOME` environment variables are set correctly beforehand.
-
-6. Add the cordova plugins we use. As of writing the list is: (from `cordova plugin list`)
-
-   ```
-   org.apache.cordova.battery-status 0.2.11 "Battery"
-   org.apache.cordova.camera 0.3.2 "Camera"
-   org.apache.cordova.contacts 0.2.13 "Contacts"
-   org.apache.cordova.device 0.2.12 "Device"
-   org.apache.cordova.device-motion 0.2.10 "Device Motion"
-   org.apache.cordova.device-orientation 0.3.9 "Device Orientation"
-   org.apache.cordova.dialogs 0.2.10 "Notification"
-   org.apache.cordova.file 1.3.1 "File"
-   org.apache.cordova.file-transfer 0.4.6 "File Transfer"
-   org.apache.cordova.geolocation 0.3.10 "Geolocation"
-   org.apache.cordova.globalization 0.3.1 "Globalization"
-   org.apache.cordova.media 0.2.13 "Media"
-   org.apache.cordova.media-capture 0.3.3 "Capture"
-   org.apache.cordova.network-information 0.2.12 "Network Information"
-   org.apache.cordova.splashscreen 0.3.3 "Splashscreen"
-   org.apache.cordova.statusbar 0.1.10 "StatusBar"
-   ```
-
-   So to install them: `cordova plugin add org.apache.cordova.battery-status org.apache.cordova.camera org.apache.cordova.contacts org.apache.cordova.device org.apache.cordova.device-motion org.apache.cordova.device-orientation org.apache.cordova.dialogs org.apache.cordova.file org.apache.cordova.file-transfer org.apache.cordova.geolocation org.apache.cordova.globalization org.apache.cordova.media org.apache.cordova.media-capture org.apache.cordova.network-information org.apache.cordova.splashscreen org.apache.cordova.statusbar`
-
-   (These might be installed automatically, I'm not totally sure how Cordova remembers them)
+5. `cd` into the project directory and run `cordova prepare` to load up the
+cordova platforms and plugins we use.
 
 7. Install Apache Ant (`brew install ant`, if you use Homebrew) for Android build support, and `ios-sim` (`npm install -g ios-sim`) for iOS simulator support.
 
@@ -85,6 +61,27 @@ Cordova by default writes it out to that file in your project root
 directory for it to actually print anything, YMMV.
 - Leave the emulators running once they start, it's much quicker!
 - If you're using your own FMS backend, you'll need to add an `<access origin="" />` tag to `config.xml` to allow access from within the app. **Make sure** you remove any such lines before building/committing!
+
+Upgrading
+---------
+Cordova now includes version numbers for the platforms and plugins in
+`config.xml` so it's possible to use the command line tools to update
+everything.
+
+1. Update the CLI: `npm update cordova`
+2. Update each platform: `cordova platform update ios --save`, `cordova platform update android --save`
+3. Update each plugin. Unfortunately, it doesn't seem possible to upgrade all
+   of the plugins in one go, so you'll have to type out
+   `cordova plugin update cordova-plugin-name --save` for every single one.
+   You can get a list that's easy to edit into a script from
+   `cordova plugin list`.
+4. Refer to the upgrade guides:
+   https://cordova.apache.org/docs/en/latest/guide/platforms/android/upgrade.html
+   and
+   https://cordova.apache.org/docs/en/latest/guide/platforms/ios/upgrade.html
+   for anything you need to change between versions. The plugins helpfully
+   print notices for some things that have changed when you install them.
+5. Test the changes
 
 Releasing
 ---------

@@ -1,65 +1,69 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ch.zueriwieneu.zueriwieneu"
-    version="1.2.2"
-    android-versionCode="23"
-    xmlns="http://www.w3.org/ns/widgets"
-    xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="24" id="ch.zueriwieneu.zueriwieneu" version="1.2.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Zuri Wie Neu</name>
     <author email="apps@mysociety.org" href="http://www.mysociety.org">
         mySociety Ltd
     </author>
     <content src="index.html" />
-
-    <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
-
-    <access origin="global.mapit.mysociety.org" />
-    <access origin="zurich.fixmystreet.staging.mysociety.org" />
-    <access origin="www.zueriwieneu.ch" />
-    <access origin="zurich.fixmystreet.com" />
-    <access origin="www.gis.stadt-zuerich.ch" />
-
-    <log level="DEBUG"/>
+    <access origin="http://127.0.0.1*" />
+    <access origin="*://global.mapit.mysociety.org" />
+    <access origin="*://zurich.fixmystreet.staging.mysociety.org" />
+    <access origin="*://www.zueriwieneu.ch" />
+    <access origin="*://zurich.fixmystreet.com" />
+    <access origin="*://www.gis.stadt-zuerich.ch" />
+    <log level="DEBUG" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
-
-    <!-- Icons and Splash Screens -->
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <icon src="www/res/icon.png" />
-
     <platform name="android">
-        <icon src="www/res/android/ldpi.png" density="ldpi" />
-        <icon src="www/res/android/mdpi.png" density="mdpi" />
-        <icon src="www/res/android/hdpi.png" density="hdpi" />
-        <icon src="www/res/android/xhdpi.png" density="xhdpi" />
-
-        <splash src="www/res/screen/android/splash-hdpi.png" density="hdpi"/>
-        <splash src="www/res/screen/android/splash-ldpi.png" density="ldpi"/>
-        <splash src="www/res/screen/android/splash-mdpi.png" density="mdpi"/>
-        <splash src="www/res/screen/android/splash-xhdpi.png" density="xhdpi"/>
+        <icon density="ldpi" src="www/res/android/ldpi.png" />
+        <icon density="mdpi" src="www/res/android/mdpi.png" />
+        <icon density="hdpi" src="www/res/android/hdpi.png" />
+        <icon density="xhdpi" src="www/res/android/xhdpi.png" />
+        <splash density="hdpi" src="www/res/screen/android/splash-hdpi.png" />
+        <splash density="ldpi" src="www/res/screen/android/splash-ldpi.png" />
+        <splash density="mdpi" src="www/res/screen/android/splash-mdpi.png" />
+        <splash density="xhdpi" src="www/res/screen/android/splash-xhdpi.png" />
     </platform>
-
     <platform name="ios">
-        <!-- iPhone / iPod Touch -->
-        <icon src="www/res/ios/Icon.png" width="57" height="57" />
-        <icon src="www/res/ios/Icon@2x.png" width="114" height="114" />
-        <!-- iPad -->
-        <icon src="www/res/ios/icon-72.png" width="72" height="72" />
-        <icon src="www/res/ios/icon-76.png" width="76" height="76" />
-        <icon src="www/res/ios/icon-120.png" width="120" height="120" />
-        <icon src="www/res/ios/icon-144.png" width="144" height="144" />
-        <icon src="www/res/ios/icon-152.png" width="152" height="152" />
-
-        <!-- Splash Screens -->
-        <splash src="www/res/screen/ios/Default~iphone.png" width="320" height="480"/>
-        <splash src="www/res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
-        <splash src="www/res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
-        <splash src="www/res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
-        <splash src="www/res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
-        <splash src="www/res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-        <splash src="www/res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
-        <splash src="www/res/screen/ios/Default-667h@2x~iphone.png" width="750" height="1334"/>
-        <splash src="www/res/screen/ios/Default-736h@3x~iphone.png" width="1242" height="2208"/>
-     </platform>
+        <icon height="57" src="www/res/ios/Icon.png" width="57" />
+        <icon height="114" src="www/res/ios/Icon@2x.png" width="114" />
+        <icon height="72" src="www/res/ios/icon-72.png" width="72" />
+        <icon height="76" src="www/res/ios/icon-76.png" width="76" />
+        <icon height="120" src="www/res/ios/icon-120.png" width="120" />
+        <icon height="144" src="www/res/ios/icon-144.png" width="144" />
+        <icon height="152" src="www/res/ios/icon-152.png" width="152" />
+        <splash height="480" src="www/res/screen/ios/Default~iphone.png" width="320" />
+        <splash height="960" src="www/res/screen/ios/Default@2x~iphone.png" width="640" />
+        <splash height="1024" src="www/res/screen/ios/Default-Portrait~ipad.png" width="768" />
+        <splash height="2048" src="www/res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" />
+        <splash height="768" src="www/res/screen/ios/Default-Landscape~ipad.png" width="1024" />
+        <splash height="1536" src="www/res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" />
+        <splash height="1136" src="www/res/screen/ios/Default-568h@2x~iphone.png" width="640" />
+        <splash height="1334" src="www/res/screen/ios/Default-667h@2x~iphone.png" width="750" />
+        <splash height="2208" src="www/res/screen/ios/Default-736h@3x~iphone.png" width="1242" />
+    </platform>
+    <engine name="android" spec="~5.1.1" />
+    <engine name="ios" spec="~4.1.0" />
+    <plugin name="cordova-plugin-file" spec="~4.1.1" />
+    <plugin name="cordova-plugin-battery-status" spec="~1.1.1" />
+    <plugin name="cordova-plugin-camera" spec="~2.1.1" />
+    <plugin name="cordova-plugin-console" spec="~1.0.2" />
+    <plugin name="cordova-plugin-contacts" spec="~2.0.1" />
+    <plugin name="cordova-plugin-device" spec="~1.1.1" />
+    <plugin name="cordova-plugin-device-motion" spec="~1.2.0" />
+    <plugin name="cordova-plugin-device-orientation" spec="~1.0.2" />
+    <plugin name="cordova-plugin-dialogs" spec="~1.2.0" />
+    <plugin name="cordova-plugin-file-transfer" spec="~1.5.0" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.1.0" />
+    <plugin name="cordova-plugin-globalization" spec="~1.0.3" />
+    <plugin name="cordova-plugin-media" spec="~2.2.0" />
+    <plugin name="cordova-plugin-media-capture" spec="~1.2.0" />
+    <plugin name="cordova-plugin-network-information" spec="~1.2.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="~3.2.1" />
+    <plugin name="cordova-plugin-statusbar" spec="~2.1.2" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
 </widget>
-
