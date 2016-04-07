@@ -470,7 +470,7 @@
                 this.render();
             },
 
-            addPhotoFail: function() {
+            addPhotoFail: function(message) {
                 if ( message != 'no image selected' &&
                     message != 'Selection cancelled.' &&
                     message != 'Camera cancelled.'
