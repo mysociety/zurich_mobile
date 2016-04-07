@@ -115,6 +115,8 @@ Note: most of this comes from: http://developer.android.com/tools/publishing/app
 
 ### iOS
 
+#### App Store
+
 To release the app in the iTunes App Store you need to do the following:
 
 1. Change your config.js to include production settings
@@ -134,6 +136,20 @@ To release the app in the iTunes App Store you need to do the following:
 8. Now you need to log into iTunes Connect and add a new version of the app for this build, then submit it for review.
 
 
-Notes and observations from doing the release process:
+#### Notes and observations from doing the release process:
 
  * Whilst the PhoneGap strings in the app are already in German, the native UI presented by iOS (e.g. photo selection) won't be. Add a 'Localizations' key (of type array) to 'Custom iOS Target Properties' in Xcode, with a single string entry of 'German'.
+
+#### Ad-Hoc Distribution
+
+iOS allows you to distribute builds of your app directly to selected testers, either by sending them the `.ipa` file for installation via iTunes or via a specially-crafted web page they visit from their device. [More info](http://help.apple.com/deployment/ios/#/apda0e3426d7).
+
+ 1. Gather the device UDIDs from testers and add them to the ['devices' section](https://developer.apple.com/account/ios/device/) of the developer center.
+ 1. You'll probably have to re-download the provisioning profile for the app into Xcode so subsequent builds include the new device UDIDs.
+ 1. Open the `.xcodeproj` file in Xcode and run `Product > Archive`
+ 1. Select the archive in the Organizer window that subsequently pops up, then click `Export` and select `Save for Ad Hoc Deployment`.
+ 1. Follow the wizard, selecting `Export one app for all compatible devices`, and `Include manifest for over-the-air installation`.
+ 1. The wizard will ask you to provide values for the App URL, and a couple of image URLs. Put dummy values in if you don't know the final URLs for the `.ipa` and images yet, you can edit the output manifest file later.
+ 1. Copy the resulting `.ipa` and manifest to your webserver. Make sure they're served over HTTPS or iOS will refuse to install the app.
+ 1. Users can install the app on their devices by going to a URL of the form `itms-services://?action=download-manifest&url=[MANIFEST URL HERE]`
+ 1. The `ios_adhoc/beta.html` file might a useful starting point for a more friendly page that your users can be directed to.
