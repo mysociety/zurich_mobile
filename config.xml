@@ -17,6 +17,7 @@
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="Orientation" value="portrait" />
     <icon src="www/res/icon.png" />
     <platform name="android">
         <icon density="ldpi" src="www/res/android/ldpi.png" />
