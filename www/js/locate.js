@@ -8,7 +8,7 @@ var Locate = ( function() { return {
             return false;
         }
 
-        var url = CONFIG.FMS_URL + '/ajax/lookup_location?term=' + q;
+        var url = CONFIG.FMS_URL + 'ajax/lookup_location?term=' + q;
 
         var x = $.ajax( {
             url: url,
