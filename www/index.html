@@ -65,9 +65,39 @@
         <script type="text/javascript" src="js/junior.js"></script>
 
         <script type="text/javascript" src="js/OpenLayers.2.11.zurich.js"></script>
-        <script type="text/javascript" src="js/OpenLayers.Projection.CH1903.js"></script>
+        <script type="text/javascript" src="js/OpenLayers.Projection.CH1903Plus.js"></script>
         <script type="text/javascript" src="js/map-OpenLayers.js"></script>
+        <script type="text/javascript" src="js/map-wmts-base.js"></script>
         <script type="text/javascript" src="js/map-wmts-zurich.js"></script>
+        <script type="text/javascript">
+            function setup_wmts_config() {
+                window.fixmystreet = window.fixmystreet || {};
+                // This code is usually provided by the wmts_config.html template
+                // on the ZWN site, but obviously needs to be hardcoded in the app.
+                // Defining it here means we can use map-wmts-base.js and
+                // map-wmts-zurich.js from the main FMS repo unaltered.
+                fixmystreet.wmts_config = {
+                    'map_projection': 'EPSG:2056',
+                    'tile_dpi': 96,
+                    'tile_urls': ["https://www.gis.stadt-zuerich.ch/maps/rest/services/tiled95/LuftbildHybrid/MapServer/WMTS/tile", "https://www.gis.stadt-zuerich.ch/maps/rest/services/tiled95/Stadtplan3D/MapServer/WMTS/tile"],
+                    'tile_suffix': '',
+                    // Whichever layer appears first in this list will be the
+                    // default used for the map.
+                    // NB: If you change the default, you must update the contents
+                    // of #swap-map in www/templates/around.html and
+                    // HYBRID_LAYER_INDEX/STADTPLAN_LAYER_INDEX below to match.
+                    'layer_names': ["LuftbildHybrid", "Stadtplan3D"],
+                    'layer_style': 'default',
+                    'matrix_set': 'default028mm',
+                    'scales': ["64000", "32000", "16000", "8000", "4000", "2000", "1000", "500", "250"],
+                    'origin_x': -27386322.500000,
+                    'origin_y': 31814423.000000
+                };
+                fixmystreet.HYBRID_LAYER_INDEX = 0;
+                fixmystreet.STADTPLAN_LAYER_INDEX = 1;
+            };
+            setup_wmts_config();
+        </script>
 
         <script type="text/javascript" src="js/strings.js"></script>
         <script type="text/javascript" src="js/locate.js"></script>

@@ -7,3 +7,8 @@ www/js/config.js
 compiled/*.html
 compiled/*.js
 *.mo
+
+# Pre-release app
+beta/ios/*.plist
+beta/ios/*.ipa
+beta/android/*.apk

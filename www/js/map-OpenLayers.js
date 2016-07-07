@@ -222,7 +222,6 @@ function show_map(){
     }
 
     if ( fixmystreet.page == 'report' ) {
-        fixmystreet.nav_control.deactivate();
         $('#fms_pan_zoom').hide();
     }
 }
