@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="25" id="ch.zueriwieneu.zueriwieneu" version="1.2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="26" id="ch.zueriwieneu.zueriwieneu" version="1.2.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Zuri Wie Neu</name>
     <author email="apps@mysociety.org" href="http://www.mysociety.org">
         mySociety Ltd
@@ -11,6 +11,7 @@
     <access origin="*://www.zueriwieneu.ch" />
     <access origin="*://zurich.fixmystreet.com" />
     <access origin="*://www.gis.stadt-zuerich.ch" />
+    <allow-intent href="mailto:*" />
     <log level="DEBUG" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />
