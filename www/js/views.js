@@ -109,6 +109,16 @@
                 if ( $('span[for='+id+']').length === 0 ) {
                     el.append(err);
                 }
+            },
+
+            _disableUI: function() {
+                this.$("input, textarea, button").prop("disabled", true);
+                this.undelegateEvents();
+            },
+
+            _enableUI: function() {
+                this.$("input, textarea, button").prop("disabled", false);
+                this.delegateEvents();
             }
         })
     });
@@ -546,6 +556,7 @@
             },
 
             onClickSubmit: function() {
+                this._disableUI();
                 this.saveDetails();
 
                 var error = 0;
@@ -589,11 +600,15 @@
                                 }
                             },
                             error: function() {
+                                that._enableUI();
                                 that.displayError(STRINGS.category_extra_check_error);
                             }
                         } );
+                    } else {
+                        this._enableUI();
                     }
                 } else {
+                    this._enableUI();
                     this.displayError(STRINGS.no_connection);
                 }
             },
@@ -604,6 +619,7 @@
             },
 
             onReportError: function(model, err, options) {
+                this._enableUI();
                 this.model.off('error', this.onReportError);
                 var message = STRINGS.sync_error + ':\n';
                 for (var field in err.errors) {
@@ -642,6 +658,7 @@
             },
 
             onClickSubmit: function() {
+                this._disableUI();
                 this.clearValidationErrors();
                 var valid = 1;
                 var that = this;
@@ -665,6 +682,8 @@
                     this.model.on('sync', this.onReportSync, this );
                     this.model.on('error', this.onReportError, this );
                     this.model.save();
+                } else {
+                    this._enableUI();
                 }
             },
 
@@ -675,6 +694,7 @@
 
             onReportError: function(model, err, options) {
                 this.model.off('error', this.onReportError);
+                this._enableUI();
                 var message = STRINGS.sync_error + ':\n';
                 for (var field in err.errors) {
                     message += err.errors[field] + "\n";
