@@ -12,3 +12,4 @@ compiled/*.js
 beta/ios/*.plist
 beta/ios/*.ipa
 beta/android/*.apk
+/node_modules

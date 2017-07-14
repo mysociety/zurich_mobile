@@ -1,0 +1,60 @@
+{
+    "name": "ch.zueriwieneu.zueriwieneu",
+    "version": "1.2.7",
+    "displayName": "Zuri Wie Neu",
+    "cordova": {
+        "platforms": [
+            "android",
+            "ios"
+        ],
+        "plugins": {
+            "cordova-plugin-battery-status": {},
+            "cordova-plugin-camera": {},
+            "cordova-plugin-console": {},
+            "cordova-plugin-contacts": {},
+            "cordova-plugin-device": {},
+            "cordova-plugin-device-motion": {},
+            "cordova-plugin-device-orientation": {},
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-file": {},
+            "cordova-plugin-file-transfer": {},
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-globalization": {},
+            "cordova-plugin-media": {},
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-media-capture": {
+                "CAMERA_USAGE_DESCRIPTION": "Neues Foto machen",
+                "MICROPHONE_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": "Foto hochladen"
+            },
+            "ionic-plugin-keyboard": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "~5.1.1",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-battery-status": "~1.1.1",
+        "cordova-plugin-camera": "~2.1.1",
+        "cordova-plugin-compat": "^1.1.0",
+        "cordova-plugin-console": "~1.0.2",
+        "cordova-plugin-contacts": "~2.0.1",
+        "cordova-plugin-device": "~1.1.1",
+        "cordova-plugin-device-motion": "~1.2.0",
+        "cordova-plugin-device-orientation": "~1.0.2",
+        "cordova-plugin-dialogs": "~1.2.0",
+        "cordova-plugin-file": "~4.1.1",
+        "cordova-plugin-file-transfer": "~1.5.0",
+        "cordova-plugin-geolocation": "~2.4.0",
+        "cordova-plugin-globalization": "~1.0.3",
+        "cordova-plugin-media": "~2.2.0",
+        "cordova-plugin-media-capture": "^1.4.3",
+        "cordova-plugin-network-information": "~1.2.0",
+        "cordova-plugin-splashscreen": "~3.2.1",
+        "cordova-plugin-statusbar": "~2.1.2",
+        "cordova-plugin-whitelist": "~1.2.1",
+        "ionic-plugin-keyboard": "^2.1.0"
+    }
+}
