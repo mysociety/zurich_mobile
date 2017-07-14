@@ -80,4 +80,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="~3.2.1" />
     <plugin name="cordova-plugin-statusbar" spec="~2.1.2" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.1.0" />
 </widget>
