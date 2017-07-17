@@ -188,6 +188,10 @@ var tpl = {
             if ( this.initialized == 1 ) {
                 return this;
             }
+            // Stop iOS scrolling the webview when it shows the keyboard
+            if ( typeof cordova !== 'undefined' ) {
+                cordova.plugins.Keyboard.disableScroll(true);
+            }
             FMS.initialized = 1;
             tpl.loadTemplates( FMS.templates, function() {
                 _.extend(FMS, {

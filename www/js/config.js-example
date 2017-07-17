@@ -1,4 +1,3 @@
 var CONFIG = {
-    FMS_URL: 'http://zurich.fixmystreet.staging.mysociety.org/',
-    MAPIT_URL: 'http://global.mapit.mysociety.org/'
+    FMS_URL: 'http://zurich.fixmystreet.staging.mysociety.org/'
 };

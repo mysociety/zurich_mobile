@@ -16,11 +16,11 @@ body {
 
 /* Hack to force all relatively and absolutely positioned elements still render while scrolling
    Note: This is a bug for "-webkit-overflow-scrolling: touch" */
-.content > * {
+/*.content > * {
   -webkit-transform: translateZ(0px);
           transform: translateZ(0px);
 }
-
+*/
 
 [class*="bar-"] {
   position: fixed;
