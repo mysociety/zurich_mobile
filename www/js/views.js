@@ -649,15 +649,18 @@
 
             afterRender: function() {
                 this.populateFields();
+                this.enableScrolling();
             },
 
             onClickButtonPrev: function() {
+                this.disableScrolling();
                 this.model.set('hasExtras', 0);
                 this.updateCurrentReport();
                 this.navigate( this.prev );
             },
 
             onClickSubmit: function() {
+                this.disableScrolling();
                 this._disableUI();
                 this.clearValidationErrors();
                 var valid = 1;
@@ -684,6 +687,7 @@
                     this.model.save();
                 } else {
                     this._enableUI();
+                    this.enableScrolling();
                 }
             },
 
@@ -751,6 +755,18 @@
                 this.$('#category_extras input').each(populate);
                 this.$('#category_extras select').each(populate);
                 this.$('#category_extras textarea').each(populate);
+            },
+
+            disableScrolling: function() {
+                if ( typeof cordova !== 'undefined' ) {
+                    cordova.plugins.Keyboard.disableScroll(true);
+                }
+            },
+
+            enableScrolling: function() {
+                if ( typeof cordova !== 'undefined' ) {
+                    cordova.plugins.Keyboard.disableScroll(false);
+                }
             }
         })
     });
