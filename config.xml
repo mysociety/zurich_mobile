@@ -59,12 +59,8 @@
         <splash height="2208" src="www/res/screen/ios/Default-736h@3x~iphone.png" width="1242" />
         <splash height="2436" src="www/res/screen/ios/Default-812h@3x~iphone.png" width="1125" />
     </platform>
-    <engine name="android" spec="^6.2.3" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-battery-status" spec="^1.1.2" />
-    <plugin name="cordova-plugin-console" spec="^1.0.7" />
     <plugin name="cordova-plugin-contacts" spec="^2.0.1" />
-    <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-device-motion" spec="^1.2.5" />
     <plugin name="cordova-plugin-device-orientation" spec="^1.0.7" />
     <plugin name="cordova-plugin-dialogs" spec="^1.2.1" />
@@ -76,7 +72,6 @@
     <plugin name="cordova-plugin-globalization" spec="^1.0.7" />
     <plugin name="cordova-plugin-media" spec="^2.2.0" />
     <plugin name="cordova-plugin-network-information" spec="^1.2.1" />
-    <plugin name="cordova-plugin-splashscreen" spec="^3.2.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.1.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.2.2" />
     <plugin name="ionic-plugin-keyboard" spec="^2.1.0" />
@@ -89,4 +84,8 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="Neues Foto machen" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Foto hochladen" />
     </plugin>
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-device" spec="^2.0.1" />
+    <engine name="android" spec="^6.2.3" />
+    <engine name="ios" spec="^4.5.4" />
 </widget>
