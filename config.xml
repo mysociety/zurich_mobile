@@ -57,6 +57,7 @@
         <splash height="1136" src="www/res/screen/ios/Default-568h@2x~iphone.png" width="640" />
         <splash height="1334" src="www/res/screen/ios/Default-667h@2x~iphone.png" width="750" />
         <splash height="2208" src="www/res/screen/ios/Default-736h@3x~iphone.png" width="1242" />
+        <splash height="2436" src="www/res/screen/ios/Default-812h@3x~iphone.png" width="1125" />
     </platform>
     <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
