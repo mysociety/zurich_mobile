@@ -192,6 +192,11 @@ var tpl = {
             if ( typeof cordova !== 'undefined' ) {
                 cordova.plugins.Keyboard.disableScroll(true);
             }
+            // Rough-and-ready iPhone X detection so CSS can stop things
+            // obscuring the home indicator at the bottom of the screen.
+            if (window.screen.width == 375 && window.screen.height == 812) {
+                $("body").addClass("iphone-x");
+            }
             FMS.initialized = 1;
             tpl.loadTemplates( FMS.templates, function() {
                 _.extend(FMS, {

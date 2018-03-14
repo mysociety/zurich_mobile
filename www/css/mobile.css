@@ -659,3 +659,11 @@ ul.list  {
 .bar-title .button-prev:before {
     background-image: -webkit-gradient(linear, left bottom, right top, from(#204DA5), to(#416CC7));
 }
+
+/* iPhone X things */
+
+/* Stop the 1-2-3 bar straying into the 'unsafe' area occupied by the home
+indicator at the bottom of screen: */
+body.iphone-x .bar-tab {
+    height: 50px;
+}
