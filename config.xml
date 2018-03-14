@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ch.zueriwieneu.zueriwieneu" ios-CFBundleVersion="1.2.8.20171113.1" version="1.2.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ch.zueriwieneu.zueriwieneu" ios-CFBundleVersion="1.2.9.20180314.1" version="1.2.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Zuri Wie Neu</name>
     <author email="apps@mysociety.org" href="http://www.mysociety.org">
         mySociety Ltd
