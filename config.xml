@@ -48,6 +48,7 @@
         <icon height="152" src="www/res/ios/icon-152.png" width="152" />
         <icon height="167" src="www/res/ios/icon-167.png" width="167" />
         <icon height="180" src="www/res/ios/icon-180.png" width="180" />
+        <icon height="1024" src="www/res/ios/icon-1024.png" width="1024" />
         <splash height="480" src="www/res/screen/ios/Default~iphone.png" width="320" />
         <splash height="960" src="www/res/screen/ios/Default@2x~iphone.png" width="640" />
         <splash height="1024" src="www/res/screen/ios/Default-Portrait~ipad.png" width="768" />
