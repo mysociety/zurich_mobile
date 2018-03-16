@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ch.zueriwieneu.zueriwieneu" ios-CFBundleVersion="1.2.9.20180315.1" version="1.2.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ch.zueriwieneu.zueriwieneu" ios-CFBundleVersion="1.2.9.20180316.1" version="1.2.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Zuri Wie Neu</name>
     <author email="apps@mysociety.org" href="http://www.mysociety.org">
         mySociety Ltd
@@ -68,7 +68,7 @@
     <plugin name="cordova-plugin-file" spec="^4.1.1" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.5.1" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
-        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Erstellen Sie genau positionierte Berichte." />
     </plugin>
     <plugin name="cordova-plugin-globalization" spec="^1.0.7" />
     <plugin name="cordova-plugin-media" spec="^2.2.0" />

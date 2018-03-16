@@ -16,7 +16,7 @@
       "cordova-plugin-file": {},
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-geolocation": {
-        "GEOLOCATION_USAGE_DESCRIPTION": " "
+        "GEOLOCATION_USAGE_DESCRIPTION": "Erstellen Sie genau positionierte Berichte."
       },
       "cordova-plugin-globalization": {},
       "cordova-plugin-media": {},
