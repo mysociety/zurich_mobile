@@ -311,7 +311,10 @@ input[type=submit].button-blue,
 
 #around-page #map_box {
     position: 'absolute';
-    top: 0, left: 0, right: 0, bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     padding: 0px;
     height: 100%;
     margin: 0px;
