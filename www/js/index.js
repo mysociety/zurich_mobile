@@ -191,6 +191,7 @@ var tpl = {
             // Stop iOS scrolling the webview when it shows the keyboard
             if ( typeof cordova !== 'undefined' ) {
                 cordova.plugins.Keyboard.disableScroll(true);
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
             }
             // Rough-and-ready iPhone X detection so CSS can stop things
             // obscuring the home indicator at the bottom of the screen.
