@@ -1,7 +1,7 @@
 {
   "name": "ch.zueriwieneu.zueriwieneu",
   "version": "1.2.8",
-  "displayName": "Zuri Wie Neu",
+  "displayName": "Züri Wie Neu",
   "cordova": {
     "platforms": [
       "ios",

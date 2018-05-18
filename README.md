@@ -136,10 +136,6 @@ To release the app in the iTunes App Store you need to do the following:
 8. Now you need to log into iTunes Connect and add a new version of the app for this build, then submit it for review.
 
 
-#### Notes and observations from doing the release process:
-
- * Whilst the PhoneGap strings in the app are already in German, the native UI presented by iOS (e.g. photo selection) won't be. Add a 'Localizations' key (of type array) to 'Custom iOS Target Properties' in Xcode, with a single string entry of 'German'.
-
 #### Ad-Hoc Distribution
 
 iOS allows you to distribute builds of your app directly to selected testers, either by sending them the `.ipa` file for installation via iTunes or via a specially-crafted web page they visit from their device. [More info](http://help.apple.com/deployment/ios/#/apda0e3426d7).
