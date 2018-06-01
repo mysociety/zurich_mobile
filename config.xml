@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ch.zueriwieneu.zueriwieneu" ios-CFBundleVersion="1.2.10.20180518.1" version="1.2.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ch.zueriwieneu.zueriwieneu" ios-CFBundleVersion="1.2.11.20180601.1" version="1.2.11" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Züri Wie Neu</name>
     <author email="apps@mysociety.org" href="http://www.mysociety.org">
         mySociety Ltd
@@ -102,5 +102,5 @@
         </array>
     </edit-config>
     <engine name="ios" spec="^4.5.4" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="^7.0.0" />
 </widget>
