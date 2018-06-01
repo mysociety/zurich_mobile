@@ -47,6 +47,18 @@
 
             preventScroll: function(e) { e.preventDefault(); return false; },
 
+            disableScrolling: function() {
+                if ( typeof cordova !== 'undefined' ) {
+                    cordova.plugins.Keyboard.disableScroll(true);
+                }
+            },
+
+            enableScrolling: function() {
+                if ( typeof cordova !== 'undefined' ) {
+                    cordova.plugins.Keyboard.disableScroll(false);
+                }
+            },
+
             afterRender: function() {},
 
             navigate: function( target, direction ) {
@@ -521,12 +533,14 @@
                 // This makes sure the textarea takes up enough and unused screen estate
                 // do this after any animation has happend which takes 400ms as otherwise it's not properly
                 // part of the DOM so the heights get messed up.
+                var that = this;
                 window.setTimeout( function() {
                     // -50 to take account of the top margin plus a bit to leave a gap
                     var details_height = $('.content').height() - $('#form_category_row').height() - $('#bottom').height() - $('header').height() - $('.bar-tab').height() - 50;
 
                     var details = $('#form_detail');
                     details.height( details_height );
+                    that.afterRender();
                 }, 450 );
                 return this;
             },
@@ -536,6 +550,10 @@
                 'click #closeError': 'hideError',
                 'click #send_report': 'onClickSubmit',
                 'click #user-details': 'editUserDetails'
+            },
+
+            afterRender: function() {
+                this.enableScrolling();
             },
 
             saveDetails: function() {
@@ -550,12 +568,14 @@
             },
 
             onClickButtonPrev: function() {
+                this.disableScrolling();
                 this.saveDetails();
 
                 this.navigate( 'photo', 'right' );
             },
 
             onClickSubmit: function() {
+                this.disableScrolling();
                 this._disableUI();
                 this.saveDetails();
 
@@ -601,14 +621,17 @@
                             },
                             error: function() {
                                 that._enableUI();
+                                that.enableScrolling();
                                 that.displayError(STRINGS.category_extra_check_error);
                             }
                         } );
                     } else {
                         this._enableUI();
+                        this.enableScrolling();
                     }
                 } else {
                     this._enableUI();
+                    this.enableScrolling();
                     this.displayError(STRINGS.no_connection);
                 }
             },
@@ -620,6 +643,7 @@
 
             onReportError: function(model, err, options) {
                 this._enableUI();
+                this.enableScrolling();
                 this.model.off('error', this.onReportError);
                 var message = STRINGS.sync_error + ':\n';
                 for (var field in err.errors) {
@@ -699,6 +723,7 @@
             onReportError: function(model, err, options) {
                 this.model.off('error', this.onReportError);
                 this._enableUI();
+                this.enableScrolling();
                 var message = STRINGS.sync_error + ':\n';
                 for (var field in err.errors) {
                     message += err.errors[field] + "\n";
@@ -755,18 +780,6 @@
                 this.$('#category_extras input').each(populate);
                 this.$('#category_extras select').each(populate);
                 this.$('#category_extras textarea').each(populate);
-            },
-
-            disableScrolling: function() {
-                if ( typeof cordova !== 'undefined' ) {
-                    cordova.plugins.Keyboard.disableScroll(true);
-                }
-            },
-
-            enableScrolling: function() {
-                if ( typeof cordova !== 'undefined' ) {
-                    cordova.plugins.Keyboard.disableScroll(false);
-                }
             }
         })
     });
@@ -798,6 +811,10 @@
             events: {
                 'submit #userForm': 'onClickSave',
                 'click #save': 'onClickSave'
+            },
+
+            afterRender: function() {
+                this.enableScrolling();
             },
 
             saveDetails: function() {
@@ -836,6 +853,7 @@
 
             onClickSave: function () {
                 if ( this.saveDetails() ) {
+                    this.disableScrolling();
                     this.navigate( this.onsave, 'left' );
                 }
                 return false;
