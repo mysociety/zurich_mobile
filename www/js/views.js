@@ -45,6 +45,23 @@
                 }
             },
 
+            fixContentPosition: function() {
+                // Android displays slightly odd behaviour with the
+                // 'position: fixed !important' that's applied to the .content
+                // element - it doesn't render when the page is loaded. This
+                // workaround removes the .content class and immediately puts
+                // it back, which seems to solve the problem.
+                if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
+                    var $content = this.$el.find(".content");
+                    if ($content.length) {
+                        $content.removeClass('content');
+                        setTimeout(function() {
+                            $content.addClass('content');
+                        }, 0);
+                    }
+                }
+            },
+
             preventScroll: function(e) { e.preventDefault(); return false; },
 
             disableScrolling: function() {
@@ -59,7 +76,9 @@
                 }
             },
 
-            afterRender: function() {},
+            afterRender: function() {
+                this.fixContentPosition();
+            },
 
             navigate: function( target, direction ) {
                 var opts = { trigger: true };
@@ -203,6 +222,7 @@
                     var that = this;
                     window.setTimeout( function() { that.locate(); }, 20 );
                 }
+                this.fixContentPosition();
             },
 
             locate: function() {
@@ -403,6 +423,7 @@
 
             afterRender: function() {
                 show_map();
+                this.fixContentPosition();
             }
         })
     });
@@ -508,7 +529,7 @@
                 files.splice(index, 1);
                 this.model.set('files', files);
                 this.render();
-            }
+            },
         })
     });
 })(FMS, Backbone, _, $, Jr);
@@ -554,6 +575,7 @@
 
             afterRender: function() {
                 this.enableScrolling();
+                this.fixContentPosition();
             },
 
             saveDetails: function() {
@@ -674,6 +696,7 @@
             afterRender: function() {
                 this.populateFields();
                 this.enableScrolling();
+                this.fixContentPosition();
             },
 
             onClickButtonPrev: function() {
@@ -815,6 +838,7 @@
 
             afterRender: function() {
                 this.enableScrolling();
+                this.fixContentPosition();
             },
 
             saveDetails: function() {
