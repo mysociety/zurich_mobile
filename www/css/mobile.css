@@ -579,6 +579,37 @@ input[type=submit].button-blue,
     height: 105px;
 }
 
+.photo-guidance {
+    background-color: rgba(0, 105, 175, 0.781);
+    border-radius: 16px;
+    color: white;
+    padding: 1em 1em 1em 0.5em;
+    margin: 0.3em;
+}
+
+.photo-guidance ul {
+    margin: 0;
+}
+
+.photo-guidance li.do, .photo-guidance li.dont {
+    list-style: none;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 1.5em;
+    margin-left: 0.5em;
+    font-size: 0.75em;
+}
+
+.photo-guidance li.do {
+    background-image: url(../img/tick-10px-8px.png);
+    background-size: 10px 8px;
+}
+
+.photo-guidance li.dont {
+    background-image: url(../img/cross-7px-7px.png);
+    background-size: 7px 7px;
+}
+
 #ajaxOverlay, #errorOverlay {
     position: absolute;
     top: 0;
