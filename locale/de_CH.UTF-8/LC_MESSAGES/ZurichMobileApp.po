@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2015-05-20 09:17+0000\n"
+"POT-Creation-Date: 2019-07-08 16:15+0100\n"
 "PO-Revision-Date: 2015-05-19 14:08+0100\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -26,11 +26,15 @@ msgstr "-- Wählen Sie eine Kategorie --"
 msgid "About"
 msgstr "Über"
 
+#: templates/photo.html:22
+msgid "Add Another Photo"
+msgstr "Weiteres Foto hochladen"
+
 #: templates/details.html:3
 msgid "Add Details"
 msgstr "Details"
 
-#: templates/photo.html:15
+#: templates/photo.html:20
 msgid "Add Existing Photo"
 msgstr "Foto hochladen"
 
@@ -59,7 +63,7 @@ msgstr ""
 "Ihre Position konnte nicht bestimmt werden, bitte verwenden Sie die "
 "Adresssuche."
 
-#: templates/around.html:34
+#: templates/around.html:35
 msgid "Create Report"
 msgstr "Eine Meldung erfassen"
 
@@ -75,7 +79,7 @@ msgstr "Erledigt"
 msgid "Email"
 msgstr "E-Mail Adresse"
 
-#: templates/around.html:30
+#: templates/around.html:31
 msgid "Enter a Z&uuml;rich street name"
 msgstr "Ungefähre Adresse des Schadens"
 
@@ -154,7 +158,7 @@ msgstr "Persönliche Angaben"
 msgid "Phone number"
 msgstr "Telefonnummer"
 
-#: templates/report.html:51
+#: templates/report.html:52
 msgid "Photo of this report"
 msgstr "Foto dieser Meldung"
 
@@ -170,15 +174,15 @@ msgstr "Bitte warten"
 msgid "Privacy Policy"
 msgstr "Disclaimer"
 
-#: templates/photo.html:27
+#: templates/photo.html:35
 msgid "Remove Photo"
-msgstr "Foto löschen"
+msgstr "Dieses Foto löschen"
 
 #: templates/sent.html:2
 msgid "Report Sent"
 msgstr "Meldung wurde gesendet"
 
-#: templates/report.html:44
+#: templates/report.html:45
 msgid "Reported in the %s category"
 msgstr "In der Kategorie %s gemeldet"
 
@@ -186,7 +190,7 @@ msgstr "In der Kategorie %s gemeldet"
 msgid "Save Details"
 msgstr "Speichern"
 
-#: templates/around.html:38
+#: templates/around.html:39
 msgid "Select another"
 msgstr "Anderer Ort"
 
@@ -206,9 +210,13 @@ msgstr "Abschicken"
 msgid "Sync error"
 msgstr "Sync Fehler"
 
-#: templates/photo.html:12
+#: templates/photo.html:15
+msgid "Take Another Photo"
+msgstr "Weiteres Foto machen"
+
+#: templates/photo.html:13
 msgid "Take Photo"
-msgstr "Neues Foto machen"
+msgstr "Kamera verwenden"
 
 #: templates/strings.js:11
 msgid ""
@@ -232,19 +240,19 @@ msgstr ""
 msgid "There was a problem taking your photo"
 msgstr "Fehler bei Foto"
 
-#: templates/report.html:61
+#: templates/report.html:62
 msgid "Updates"
 msgstr "Antwort"
 
-#: templates/photo.html:37
+#: templates/photo.html:45
 msgid "Use photo"
 msgstr "Foto verwenden"
 
-#: templates/photo.html:39
+#: templates/photo.html:47
 msgid "Use photos"
 msgstr "Fotos verwenden"
 
-#: templates/around.html:37
+#: templates/around.html:38
 msgid "Use this Location"
 msgstr "Hier erfassen"
 

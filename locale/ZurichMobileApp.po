@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2015-05-20 09:17+0000\n"
+"POT-Creation-Date: 2019-07-08 16:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -25,11 +25,15 @@ msgstr ""
 msgid "About"
 msgstr ""
 
+#: templates/photo.html:22
+msgid "Add Another Photo"
+msgstr ""
+
 #: templates/details.html:3
 msgid "Add Details"
 msgstr ""
 
-#: templates/photo.html:15
+#: templates/photo.html:20
 msgid "Add Existing Photo"
 msgstr ""
 
@@ -53,7 +57,7 @@ msgstr ""
 msgid "Could not determine your location"
 msgstr ""
 
-#: templates/around.html:34
+#: templates/around.html:35
 msgid "Create Report"
 msgstr ""
 
@@ -69,7 +73,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: templates/around.html:30
+#: templates/around.html:31
 msgid "Enter a Z&uuml;rich street name"
 msgstr ""
 
@@ -141,7 +145,7 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
-#: templates/report.html:51
+#: templates/report.html:52
 msgid "Photo of this report"
 msgstr ""
 
@@ -157,7 +161,7 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: templates/photo.html:27
+#: templates/photo.html:35
 msgid "Remove Photo"
 msgstr ""
 
@@ -165,7 +169,7 @@ msgstr ""
 msgid "Report Sent"
 msgstr ""
 
-#: templates/report.html:44
+#: templates/report.html:45
 msgid "Reported in the %s category"
 msgstr ""
 
@@ -173,7 +177,7 @@ msgstr ""
 msgid "Save Details"
 msgstr ""
 
-#: templates/around.html:38
+#: templates/around.html:39
 msgid "Select another"
 msgstr ""
 
@@ -193,7 +197,11 @@ msgstr ""
 msgid "Sync error"
 msgstr ""
 
-#: templates/photo.html:12
+#: templates/photo.html:15
+msgid "Take Another Photo"
+msgstr ""
+
+#: templates/photo.html:13
 msgid "Take Photo"
 msgstr ""
 
@@ -213,19 +221,19 @@ msgstr ""
 msgid "There was a problem taking your photo"
 msgstr ""
 
-#: templates/report.html:61
+#: templates/report.html:62
 msgid "Updates"
 msgstr ""
 
-#: templates/photo.html:37
+#: templates/photo.html:45
 msgid "Use photo"
 msgstr ""
 
-#: templates/photo.html:39
+#: templates/photo.html:47
 msgid "Use photos"
 msgstr ""
 
-#: templates/around.html:37
+#: templates/around.html:38
 msgid "Use this Location"
 msgstr ""
 
