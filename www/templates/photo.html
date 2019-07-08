@@ -9,10 +9,18 @@
                                 <div class="ext-form-content">
                                   <% if ( files.length < 3 ) { %>
                                       <div>
-                                          <a class="button-blue" id="take-photo">Neues Foto machen</a>
+                                        <% if ( files.length == 0 ) { %>
+                                          <a class="button-blue" id="take-photo">Kamera verwenden</a>
+                                        <% } else { %>
+                                          <a class="button-blue" id="take-photo">Weiteres Foto machen</a>
+                                        <% } %>
                                       </div>
                                       <div>
+                                        <% if ( files.length == 0 ) { %>
                                           <a class="button-blue" id="add-photo">Foto hochladen</a>
+                                        <% } else { %>
+                                          <a class="button-blue" id="add-photo">Weiteres Foto hochladen</a>
+                                        <% } %>
                                       </div>
                                   <% } %>
 
@@ -24,7 +32,7 @@
                                       <div class="center">
                                           <% _.each(files, function(file, index) { %>
                                               <div class="ext-photo-preview photo-size-<%= files.length %>" style="background-image: url(<%= file %>)">
-                                                  <a class="del-photo button-grey" data-file-index="<%= index %>">Foto löschen</a>
+                                                  <a class="del-photo button-grey" data-file-index="<%= index %>">Dieses Foto löschen</a>
                                               </div>
                                           <% }); %>
                                       </div>

@@ -9,10 +9,18 @@
                                 <div class="ext-form-content">
                                   <% if ( files.length < 3 ) { %>
                                       <div>
+                                        <% if ( files.length == 0 ) { %>
                                           <a class="button-blue" id="take-photo">[% loc('Take Photo') %]</a>
+                                        <% } else { %>
+                                          <a class="button-blue" id="take-photo">[% loc('Take Another Photo') %]</a>
+                                        <% } %>
                                       </div>
                                       <div>
+                                        <% if ( files.length == 0 ) { %>
                                           <a class="button-blue" id="add-photo">[% loc('Add Existing Photo') %]</a>
+                                        <% } else { %>
+                                          <a class="button-blue" id="add-photo">[% loc('Add Another Photo') %]</a>
+                                        <% } %>
                                       </div>
                                   <% } %>
 
