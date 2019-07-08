@@ -157,14 +157,14 @@ a:visited:active.button-blue {
 
 input[type=submit].button-blue,
 .button-blue {
-    background-color: #315db7;
-    background-image: -webkit-linear-gradient(90deg, #315db7, #416CC7);
+    background-color: #0070BC;
+    background-image: none; /* needs none to override ratchet.css */
     color: white;
 }
 
 .bar-title {
-    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
-    background-color: #315db7;
+    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
+    background-color: #0070BC;
 }
 
 .bar-tab {
@@ -213,11 +213,11 @@ input[type=submit].button-blue,
 }
 
 #home-header{
-    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
+    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
     background-image: url(../img/stadt_zurich-logo.png);
     background-repeat: no-repeat;
     background-size: auto 70%;
-    background-color: #315db7;
+    background-color: #0070BC;
     background-position: 1em 0.5em;
 }
 
@@ -287,9 +287,9 @@ input[type=submit].button-blue,
     z-index: 2000;
     bottom: 80px;
     right: 0px;
-    background: #a9a9a9;
-    background-color: #a9a9a9;
-    border-color: #a9a9a9;
+    background: #0070BC;
+    background-color: #0070BC;
+    border-color: #0070BC;
     border-radius: 6px 0px 0px 6px;
     color: white;
     line-height: 1.8em;
@@ -440,9 +440,9 @@ input[type=submit].button-blue,
 }
 
 .ext-progress .step.step-current {
-    background-color: #315db7;
+    background-color: #0070BC;
     color: white;
-    border-color: #315db7;
+    border-color: #0070BC;
 }
 
 .ext-progress .step.step-complete {
@@ -473,7 +473,7 @@ input[type=submit].button-blue,
 
 .ext-form-content h2, .ext-form-content h3 {
     padding: 0 0.25em;
-    color: #315db7;
+    color: #0070BC;
     text-shadow: none;
     font-weight: normal;
     font-size: 1.5em;
@@ -618,7 +618,7 @@ ul.list  {
 .bar-title [class*=button],
 .bar-title .button-next:after,
 .bar-title .button-prev:before {
-    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
+    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
 }
 
 .button-gradient:after,
@@ -636,7 +636,7 @@ ul.list  {
 .button-no-gradient:after,
 .button-no-gradient:before {
     background-image: none !important;
-    background-color: #315db7;
+    background-color: #0070BC;
     box-shadow: none !important;
     z-index: -1;
 }
@@ -655,12 +655,7 @@ ul.list  {
 .bar-title .button-next:active:after,
 .bar-title .button-prev:active:before {
     background-image: none !important;
-    background-color: #315db7;
-}
-
-/*.bar-title .button-prev:active:before,*/
-.bar-title .button-prev:before {
-    background-image: -webkit-gradient(linear, left bottom, right top, from(#204DA5), to(#416CC7));
+    background-color: #0070BC;
 }
 
 /* iPhone X things */
