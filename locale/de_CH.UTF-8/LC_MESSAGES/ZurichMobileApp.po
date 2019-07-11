@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2019-07-08 16:15+0100\n"
+"POT-Creation-Date: 2019-07-11 20:37+0100\n"
 "PO-Revision-Date: 2015-05-19 14:08+0100\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: templates/around.html:35
 msgid "Create Report"
-msgstr "Eine Meldung erfassen"
+msgstr "Hier eine Meldung erfassen"
 
 #: templates/details.html:19 templates/report.html:3
 msgid "Details"

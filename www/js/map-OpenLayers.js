@@ -75,7 +75,7 @@ function fixmystreet_onload() {
         styleMap: pin_layer_style_map
     };
     if (fixmystreet.page == 'around') {
-        fixmystreet.bbox_strategy = fixmystreet.bbox_strategy || new OpenLayers.Strategy.BBOX({ ratio: 1 });
+        fixmystreet.bbox_strategy = fixmystreet.bbox_strategy || new OpenLayers.Strategy.BBOX({ ratio: 3 });
         pin_layer_options.strategies = [ fixmystreet.bbox_strategy ];
         pin_layer_options.protocol = new OpenLayers.Protocol.HTTP({
             url: CONFIG.FMS_URL + 'ajax',
@@ -86,6 +86,7 @@ function fixmystreet_onload() {
     fixmystreet.markers = new OpenLayers.Layer.Vector("Pins", pin_layer_options);
     fixmystreet.markers.events.register( 'loadend', fixmystreet.markers, function(evt) {
         if (fixmystreet.map.popups.length) fixmystreet.map.removePopup(fixmystreet.map.popups[0]);
+        if (fixmystreet.click_map) fixmystreet.click_map.activate();
     });
 
     var markers = fms_markers_list( fixmystreet.pins, true );
@@ -93,18 +94,20 @@ function fixmystreet_onload() {
     if (fixmystreet.page == 'around' || fixmystreet.page == 'reports' || fixmystreet.page == 'my') {
         fixmystreet.select_feature = new OpenLayers.Control.SelectFeature( fixmystreet.markers );
         var selectedFeature;
-        function onPopupClose(evt) {
+        var onPopupClose = function(evt) {
             fixmystreet.select_feature.unselect(selectedFeature);
             OpenLayers.Event.stop(evt);
-        }
+        };
         fixmystreet.markers.events.register( 'featureunselected', fixmystreet.markers, function(evt) {
             var feature = evt.feature, popup = feature.popup;
             fixmystreet.map.removePopup(popup);
             popup.destroy();
             feature.popup = null;
-            $('#OpenLayers_Control_Crosshairs_crosshairs').show();
+            // $('#OpenLayers_Control_Crosshairs_crosshairs').show();
+            fixmystreet.click_map.activate();
         });
         fixmystreet.markers.events.register( 'featureselected', fixmystreet.markers, function(evt) {
+            console.log("featureselected");
             var feature = evt.feature;
             selectedFeature = feature;
             var popup = new OpenLayers.Popup.FramedCloud("popup",
@@ -118,25 +121,38 @@ function fixmystreet_onload() {
             // hide the crosshairs so they aren't in front of the popup. This seems
             // a bit kludgy but attempts to place the popup in front using z-index
             // failed due to the ordering of the elements and stacking rules :(
-            $('#OpenLayers_Control_Crosshairs_crosshairs').hide();
+            // $('#OpenLayers_Control_Crosshairs_crosshairs').hide();
+            fixmystreet.click_map.deactivate();
         });
         fixmystreet.map.addControl( fixmystreet.select_feature );
         fixmystreet.select_feature.activate();
     } else if (fixmystreet.page == 'new') {
         fixmystreet_activate_drag();
     }
-    fixmystreet.map.addLayer(fixmystreet.markers);
 
     if ( fixmystreet.page == 'around' ) {
-        fixmystreet.map.addControl( new OpenLayers.Control.Crosshairs(null) );
-        fixmystreet.map.events.register( 'moveend', fixmystreet.map, function(e) { $('#OpenLayers_Control_Crosshairs_crosshairs').show(); } );
+        // fixmystreet.map.addControl( new OpenLayers.Control.Crosshairs(null) );
+        // fixmystreet.map.events.register( 'moveend', fixmystreet.map, function(e) { $('#OpenLayers_Control_Crosshairs_crosshairs').show(); } );
+
+        console.log("fixmystreet.latitude", fixmystreet.latitude, fixmystreet.longitude);
+        fixmystreet.new_marker = new OpenLayers.Layer.Vector("Report Pin", { styleMap: pin_layer_style_map });
+        fixmystreet.new_marker.addFeatures(fms_markers_list([
+            [fixmystreet.latitude || 0, fixmystreet.longitude || 0, 'green', 1, '', 'big']
+        ], true));
+        fixmystreet.map.addLayer(fixmystreet.new_marker);
+
+        fixmystreet.click_map = new OpenLayers.Control.Click();
+        fixmystreet.map.addControl( fixmystreet.click_map );
+        fixmystreet.click_map.activate();
     }
+
+    fixmystreet.map.addLayer(fixmystreet.markers);
 }
 
-function show_map(){
+function show_map(centre){
     // Set specific map config - some other JS included in the
     // template should define this
-    set_map_config(); 
+    set_map_config();
 
     // Create the basics of the map
     fixmystreet.map = new OpenLayers.Map(
@@ -169,8 +185,7 @@ function show_map(){
         fixmystreet.map.addLayer(layer);
     }
 
-    if (!fixmystreet.map.getCenter()) {
-        var centre = new OpenLayers.LonLat( fixmystreet.longitude, fixmystreet.latitude );
+    if (!fixmystreet.map.getCenter() && centre) {
         centre.transform(
             new OpenLayers.Projection("EPSG:4326"),
             fixmystreet.map.getProjectionObject()
@@ -211,11 +226,11 @@ function show_map(){
     fixmystreet_onload();
 
     if ( fixmystreet.page == 'around' ) {
-        crosshairsControls = fixmystreet.map.getControlsByClass(
-            "OpenLayers.Control.Crosshairs");
-        for (i = 0; i < crosshairsControls.length; ++i) {
-            crosshairsControls[i].reposition();
-        }
+        // crosshairsControls = fixmystreet.map.getControlsByClass(
+        //     "OpenLayers.Control.Crosshairs");
+        // for (i = 0; i < crosshairsControls.length; ++i) {
+        //     crosshairsControls[i].reposition();
+        // }
 
         $('#mark-here').show();
         $('#swap-map').show();
@@ -359,3 +374,43 @@ OpenLayers.Control.Crosshairs.prototype =
     CLASS_NAME: "OpenLayers.Control.Crosshairs"
 });
 
+OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
+    defaultHandlerOptions: {
+        'single': true,
+        'double': false,
+        'pixelTolerance': 0,
+        'stopSingle': false,
+        'stopDouble': false
+    },
+
+    initialize: function(options) {
+        this.handlerOptions = OpenLayers.Util.extend(
+            {}, this.defaultHandlerOptions
+        );
+        OpenLayers.Control.prototype.initialize.apply(
+            this, arguments
+        );
+        this.handler = new OpenLayers.Handler.Click(
+            this, {
+                'click': this.trigger
+            }, this.handlerOptions
+        );
+    },
+
+    trigger: function(e) {
+        console.log("trigger");
+
+        var lonlat = fixmystreet.map.getLonLatFromPixel(e.xy);
+
+        fixmystreet.new_marker.features[0].move(new OpenLayers.LonLat(lonlat.lon, lonlat.lat));
+        fixmystreet.map.panTo(lonlat);
+
+        lonlat.transform(
+            fixmystreet.map.getProjectionObject(),
+            new OpenLayers.Projection("EPSG:4326")
+        );
+        $(fixmystreet).triggerHandler('clickmap', [lonlat]);
+    },
+
+    CLASS_NAME: "OpenLayers.Control.Click"
+});

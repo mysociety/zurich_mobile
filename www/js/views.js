@@ -168,6 +168,9 @@
                     that.$el.html(template);
                     that.fixNavButtons();
                     that.afterRender();
+                    $(fixmystreet).on("clickmap", function() {
+                        that.setReportPosition.apply(that, arguments);
+                    });
                 });
                 return this;
             },
@@ -210,16 +213,18 @@
                 });
 
                 if ( FMS.currentLocation ) {
-                    this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon } } );
+                    console.log("current location", FMS.currentLocation);
+                    this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon }, set_marker_position: true } );
                     FMS.currentLocation = null;
                 } else if ( this.model.get('lat') && this.model.get('lon') ) {
-                    this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') } } );
+                    this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') }, set_marker_position: true } );
                 } else {
                     // this is because on android the timing is such that the ajaxStop event
                     // on the call to get the template can fire after locate is called and so
                     // dismisses the wait dialog and the user is left staring at a blank map
                     // while geolocation whirs away
                     var that = this;
+                    console.log("no current location");
                     window.setTimeout( function() { that.locate(); }, 20 );
                 }
                 this.fixContentPosition();
@@ -248,12 +253,14 @@
                     $('#ajaxOverlay').hide();
                 }
                 var coords = info.coordinates;
-                fixmystreet.latitude = coords.latitude;
-                fixmystreet.longitude = coords.longitude;
+                if (info.set_marker_position) {
+                    fixmystreet.latitude = coords.latitude;
+                    fixmystreet.longitude = coords.longitude;
+                }
+                var centre = new OpenLayers.LonLat( coords.longitude, coords.latitude );
                 if ( !fixmystreet.map ) {
-                    show_map();
+                    show_map(centre);
                 } else {
-                    var centre = new OpenLayers.LonLat( coords.longitude, coords.latitude );
                     centre.transform(
                         new OpenLayers.Projection("EPSG:4326"),
                         fixmystreet.map.getProjectionObject()
@@ -305,8 +312,15 @@
                 'click #relocate': 'locate'
             },
 
+            setReportPosition: function(e, lonlat) {
+                console.log("setReportPosition");
+                FMS.currentLocation = lonlat;
+            },
+
             onClickButtonNext: function() {
-                var position = this.getCrossHairPosition();
+                // var position = this.getCrossHairPosition();
+                var position = FMS.currentLocation;
+
 
                 var l = new Locate();
                 _.extend(l, Backbone.Events);
@@ -347,32 +361,32 @@
 
             showReport: function(r) {
                 r.off('change');
-                var position = this.getCrossHairPosition();
-                FMS.currentLocation = position;
+                // var position = this.getCrossHairPosition();
+                // FMS.currentLocation = position;
                 FMS.reportToView = r;
 
                 this.navigate( 'report', 'left' );
             },
 
-            getCrossHairPosition: function() {
-                var cross = fixmystreet.map.getControlsByClass(
-                "OpenLayers.Control.Crosshairs");
+            // getCrossHairPosition: function() {
+            //     var cross = fixmystreet.map.getControlsByClass(
+            //     "OpenLayers.Control.Crosshairs");
 
-                var position = cross[0].getMapPosition();
-                position.transform(
-                    fixmystreet.map.getProjectionObject(),
-                    new OpenLayers.Projection("EPSG:4326")
-                );
+            //     var position = cross[0].getMapPosition();
+            //     position.transform(
+            //         fixmystreet.map.getProjectionObject(),
+            //         new OpenLayers.Projection("EPSG:4326")
+            //     );
 
-                return position;
-            },
+            //     return position;
+            // },
 
             onClickMenu: function() {
                 // if there is no map then there are no crosshairs and
                 // this will fail
                 if ( fixmystreet.map ) {
-                    var position = this.getCrossHairPosition();
-                    FMS.currentLocation = position;
+                    // var position = this.getCrossHairPosition();
+                    // FMS.currentLocation = position;
                 }
 
                 this.navigate( 'settings', 'left' );
