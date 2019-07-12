@@ -85,8 +85,10 @@ function fixmystreet_onload() {
     }
     fixmystreet.markers = new OpenLayers.Layer.Vector("Pins", pin_layer_options);
     fixmystreet.markers.events.register( 'loadend', fixmystreet.markers, function(evt) {
-        if (fixmystreet.map.popups.length) fixmystreet.map.removePopup(fixmystreet.map.popups[0]);
-        if (fixmystreet.click_map) fixmystreet.click_map.activate();
+        if (fixmystreet.map.popups.length) {
+            fixmystreet.map.removePopup(fixmystreet.map.popups[0]);
+            if (fixmystreet.click_map) fixmystreet.click_map.activate();
+        }
     });
 
     var markers = fms_markers_list( fixmystreet.pins, true );
@@ -226,12 +228,6 @@ function show_map(centre){
     fixmystreet_onload();
 
     if ( fixmystreet.page == 'around' ) {
-        // crosshairsControls = fixmystreet.map.getControlsByClass(
-        //     "OpenLayers.Control.Crosshairs");
-        // for (i = 0; i < crosshairsControls.length; ++i) {
-        //     crosshairsControls[i].reposition();
-        // }
-
         $('#mark-here').show();
         $('#swap-map').show();
     }

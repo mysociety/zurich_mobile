@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: struan@mysociety.org\n"
-"POT-Creation-Date: 2019-07-11 20:37+0100\n"
+"POT-Creation-Date: 2019-07-12 15:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <team@fixmystreet.com>\n"
@@ -186,10 +186,6 @@ msgstr ""
 msgid "Save Details"
 msgstr ""
 
-#: templates/around.html:39
-msgid "Select another"
-msgstr ""
-
 #: templates/settings.html:3
 msgid "Settings"
 msgstr ""
@@ -242,10 +238,6 @@ msgstr ""
 
 #: templates/photo.html:47
 msgid "Use photos"
-msgstr ""
-
-#: templates/around.html:38
-msgid "Use this Location"
 msgstr ""
 
 #: templates/settings.html:9 templates/user.html:3

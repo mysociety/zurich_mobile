@@ -104,7 +104,7 @@ input[type=submit].button-blue:active,
     margin: 0.3em 0.5em 0.1em 0.5em;
     text-transform: none;
     font-weight: normal;
-    text-shadow: 0px -1px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: none;
 }
 
 input[type=submit].button-blue,
@@ -146,8 +146,8 @@ a:visited:active.button-blue {
 
 .button-grey {
     background-color: #a9a9a9;
-    background-image: -webkit-linear-gradient(-90deg,#c9c9c9 0%, #a9a9a9 98%);
-    color: white;
+    background-image: none;
+    color: #111;
 }
 
 .button-grey-plain {
@@ -208,9 +208,53 @@ input[type=submit].button-blue,
     color: white;
     text-align: center;
     font-size: 18px;
-    margin: auto;
-    width: 80%;
+    margin: 0.5em auto 0;
 }
+
+#welcome_wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 40px;
+    z-index: 3000;
+}
+
+#welcome_wrapper #welcome {
+    background-color: rgba(0, 105, 175, 0.95);
+    border-radius: 16px;
+    color: white;
+    position: absolute;
+    top: 0.3em;
+    left: 0.3em;
+    right: 0.3em;
+    bottom: 0.6em;
+    text-align: center;
+    padding: 1em;
+}
+
+#welcome_wrapper #welcome ol {
+    margin-bottom: 0;
+}
+
+#welcome_wrapper #welcome p.actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2em;
+}
+
+#welcome_target {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: #0070BC;
+    border: 1px solid rgba(0, 0, 0, .3);
+}
+
+
 
 #home-header{
     background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
@@ -227,7 +271,7 @@ input[type=submit].button-blue,
     top: 330px;
 }
 
-#mark-here, #use-location {
+#mark-here, #use-location, #tap-the-map {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -236,10 +280,17 @@ input[type=submit].button-blue,
     z-index: 2000;
 }
 
+#tap-the-map p {
+    background-color: rgba(0, 105, 175, 0.781);
+    border-radius: 16px;
+    color: white;
+    margin: 0 1em;
+}
+
 #relocate {
     position: absolute;
     left: 4%;
-    bottom: 75px;
+    bottom: 100px;
     height: 32px;
     width: 32px;
     padding: 5px;
@@ -285,7 +336,7 @@ input[type=submit].button-blue,
 #swap-map {
     position: absolute;
     z-index: 2000;
-    bottom: 80px;
+    bottom: 100px;
     right: 0px;
     background: #0070BC;
     background-color: #0070BC;

@@ -163,13 +163,32 @@
 
             render: function(){
                 var that = this;
+
+                // Recent iOS versions appear to suffer a bug where the
+                // DOM elements are all rendered offset from where they
+                // should be (and where the DOM inspector thinks they are!)
+                // when this view is shown immediately after the keyboard is
+                // dismissed (for example the first time the app is run)
+                // and the user details are captured.
+                // This hack re-renders the view to combat this problem.
+                if (FMS.firstRun) {
+                    setTimeout(function() {
+                        FMS.firstRun = false;
+                        that.render();
+                    }, 1000);
+                    return this;
+                }
+
                 $.get("templates/" + this.template + ".html", function(template){
                     //var html = $(template);
                     that.$el.html(template);
                     that.fixNavButtons();
                     that.afterRender();
-                    $(fixmystreet).on("clickmap", function() {
-                        that.setReportPosition.apply(that, arguments);
+                    // This needs to be set up as its own event handler, not using
+                    // Backbone .events, as it's a jQuery event.
+                    $(fixmystreet).on("clickmap", function(e, lonlat) {
+                        console.log("clickmap handler", lonlat);
+                        that.setReportPosition(lonlat);
                     });
                 });
                 return this;
@@ -215,7 +234,6 @@
                 if ( FMS.currentLocation ) {
                     console.log("current location", FMS.currentLocation);
                     this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon }, set_marker_position: true } );
-                    FMS.currentLocation = null;
                 } else if ( this.model.get('lat') && this.model.get('lon') ) {
                     this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') }, set_marker_position: true } );
                 } else {
@@ -225,12 +243,16 @@
                     // while geolocation whirs away
                     var that = this;
                     console.log("no current location");
-                    window.setTimeout( function() { that.locate(); }, 20 );
+                    window.setTimeout( function() { that.locate(null, true); }, 20 );
+                }
+
+                if (FMS.seen_welcome) {
+                    $("#welcome_wrapper").hide();
                 }
                 this.fixContentPosition();
             },
 
-            locate: function() {
+            locate: function(e, initial) {
                 if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
                     navigator.notification.activityStart('', STRINGS.please_wait);
                 } else {
@@ -240,24 +262,35 @@
                 var that = this;
                 var l = new Locate();
                 _.extend(l, Backbone.Events);
-                l.on('located', this.showMap, this );
+                l.on('located', function(info) {
+                    if (!initial) {
+                        // We're being called as a result of the user clicking the 'locate' button,
+                        // so set the marker position
+                        info.set_marker_position = true;
+                    }
+                    that.showMap(info);
+                });
                 l.on('failed', this.noMap, this );
 
                 l.geolocate();
             },
 
             showMap: function( info ) {
+                console.log("showMap", info);
                 if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
                     navigator.notification.activityStop();
                 } else {
                     $('#ajaxOverlay').hide();
                 }
+                console.log(info);
                 var coords = info.coordinates;
+                var centre = new OpenLayers.LonLat( coords.longitude, coords.latitude );
                 if (info.set_marker_position) {
+                    console.log("showMap setting marker position", centre);
                     fixmystreet.latitude = coords.latitude;
                     fixmystreet.longitude = coords.longitude;
+                    this.setReportPosition(centre);
                 }
-                var centre = new OpenLayers.LonLat( coords.longitude, coords.latitude );
                 if ( !fixmystreet.map ) {
                     show_map(centre);
                 } else {
@@ -266,6 +299,9 @@
                         fixmystreet.map.getProjectionObject()
                     );
                     fixmystreet.map.panTo(centre);
+                    if (info.set_marker_position && fixmystreet.new_marker) {
+                        fixmystreet.new_marker.features[0].move(centre);
+                    }
                 }
                 this.positionMarkHere();
             },
@@ -288,8 +324,13 @@
             },
 
             positionMarkHere: function() {
-                $('#mark-here').show();
-                $('#saved-reports').show();
+                if (FMS.currentLocation) {
+                    $('#mark-here').show();
+                    $('#tap-the-map').hide();
+                } else {
+                    $('#mark-here').hide();
+                    $('#tap-the-map').show();
+                }
                 $('#relocate').show();
             },
 
@@ -309,27 +350,36 @@
                 'click #closeError': 'hideError',
                 'click .button-menu': 'onClickMenu',
                 'click #swap-map': 'onSwapMap',
-                'click #relocate': 'locate'
+                'click #relocate': 'locate',
+                'click #dismiss_welcome': 'onClickDismissWelcome'
             },
 
-            setReportPosition: function(e, lonlat) {
-                console.log("setReportPosition");
-                FMS.currentLocation = lonlat;
+            setReportPosition: function(lonlat) {
+                console.log("setReportPosition", lonlat);
+                FMS.currentLocation = {
+                    lon: lonlat.lon,
+                    lat: lonlat.lat
+                };
+                this.positionMarkHere();
+            },
+
+            onClickDismissWelcome: function(e) {
+                e.preventDefault();
+                FMS.seen_welcome = true;
+                $("#welcome_wrapper").hide();
+                this.positionMarkHere();
             },
 
             onClickButtonNext: function() {
-                // var position = this.getCrossHairPosition();
-                var position = FMS.currentLocation;
-
-
                 var l = new Locate();
                 _.extend(l, Backbone.Events);
                 l.on('failed', this.noMap, this );
                 l.on('located', this.goPhoto, this );
-                l.check_location( { latitude: position.lat, longitude: position.lon } );
+                l.check_location( { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon } );
             },
 
             goPhoto: function(info) {
+                console.log("goPhoto", info.coordinates);
                 this.model.set('lat', info.coordinates.latitude );
                 this.model.set('lon', info.coordinates.longitude );
                 this.model.set('categories', info.details.category );
@@ -361,38 +411,17 @@
 
             showReport: function(r) {
                 r.off('change');
-                // var position = this.getCrossHairPosition();
-                // FMS.currentLocation = position;
                 FMS.reportToView = r;
 
                 this.navigate( 'report', 'left' );
             },
 
-            // getCrossHairPosition: function() {
-            //     var cross = fixmystreet.map.getControlsByClass(
-            //     "OpenLayers.Control.Crosshairs");
-
-            //     var position = cross[0].getMapPosition();
-            //     position.transform(
-            //         fixmystreet.map.getProjectionObject(),
-            //         new OpenLayers.Projection("EPSG:4326")
-            //     );
-
-            //     return position;
-            // },
-
             onClickMenu: function() {
-                // if there is no map then there are no crosshairs and
-                // this will fail
-                if ( fixmystreet.map ) {
-                    // var position = this.getCrossHairPosition();
-                    // FMS.currentLocation = position;
-                }
-
                 this.navigate( 'settings', 'left' );
             },
 
             onSwapMap: function(e) {
+                e.preventDefault(); // Stop the map click handler being fired
                 var el = $('#swap-map');
                 var s = el.text();
                 var layer;
@@ -408,7 +437,7 @@
                 // I don't know why this is required but for some reason all
                 // the child divs of the layer end up with display: none set
                 // so we have to manually show them :/
-                $(fixmystreet.map.layers[layer].div).children().show()
+                $(fixmystreet.map.layers[layer].div).children().show();
             }
         })
     });
