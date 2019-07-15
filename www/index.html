@@ -79,8 +79,8 @@
                 fixmystreet.wmts_config = {
                     'map_projection': 'EPSG:2056',
                     'tile_dpi': 96,
-                    'tile_urls': ["https://www.gis.stadt-zuerich.ch/maps/rest/services/tiled95/LuftbildHybrid/MapServer/WMTS/tile", "https://www.gis.stadt-zuerich.ch/maps/rest/services/tiled95/Stadtplan3D/MapServer/WMTS/tile"],
-                    'tile_suffix': '',
+                    'tile_urls': ["https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/", "https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/"],
+                    'tile_suffix': 'jpeg',
                     // Whichever layer appears first in this list will be the
                     // default used for the map.
                     // NB: If you change the default, you must update the contents
@@ -88,10 +88,10 @@
                     // HYBRID_LAYER_INDEX/STADTPLAN_LAYER_INDEX below to match.
                     'layer_names': ["LuftbildHybrid", "Stadtplan3D"],
                     'layer_style': 'default',
-                    'matrix_set': 'default028mm',
+                    'matrix_set': 'stzh',
                     'scales': ["64000", "32000", "16000", "8000", "4000", "2000", "1000", "500", "250"],
-                    'origin_x': -27386322.500000,
-                    'origin_y': 31814423.000000
+                    'origin_x': 2672499.0,
+                    'origin_y': 1256999.0
                 };
                 fixmystreet.HYBRID_LAYER_INDEX = 0;
                 fixmystreet.STADTPLAN_LAYER_INDEX = 1;

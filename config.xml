@@ -10,6 +10,7 @@
     <access origin="https://www.zueriwieneu.ch" />
     <access origin="https://zurich.fixmystreet.com" />
     <access origin="https://www.gis.stadt-zuerich.ch" />
+    <access origin="https://www.ogc.stadt-zuerich.ch" />
     <allow-intent href="mailto:*" />
     <log level="DEBUG" />
     <preference name="useBrowserHistory" value="true" />
