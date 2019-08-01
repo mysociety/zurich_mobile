@@ -105,11 +105,9 @@ function fixmystreet_onload() {
             fixmystreet.map.removePopup(popup);
             popup.destroy();
             feature.popup = null;
-            // $('#OpenLayers_Control_Crosshairs_crosshairs').show();
             fixmystreet.click_map.activate();
         });
         fixmystreet.markers.events.register( 'featureselected', fixmystreet.markers, function(evt) {
-            console.log("featureselected");
             var feature = evt.feature;
             selectedFeature = feature;
             var popup = new OpenLayers.Popup.FramedCloud("popup",
@@ -120,10 +118,6 @@ function fixmystreet_onload() {
                 true, onPopupClose);
             feature.popup = popup;
             fixmystreet.map.addPopup(popup);
-            // hide the crosshairs so they aren't in front of the popup. This seems
-            // a bit kludgy but attempts to place the popup in front using z-index
-            // failed due to the ordering of the elements and stacking rules :(
-            // $('#OpenLayers_Control_Crosshairs_crosshairs').hide();
             fixmystreet.click_map.deactivate();
         });
         fixmystreet.map.addControl( fixmystreet.select_feature );
@@ -133,10 +127,6 @@ function fixmystreet_onload() {
     }
 
     if ( fixmystreet.page == 'around' ) {
-        // fixmystreet.map.addControl( new OpenLayers.Control.Crosshairs(null) );
-        // fixmystreet.map.events.register( 'moveend', fixmystreet.map, function(e) { $('#OpenLayers_Control_Crosshairs_crosshairs').show(); } );
-
-        console.log("fixmystreet.latitude", fixmystreet.latitude, fixmystreet.longitude);
         fixmystreet.new_marker = new OpenLayers.Layer.Vector("Report Pin", { styleMap: pin_layer_style_map });
         fixmystreet.new_marker.addFeatures(fms_markers_list([
             [fixmystreet.latitude || 0, fixmystreet.longitude || 0, 'green', 1, '', 'big']
@@ -394,8 +384,6 @@ OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
     },
 
     trigger: function(e) {
-        console.log("trigger");
-
         var lonlat = fixmystreet.map.getLonLatFromPixel(e.xy);
 
         fixmystreet.new_marker.features[0].move(new OpenLayers.LonLat(lonlat.lon, lonlat.lat));

@@ -187,7 +187,6 @@
                     // This needs to be set up as its own event handler, not using
                     // Backbone .events, as it's a jQuery event.
                     $(fixmystreet).on("clickmap", function(e, lonlat) {
-                        console.log("clickmap handler", lonlat);
                         that.setReportPosition(lonlat);
                     });
                 });
@@ -232,7 +231,6 @@
                 });
 
                 if ( FMS.currentLocation ) {
-                    console.log("current location", FMS.currentLocation);
                     this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon }, set_marker_position: true } );
                 } else if ( this.model.get('lat') && this.model.get('lon') ) {
                     this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') }, set_marker_position: true } );
@@ -242,7 +240,6 @@
                     // dismisses the wait dialog and the user is left staring at a blank map
                     // while geolocation whirs away
                     var that = this;
-                    console.log("no current location");
                     window.setTimeout( function() { that.locate(null, true); }, 20 );
                 }
 
@@ -276,17 +273,14 @@
             },
 
             showMap: function( info ) {
-                console.log("showMap", info);
                 if ( typeof device !== 'undefined' && device.platform == 'Android' ) {
                     navigator.notification.activityStop();
                 } else {
                     $('#ajaxOverlay').hide();
                 }
-                console.log(info);
                 var coords = info.coordinates;
                 var centre = new OpenLayers.LonLat( coords.longitude, coords.latitude );
                 if (info.set_marker_position) {
-                    console.log("showMap setting marker position", centre);
                     fixmystreet.latitude = coords.latitude;
                     fixmystreet.longitude = coords.longitude;
                     this.setReportPosition(centre);
@@ -355,7 +349,6 @@
             },
 
             setReportPosition: function(lonlat) {
-                console.log("setReportPosition", lonlat);
                 FMS.currentLocation = {
                     lon: lonlat.lon,
                     lat: lonlat.lat
@@ -379,7 +372,6 @@
             },
 
             goPhoto: function(info) {
-                console.log("goPhoto", info.coordinates);
                 this.model.set('lat', info.coordinates.latitude );
                 this.model.set('lon', info.coordinates.longitude );
                 this.model.set('categories', info.details.category );
@@ -566,7 +558,6 @@
             },
 
             deletePhoto: function(event) {
-                console.log(arguments);
                 var files = this.model.get('files');
                 var index = parseInt($(event.target).data('fileIndex'));
                 files.splice(index, 1);
