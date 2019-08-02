@@ -262,8 +262,8 @@
                 l.on('located', function(info) {
                     if (!initial) {
                         // We're being called as a result of the user clicking the 'locate' button,
-                        // so set the marker position
-                        info.set_marker_position = true;
+                        // and don't want to set the green marker position for the report.
+                        info.set_marker_position = false;
                     }
                     that.showMap(info);
                 });
