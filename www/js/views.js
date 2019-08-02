@@ -854,6 +854,12 @@
 
             onClickDone: function() {
                 FMS.currentReport = new FMS.Report();
+
+                // Clear the green pin location from the map
+                FMS.currentLocation = null;
+                fixmystreet.latitude = null;
+                fixmystreet.longitude = null;
+
                 this.navigate( 'home', 'left' );
             }
         })
