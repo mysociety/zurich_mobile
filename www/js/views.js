@@ -457,7 +457,7 @@
             },
 
             afterRender: function() {
-                show_map();
+                show_map(new OpenLayers.LonLat( fixmystreet.longitude, fixmystreet.latitude ));
                 this.fixContentPosition();
             }
         })
