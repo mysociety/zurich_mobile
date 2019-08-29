@@ -550,6 +550,7 @@
 
             addPhotoFail: function(message) {
                 if ( message != 'no image selected' &&
+                    message != 'No Image Selected' &&
                     message != 'Selection cancelled.' &&
                     message != 'Camera cancelled.' &&
                     message != 'has no access to assets'
