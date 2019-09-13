@@ -42,7 +42,6 @@ var Locate = ( function() { return {
                 if ( that.watch_id == undefined ) { console.log( 'no watch id' ); return; }
                 that.locating = 0;
                 navigator.geolocation.clearWatch( that.watch_id );
-
                 that.check_location(location.coords);
             },
             function() {

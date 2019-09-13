@@ -9,10 +9,18 @@
                                 <div class="ext-form-content">
                                   <% if ( files.length < 3 ) { %>
                                       <div>
+                                        <% if ( files.length == 0 ) { %>
                                           <a class="button-blue" id="take-photo">[% loc('Take Photo') %]</a>
+                                        <% } else { %>
+                                          <a class="button-blue" id="take-photo">[% loc('Take Another Photo') %]</a>
+                                        <% } %>
                                       </div>
                                       <div>
+                                        <% if ( files.length == 0 ) { %>
                                           <a class="button-blue" id="add-photo">[% loc('Add Existing Photo') %]</a>
+                                        <% } else { %>
+                                          <a class="button-blue" id="add-photo">[% loc('Add Another Photo') %]</a>
+                                        <% } %>
                                       </div>
                                   <% } %>
 
@@ -46,6 +54,12 @@
                                 <input type="hidden" name="photo" id="form_photo" value="">
                             </div>
                         </fieldset>
+                        <div class="photo-guidance">
+                            <ul>
+                                <li class="do"><span></span>Machen Sie ein Detail- und ein Übersichtsfoto</li>
+                                <li class="dont"><span></span>Vermeiden Sie persönliche Informationen auf dem Foto wie Autonummern oder Personen</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             <nav class="bar-tab">

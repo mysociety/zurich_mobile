@@ -32,12 +32,29 @@
                             </div>
                             <div id="swap-map" class="nodisplay">Stadtplan</div>
                             <div id="mark-here" class="nodisplay">
-                            <a class="button-blue">Eine Meldung erfassen</a>
+                                <a class="button-blue">Hier eine Meldung erfassen</a>
                             </div>
-                            <!-- a id="saved-reports" class="nodisplay button-grey">View Drafts</a -->
-                            <a id="use-location" class="nodisplay button-blue">Hier erfassen</a>
-                            <a id="select-another" class="nodisplay button-grey">Anderer Ort</a>
-                            <a id="relocate" class="nodisplay button-grey button-grey-plain"><img src="img/location@x2.png"></a>
+                            <div id="tap-the-map" class="nodisplay">
+                                <p>Klicken Sie in die Karte um den Schaden zu lokalisieren</p>
+                            </div>
+                            <a id="relocate" class="nodisplay button-grey button-grey-plain"><img src="img/target.svg"></a>
+
+                            <div id="welcome_wrapper">
+                                <div id="welcome">
+                                    <p>
+                                        1. Verwenden Sie Ihre aktuelle Position (GPS) oder
+                                        die Adresssuche um die Karte an die gewünschte
+                                        Position zu verschieben.
+                                    </p>
+                                    <img id="welcome_target" src="img/target.svg">
+                                    <p>
+                                        2. Klicken Sie danach in die Karte um den Schaden zu
+                                        lokalisieren.
+                                    </p>
+                                    <img src="img/pin-green-big.png" />
+                                    <p class="actions"><button class="button-grey" id="dismiss_welcome">OK</button></p>
+                                </div>
+                            </div>
                     </div>
                 </div>
             <nav class="bar-tab nodisplay">

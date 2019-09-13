@@ -92,6 +92,7 @@ var tpl = {
                 } else {
                     FMS.currentUser = new FMS.User({ id: 1 });
                     var welcomeView = new FMS.WelcomeView({ model: FMS.currentUser });
+                    FMS.firstRun = true;
                     this.renderView(welcomeView);
                 }
             },
@@ -179,6 +180,8 @@ var tpl = {
         currentReport: new FMS.Report(),
         currentUser: null,
         currentLocation: null,
+
+        seen_welcome: false,
 
         reportToView: null,
 

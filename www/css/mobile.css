@@ -104,7 +104,7 @@ input[type=submit].button-blue:active,
     margin: 0.3em 0.5em 0.1em 0.5em;
     text-transform: none;
     font-weight: normal;
-    text-shadow: 0px -1px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: none;
 }
 
 input[type=submit].button-blue,
@@ -146,8 +146,8 @@ a:visited:active.button-blue {
 
 .button-grey {
     background-color: #a9a9a9;
-    background-image: -webkit-linear-gradient(-90deg,#c9c9c9 0%, #a9a9a9 98%);
-    color: white;
+    background-image: none;
+    color: #111;
 }
 
 .button-grey-plain {
@@ -157,14 +157,14 @@ a:visited:active.button-blue {
 
 input[type=submit].button-blue,
 .button-blue {
-    background-color: #315db7;
-    background-image: -webkit-linear-gradient(90deg, #315db7, #416CC7);
+    background-color: #0070BC;
+    background-image: none; /* needs none to override ratchet.css */
     color: white;
 }
 
 .bar-title {
-    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
-    background-color: #315db7;
+    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
+    background-color: #0070BC;
 }
 
 .bar-tab {
@@ -208,16 +208,60 @@ input[type=submit].button-blue,
     color: white;
     text-align: center;
     font-size: 18px;
-    margin: auto;
-    width: 80%;
+    margin: 0.5em auto 0;
 }
 
+#welcome_wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 40px;
+    z-index: 3000;
+}
+
+#welcome_wrapper #welcome {
+    background-color: rgba(0, 105, 175, 0.95);
+    border-radius: 16px;
+    color: white;
+    position: absolute;
+    top: 0.3em;
+    left: 0.3em;
+    right: 0.3em;
+    bottom: 0.6em;
+    text-align: center;
+    padding: 1em;
+}
+
+#welcome_wrapper #welcome ol {
+    margin-bottom: 0;
+}
+
+#welcome_wrapper #welcome p.actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2em;
+}
+
+#welcome_target {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: #0070BC;
+    border: 1px solid rgba(0, 0, 0, .3);
+}
+
+
+
 #home-header{
-    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
+    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
     background-image: url(../img/stadt_zurich-logo.png);
     background-repeat: no-repeat;
     background-size: auto 70%;
-    background-color: #315db7;
+    background-color: #0070BC;
     background-position: 1em 0.5em;
 }
 
@@ -227,7 +271,7 @@ input[type=submit].button-blue,
     top: 330px;
 }
 
-#mark-here, #use-location {
+#mark-here, #use-location, #tap-the-map {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -236,41 +280,60 @@ input[type=submit].button-blue,
     z-index: 2000;
 }
 
+#mark-here a {
+    display: block;
+    margin: 0 7px;
+    width: auto;
+}
+
+#tap-the-map p {
+    background-color: rgba(0, 105, 175, 0.781);
+    border-radius: 6px;
+    color: white;
+    margin: 0 7px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5)
+}
+
 #relocate {
     position: absolute;
-    left: 4%;
-    bottom: 75px;
+    left: 7px;
+    bottom: 100px;
     height: 32px;
     width: 32px;
-    padding: 4px 5px 5px 3px;
+    padding: 5px;
     margin: 0px;
-    border-radius: 2px;
-    background-color: rgb(248,248,248);
+    border-radius: 6px;
+    background-color: #0070BC;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 #search {
     text-align: center;
-    width: 95%;
     position: absolute;
     left: 0px;
+    right: 0px;
     top: 45px;
     z-index: 2000;
     background-color: rgb(201,201,201);
     padding: 0.2em;
-    margin: 0.4em;
+    margin: 0 7px;
     border-radius: 6px;
     border-color: rgb(201,201,201);
     line-height: 1.4;
     font-size: 16px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    height: 26px;
 }
 #search #pc {
-    width: 80%;
     outline: 0 !important;
     border-color: rgb(201,201,201);
     padding: 0.4em;
     border: none;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    right: 37px;
+    bottom: 3px;
 }
 #search #btn-search {
     background-repeat: no-repeat;
@@ -279,17 +342,22 @@ input[type=submit].button-blue,
     background-color: rgb(201,201,201);
     border-color: rgb(201,201,201);
     border: none;
-    width: 36px;
+    width: 32px;
+    position: absolute;
+    right: 5px;
+    top: 6px;
 }
 
 #swap-map {
     position: absolute;
     z-index: 2000;
-    bottom: 80px;
+    bottom: 100px;
     right: 0px;
-    background: #a9a9a9;
-    background-color: #a9a9a9;
-    border-color: #a9a9a9;
+    background: #0070BC;
+    background-color: #0070BC;
+    border-color: rgba(0, 0, 0, .3);
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
     border-radius: 6px 0px 0px 6px;
     color: white;
     line-height: 1.8em;
@@ -440,9 +508,9 @@ input[type=submit].button-blue,
 }
 
 .ext-progress .step.step-current {
-    background-color: #315db7;
+    background-color: #0070BC;
     color: white;
-    border-color: #315db7;
+    border-color: #0070BC;
 }
 
 .ext-progress .step.step-complete {
@@ -473,7 +541,7 @@ input[type=submit].button-blue,
 
 .ext-form-content h2, .ext-form-content h3 {
     padding: 0 0.25em;
-    color: #315db7;
+    color: #0070BC;
     text-shadow: none;
     font-weight: normal;
     font-size: 1.5em;
@@ -579,6 +647,37 @@ input[type=submit].button-blue,
     height: 105px;
 }
 
+.photo-guidance {
+    background-color: rgba(0, 105, 175, 0.781);
+    border-radius: 16px;
+    color: white;
+    padding: 1em 1em 1em 0.5em;
+    margin: 0.3em;
+}
+
+.photo-guidance ul {
+    margin: 0;
+}
+
+.photo-guidance li.do, .photo-guidance li.dont {
+    list-style: none;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 1.5em;
+    margin-left: 0.5em;
+    font-size: 0.75em;
+}
+
+.photo-guidance li.do {
+    background-image: url(../img/tick-10px-8px.png);
+    background-size: 10px 8px;
+}
+
+.photo-guidance li.dont {
+    background-image: url(../img/cross-7px-7px.png);
+    background-size: 7px 7px;
+}
+
 #ajaxOverlay, #errorOverlay {
     position: absolute;
     top: 0;
@@ -618,7 +717,7 @@ ul.list  {
 .bar-title [class*=button],
 .bar-title .button-next:after,
 .bar-title .button-prev:before {
-    background: -webkit-linear-gradient(-90deg,rgb(65,108,199) 0%,rgb(32,77,165) 99%);
+    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
 }
 
 .button-gradient:after,
@@ -636,7 +735,7 @@ ul.list  {
 .button-no-gradient:after,
 .button-no-gradient:before {
     background-image: none !important;
-    background-color: #315db7;
+    background-color: #0070BC;
     box-shadow: none !important;
     z-index: -1;
 }
@@ -655,12 +754,7 @@ ul.list  {
 .bar-title .button-next:active:after,
 .bar-title .button-prev:active:before {
     background-image: none !important;
-    background-color: #315db7;
-}
-
-/*.bar-title .button-prev:active:before,*/
-.bar-title .button-prev:before {
-    background-image: -webkit-gradient(linear, left bottom, right top, from(#204DA5), to(#416CC7));
+    background-color: #0070BC;
 }
 
 /* iPhone X things */
