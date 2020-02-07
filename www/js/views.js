@@ -234,6 +234,8 @@
                     this.showMap( { coordinates: { latitude: FMS.currentLocation.lat, longitude: FMS.currentLocation.lon }, set_marker_position: true } );
                 } else if ( this.model.get('lat') && this.model.get('lon') ) {
                     this.showMap( { coordinates: { latitude: this.model.get('lat'), longitude: this.model.get('lon') }, set_marker_position: true } );
+                } else if ( FMS.currentMapCentre ) {
+                    this.showMap( { coordinates: { latitude: FMS.currentMapCentre.lat, longitude: FMS.currentMapCentre.lon }, set_marker_position: false } );
                 } else {
                     // this is because on android the timing is such that the ajaxStop event
                     // on the call to get the template can fire after locate is called and so
@@ -286,7 +288,15 @@
                     this.setReportPosition(centre);
                 }
                 if ( !fixmystreet.map ) {
-                    show_map(centre);
+                    // We might be showing the map as a result of a geocoder
+                    // lookup (or GPS position) or coming back to the map from
+                    // a report detail. In the latter case we should re-centre the
+                    // map on the same place it was when the user went to the
+                    // report detail view, as they may have panned around a fair
+                    // way from their actual location.
+                    var map_centre = FMS.currentMapCentre || centre;
+                    FMS.currentMapCentre = null;
+                    show_map(map_centre);
                 } else {
                     centre.transform(
                         new OpenLayers.Projection("EPSG:4326"),
@@ -394,6 +404,16 @@
                 e.preventDefault();
                 var report_id = e.currentTarget.id;
                 report_id = report_id.replace('report_', '');
+
+                if (fixmystreet.map && fixmystreet.map.getCenter()) {
+                    // Store the current centre of the map so we can restore it
+                    // when the user returns from the report detail view.
+                    FMS.currentMapCentre = fixmystreet.map.getCenter().clone();
+                    FMS.currentMapCentre.transform(
+                        fixmystreet.map.getProjectionObject(),
+                        new OpenLayers.Projection("EPSG:4326")
+                        );
+                }
 
                 var r = new FMS.Report( { id: report_id } );
                 r.on('change', this.showReport, this);

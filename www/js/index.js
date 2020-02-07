@@ -180,6 +180,7 @@ var tpl = {
         currentReport: new FMS.Report(),
         currentUser: null,
         currentLocation: null,
+        currentMapCentre: null,
 
         seen_welcome: false,
 
