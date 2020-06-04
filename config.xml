@@ -105,6 +105,4 @@
             <string>de</string>
         </array>
     </edit-config>
-    <engine name="ios" spec="^5.0.1" />
-    <engine name="android" spec="^7.1.4" />
 </widget>
