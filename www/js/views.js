@@ -525,13 +525,47 @@
 
             takePhoto: function() {
                 var that = this;
-                navigator.camera.getPicture( function(imgURI) { that.addPhotoSuccess(imgURI); }, function(error) { that.addPhotoFail(error); }, { saveToPhotoAlbum: true, quality: 49, targetHeight: 768, targetWidth: 1024, destinationType: Camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.CAMERA, correctOrientation: true });
+                navigator.camera.getPicture(
+                    function(imgURI) {
+                        that.fixiOSStatusBar();
+                        that.addPhotoSuccess(imgURI);
+                    },
+                    function(error) {
+                        that.fixiOSStatusBar();
+                        that.addPhotoFail(error);
+                    },
+                    {
+                        saveToPhotoAlbum: true,
+                        quality: 49,
+                        targetHeight: 768,
+                        targetWidth: 1024,
+                        destinationType: Camera.DestinationType.FILE_URI,
+                        sourceType: navigator.camera.PictureSourceType.CAMERA,
+                        correctOrientation: true
+                    }
+                );
+            },
+
+            fixiOSStatusBar: function() {
+                // iOS 13 suffers a bug where the status bar height isn't correctly
+                // set after a full-screen overlay (e.g. the photo picker or camera)
+                // is presented. This results in the containing webview being scrolled
+                // up slightly, chopping off the top of the app UI and preventing
+                // the user from proceeding past the photo screen.
+                // This bug should be fixed in either cordova-plugin-camera or
+                // cordova-plugin-statusbar, but until then this workaround
+                // of hiding and showing the status bar fixes the problem.
+                if (device && device.platform === 'iOS' && parseInt(device.version) >= 13) {
+                    StatusBar.hide();
+                    StatusBar.show();
+                }
             },
 
             addPhoto: function() {
                 var that = this;
                 navigator.camera.getPicture(
                     function(imgURI) {
+                        that.fixiOSStatusBar();
                         // Because we've asked for a resized version of the
                         // image, Android will create a temporary file for us.
                         // Unfortunately, it'll use the same filename for any
@@ -548,6 +582,7 @@
                         }
                     },
                     function(error) {
+                        that.fixiOSStatusBar();
                         that.addPhotoFail(error);
                     },
                     {
