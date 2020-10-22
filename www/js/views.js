@@ -384,7 +384,8 @@
             goPhoto: function(info) {
                 this.model.set('lat', info.coordinates.latitude );
                 this.model.set('lon', info.coordinates.longitude );
-                this.model.set('categories', info.details.category );
+                this.model.set('categories_html', info.details.category );
+                this.model.set('categories', info.details.by_category );
 
                 this.navigate( 'photo', 'left' );
             },
@@ -709,35 +710,15 @@
                     navigator.connection.type !== Connection.UKNOWN &&
                     navigator.connection.type !== Connection.NONE ) {
                     if ( !error ) {
-                        // Check if the selected category requires
-                        // extra data from the user before submitting.
-                        var that = this;
-                        $.ajax( {
-                            url: CONFIG.FMS_URL + 'report/new/category_extras',
-                            type: 'POST',
-                            data: {
-                                category: this.model.get('category'),
-                                latitude: this.model.get('lat'),
-                                longitude: this.model.get('lon')
-                            },
-                            dataType: 'json',
-                            timeout: 30000,
-                            success: function( data, status ) {
-                                if ( data && data.category_extra && data.category_extra.length > 0 ) {
-                                    that.model.set('category_extras', data.category_extra);
-                                    that.navigate('details_extra', 'left');
-                                } else {
-                                    that.model.on('sync', that.onReportSync, that );
-                                    that.model.on('error', that.onReportError, that );
-                                    that.model.save();
-                                }
-                            },
-                            error: function() {
-                                that._enableUI();
-                                that.enableScrolling();
-                                that.displayError(STRINGS.category_extra_check_error);
-                            }
-                        } );
+                        var category = this.model.get('categories')[this.model.get('category')];
+                        if ( category && category.category_extra && category.category_extra.length > 0 ) {
+                            this.model.set('category_extras_html', category.category_extra);
+                            this.navigate('details_extra', 'left');
+                        } else {
+                            this.model.on('sync', that.onReportSync, that );
+                            this.model.on('error', that.onReportError, that );
+                            this.model.save();
+                        }
                     } else {
                         this._enableUI();
                         this.enableScrolling();
