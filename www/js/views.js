@@ -715,8 +715,8 @@
                             this.model.set('category_extras_html', category.category_extra);
                             this.navigate('details_extra', 'left');
                         } else {
-                            this.model.on('sync', that.onReportSync, that );
-                            this.model.on('error', that.onReportError, that );
+                            this.model.on('sync', this.onReportSync, this );
+                            this.model.on('error', this.onReportError, this );
                             this.model.save();
                         }
                     } else {
