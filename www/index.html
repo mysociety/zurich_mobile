@@ -80,18 +80,18 @@
                     'map_projection': 'EPSG:2056',
                     'tile_dpi': 96,
                     'tile_urls': ["https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/", "https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/"],
-                    'tile_suffix': 'jpeg',
+                    'tile_suffix': 'png',
                     // Whichever layer appears first in this list will be the
                     // default used for the map.
                     // NB: If you change the default, you must update the contents
                     // of #swap-map in www/templates/around.html and
                     // HYBRID_LAYER_INDEX/STADTPLAN_LAYER_INDEX below to match.
-                    'layer_names': ["LuftbildHybrid", "Stadtplan3D"],
+                    'layer_names': ["basiskarte_zuerich_orthofoto", "basiskarte_zuerich_gebaeudeschraegansicht"],
                     'layer_style': 'default',
-                    'matrix_set': 'stzh',
+                    'matrix_set': 'ktzh',
                     'scales': ["64000", "32000", "16000", "8000", "4000", "2000", "1000", "500", "250"],
-                    'origin_x': 2672499.0,
-                    'origin_y': 1256999.0
+                    'origin_x': 2480237.0,
+                    'origin_y': 1315832.0
                 };
                 fixmystreet.HYBRID_LAYER_INDEX = 0;
                 fixmystreet.STADTPLAN_LAYER_INDEX = 1;
