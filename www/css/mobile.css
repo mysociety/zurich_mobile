@@ -157,14 +157,16 @@ a:visited:active.button-blue {
 
 input[type=submit].button-blue,
 .button-blue {
-    background-color: #0070BC;
+    background-color: #0f05a0;
     background-image: none; /* needs none to override ratchet.css */
     color: white;
 }
 
 .bar-title {
-    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
-    background-color: #0070BC;
+    background: #0f05a0;
+    background-color: #0f05a0;
+    border-bottom: none;
+    box-shadow: none;
 }
 
 .bar-tab {
@@ -221,7 +223,7 @@ input[type=submit].button-blue,
 }
 
 #welcome_wrapper #welcome {
-    background-color: rgba(0, 105, 175, 0.95);
+    background-color: rgba(128, 128, 128, 0.95);
     border-radius: 16px;
     color: white;
     position: absolute;
@@ -250,18 +252,18 @@ input[type=submit].button-blue,
     padding: 6px;
     border-radius: 6px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    background-color: #0070BC;
+    background-color: #0f05a0;
     border: 1px solid rgba(0, 0, 0, .3);
 }
 
 
 
 #home-header{
-    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
+    background: #0f05a0;
     background-image: url(../img/stadt_zurich-logo.png);
     background-repeat: no-repeat;
     background-size: auto 70%;
-    background-color: #0070BC;
+    background-color: #0f05a0;
     background-position: 1em 0.5em;
 }
 
@@ -287,7 +289,7 @@ input[type=submit].button-blue,
 }
 
 #tap-the-map p {
-    background-color: rgba(0, 105, 175, 0.781);
+    background-color: rgba(15, 5, 160, 0.949);
     border-radius: 6px;
     color: white;
     margin: 0 7px;
@@ -303,7 +305,7 @@ input[type=submit].button-blue,
     padding: 5px;
     margin: 0px;
     border-radius: 6px;
-    background-color: #0070BC;
+    background-color: #0f05a0;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -353,8 +355,8 @@ input[type=submit].button-blue,
     z-index: 2000;
     bottom: 100px;
     right: 0px;
-    background: #0070BC;
-    background-color: #0070BC;
+    background: #0f05a0;
+    background-color: #0f05a0;
     border-color: rgba(0, 0, 0, .3);
     border-width: 1px 0 1px 1px;
     border-style: solid;
@@ -508,9 +510,9 @@ input[type=submit].button-blue,
 }
 
 .ext-progress .step.step-current {
-    background-color: #0070BC;
+    background-color: #0f05a0;
     color: white;
-    border-color: #0070BC;
+    border-color: #0f05a0;
 }
 
 .ext-progress .step.step-complete {
@@ -541,7 +543,7 @@ input[type=submit].button-blue,
 
 .ext-form-content h2, .ext-form-content h3 {
     padding: 0 0.25em;
-    color: #0070BC;
+    color: #0f05a0;
     text-shadow: none;
     font-weight: normal;
     font-size: 1.5em;
@@ -648,7 +650,7 @@ input[type=submit].button-blue,
 }
 
 .photo-guidance {
-    background-color: rgba(0, 105, 175, 0.781);
+    background-color: #0f05a0;
     border-radius: 16px;
     color: white;
     padding: 1em 1em 1em 0.5em;
@@ -717,8 +719,19 @@ ul.list  {
 .bar-title [class*=button],
 .bar-title .button-next:after,
 .bar-title .button-prev:before {
-    background: -webkit-linear-gradient(-90deg,rgb(0, 118, 197) 0%,rgb(0, 101, 168) 99%);
+    background: #0f05a0;
 }
+
+.bar-title .button-next:after,
+.bar-title .button-prev:before {
+    box-shadow: inset 1px 0 white, inset 0 1px white;
+}
+
+.bar-title [class*=button] {
+    box-shadow: none;
+    border-color: white;
+}
+
 
 .button-gradient:after,
 .button-gradient:before {
@@ -735,7 +748,7 @@ ul.list  {
 .button-no-gradient:after,
 .button-no-gradient:before {
     background-image: none !important;
-    background-color: #0070BC;
+    background-color: #0f05a0;
     box-shadow: none !important;
     z-index: -1;
 }
@@ -745,7 +758,7 @@ ul.list  {
     padding-top: 5px;
     padding-bottom: 3px;
 }
-.bar-title .button-prev:active:before{
+.bar-title .button-prev:before{
     border-left: none !important;
 }
 
@@ -754,7 +767,13 @@ ul.list  {
 .bar-title .button-next:active:after,
 .bar-title .button-prev:active:before {
     background-image: none !important;
-    background-color: #0070BC;
+    background-color: #0f05a0;
+    border-color: #999999;
+}
+
+.bar-title .button-next:active:after,
+.bar-title .button-prev:active:before {
+    box-shadow: inset 1px 0 #999999, inset 0 1px #999999;
 }
 
 /* iPhone X things */
