@@ -15,3 +15,5 @@ beta/android/*.apk
 /node_modules
 /build.json
 .DS_Store
+.envrc
+Makefile
